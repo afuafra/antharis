@@ -13,7 +13,7 @@ class devicesitesController extends Controller
      */
     public function index()
     {
-        $devicesites=\App\Models\devicesites::paginate();
+        $devicesites=\App\Models\devicesites::orderBy("id","desc")->paginate();
         return view("devicesites.index")->with("devicesites",$devicesites);
     }
 
