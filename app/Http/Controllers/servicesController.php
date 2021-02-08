@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\CreateServiceRequest;
 use App\Models;
 use Illuminate\Http\Request;
 
 
-class servicesController extends Controller
+class ServicesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +16,7 @@ class servicesController extends Controller
      */
     public function index()
     {
+
         $services=\App\Models\services::paginate();
         return view("services.index")->with("services",$services);
     }
@@ -72,7 +74,8 @@ class servicesController extends Controller
      */
     public function edit($id)
     {
-        //
+//        $services=\App\Models\services::find($id);
+//        return view('services.index', compact('services'));
     }
 
     /**
@@ -84,7 +87,24 @@ class servicesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+//        return request()->all();
+
+
+        $res = \App\Models\services::find($id);
+
+//        $this->validate($request, [
+//            'orderNumber' => 'required',
+//            'serviceNumber' => 'required',
+//            'customerName' => 'required',
+//            'customerAddress' => 'required',
+//            'serviceStatus' => 'required'
+//        ]);
+
+        $input = $request->all();
+
+        $res->fill($input)->save();
+
+        return $res;
     }
 
     /**
