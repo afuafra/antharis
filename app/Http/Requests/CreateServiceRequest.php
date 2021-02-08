@@ -29,7 +29,6 @@ class CreateServiceRequest extends FormRequest
             'customerName' => 'required',
             'customerAddress' => 'required',
             'serviceStatus' => 'required'
-
         ];
     }
 }
