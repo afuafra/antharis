@@ -1,10 +1,21 @@
 <?php
 
+use App\Http\Controllers\FcabController;
+use App\Http\Controllers\FcabInterfaceController;
+use App\Http\Controllers\FcabSplitterController;
+use App\Http\Controllers\FcabSplitterInterfaceController;
+use App\Http\Controllers\OdfInterfaceController;
+use App\Http\Controllers\OdfRackController;
+use App\Http\Controllers\OltController;
+use App\Http\Controllers\OltInterfaceController;
+use App\Models\FidpsInterface;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\servicesController;
 use App\Http\Controllers\devicesitesController;
 use App\Http\Controllers\usersController;
-
+use App\Http\Controllers\ServiceRouteController;
+use App\Http\Controllers\FidpController;
+use App\Http\Controllers\FdpController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,5 +44,35 @@ Route::get('connectivity', [App\Http\Controllers\pageController::class,'connecti
 Route::resource("users",usersController::class);
 Route::get("users_delete/{id}",[App\Http\Controllers\usersController::class,'destroy'])-> name('users_delete/{id}');;
 
-Route::resource('services', servicesController::class);
+Route::resource('services', ServicesController::class);
 Route::resource('devicesites', devicesitesController::class);
+
+Route::resource('serviceRoute', ServiceRouteController::class);
+
+Route::resource('fidp', FidpController::class);
+
+Route::resource('fdp', FdpController::class);
+
+
+//Route::get('fidps_interface', [App\Http\Controllers\FidpsInterfaceController::class,'index'])-> name('fidps_interface');
+
+Route::resource('fidps_interface', \App\Http\Controllers\FidpsInterfaceController::class);
+
+Route::resource('fdps_interface', \App\Http\Controllers\FdpsInterfaceController::class);
+
+Route::resource('fcab', FcabController::class);
+
+Route::resource('fcabs_interface', FcabInterfaceController::class);
+
+Route::resource('fcabs_splitter', FcabSplitterController::class);
+
+Route::resource('fcab_splitter_interface', FcabSplitterInterfaceController::class);
+
+Route::resource('odf_racks', OdfRackController::class);
+
+Route::resource('odf_interfaces', OdfInterfaceController::class);
+
+Route::resource('olts', oltController::class);
+
+Route::resource('olt_interfaces', OltInterfaceController::class);
+

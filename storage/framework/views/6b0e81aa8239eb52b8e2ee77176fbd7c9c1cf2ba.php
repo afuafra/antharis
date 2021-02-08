@@ -83,7 +83,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div><?php echo e($user->name); ?></a>
+                                                <?php echo e($user->name); ?>
+
                                         </td>
                                         <td>
                                             <?php echo e($user->email); ?>
