@@ -2,88 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e6565b1-bd15-4289-a16d-2e401f5349dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FcabController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FcabInterfaceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FcabSplitterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FcabSplitterInterfaceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FdpController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FdpsInterfaceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FidpController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FidpsInterfaceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OdfInterfaceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OdfRackController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OltController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OltInterfaceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceRouteController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/CreateFidpsRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Fcab.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/FcabInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/FcabSplitter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/FcabSplitterInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Fdps.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/FdpsInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Fidps.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/FidpsInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/odfInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/odfRack.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/olt.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/oltInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_172243_create_fidps_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_29_212431_create_fdps_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_30_185239_create_fidps_interfaces_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_02_082602_create_fdps_interfaces_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_02_120305_create_fcabs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_02_121809_create_fcab_interfaces_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_02_135918_create_fcab_splitters_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_02_140742_create_fcab_splitter_interfaces_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_08_152533_create_odf_racks_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_08_152738_create_odf_interfaces_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_08_152945_create_olts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_08_153105_create_olt_interfaces_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/jquery-editable-select.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fcab/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fcabs_interface/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fcabs_splitter/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fdp/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fdps_interface/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fidp/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fidp/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fidp/update.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fidps_interface/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/odf_interfaces/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/odf_racks/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/olt_interfaces/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/olts/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/serviceRoute/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/services/service_item.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/services/update.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/devicesitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/devicesitesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/servicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServicesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CreateServiceRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CreateServiceRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/devicesites.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/devicesites.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/devicesites/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/devicesites/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/devicesites/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/devicesites/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FcabController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FcabController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FcabInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FcabInterfaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FdpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FdpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FdpsInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FdpsInterfaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FidpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FidpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OdfInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OdfInterfaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OdfRackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OdfRackController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OltInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OltInterfaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CreateFidpsRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CreateFidpsRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Fcab.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fcab.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/FcabInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FcabInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/FcabSplitter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FcabSplitter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Fdps.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fdps.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/FdpsInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FdpsInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Fidps.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fidps.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/odfInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/odfInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/odfRack.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/odfRack.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/olt.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/olt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/oltInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/oltInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_172243_create_fidps_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_172243_create_fidps_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_29_212431_create_fdps_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_29_212431_create_fdps_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_02_082602_create_fdps_interfaces_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_02_082602_create_fdps_interfaces_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_02_120305_create_fcabs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_02_120305_create_fcabs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_02_121809_create_fcab_interfaces_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_02_121809_create_fcab_interfaces_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_08_152533_create_odf_racks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_08_152533_create_odf_racks_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_08_152738_create_odf_interfaces_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_08_152738_create_odf_interfaces_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_08_153105_create_olt_interfaces_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_08_153105_create_olt_interfaces_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fcab/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fcab/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fcabs_interface/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fcabs_interface/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fdp/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fdp/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fidp/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fidp/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/services/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/services/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/tnPqLL2qqvcxWzXUTWzNXRpqu0drGVTt3MmwTacz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/odf_interfaces/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/odf_interfaces/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/odf_racks/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/odf_racks/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/olt_interfaces/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/olt_interfaces/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/6b0e81aa8239eb52b8e2ee77176fbd7c9c1cf2ba.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/6b0e81aa8239eb52b8e2ee77176fbd7c9c1cf2ba.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/7b13a598796fa49dde5eec3c1d3e3c79b82fe84f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/7b13a598796fa49dde5eec3c1d3e3c79b82fe84f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/9ea26a0db0970592c1ea85bda7d4231e6ac3abb4.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/9ea26a0db0970592c1ea85bda7d4231e6ac3abb4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/a8931c975f2ebf4566a97c80781d8897a1a83b83.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/a8931c975f2ebf4566a97c80781d8897a1a83b83.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/d868bb122cd1ff4a9b57377a0bd0fa038fa95ca7.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/d868bb122cd1ff4a9b57377a0bd0fa038fa95ca7.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/f295c4d6c28522e570d3ebf7af307913bed57b94.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/f295c4d6c28522e570d3ebf7af307913bed57b94.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +70,13 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/afuafra/antharis" />
+      </set>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -238,17 +204,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/olts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\antharis\resources\views\odf_interfaces" />
       <recent name="C:\xampp\htdocs\antharis\resources\views\olts" />
       <recent name="C:\xampp\htdocs\antharis\resources\views\olt_interfaces" />
       <recent name="C:\xampp\htdocs\antharis\resources\views\odf_racks" />
-      <recent name="C:\xampp\htdocs\antharis\resources\views\odf_interfaces" />
       <recent name="C:\xampp\htdocs\antharis\resources\views\fcabs_splitter" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -274,7 +240,9 @@
       <workItem from="1611520833115" duration="28298000" />
       <workItem from="1611595531395" duration="77127000" />
       <workItem from="1611797845106" duration="14644000" />
-      <workItem from="1611856576287" duration="136491000" />
+      <workItem from="1611856576287" duration="158335000" />
+      <workItem from="1612965630431" duration="5304000" />
+      <workItem from="1612973767587" duration="19732000" />
     </task>
     <servers />
   </component>
