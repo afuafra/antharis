@@ -17,11 +17,13 @@ class CreateFcabInterfacesTable extends Migration
             $table->id();
             $table->string('terminal_side');
             $table->string('port');
+            $table->unsignedBigInteger('odf_interfaces_id')->nullable();
+            $table->foreign('odf_interfaces_id')->references('id')->on('odf_interfaces');
             $table->unsignedBigInteger('fcab_id');
             $table->foreign('fcab_id')->references('id')->on('fcabs');
-            $table->unsignedBigInteger('fcab_splitter_interfaces_id');
+            $table->unsignedBigInteger('fcab_splitter_interfaces_id')->nullable();
             $table->foreign('fcab_splitter_interfaces_id')->references('id')->on('fcab_splitter_interfaces');
-            $table->unsignedBigInteger('fcab_splitter_device_id');
+            $table->unsignedBigInteger('fcab_splitter_device_id')->nullable();
             $table->foreign('fcab_splitter_device_id')->references('id')->on('fcab_splitters');
             $table->timestamps();
         });

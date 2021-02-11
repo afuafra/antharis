@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\odfInterface;
+use App\Models\odfRack;
+use App\Models\olt;
 use Illuminate\Http\Request;
 
 class OdfInterfaceController extends Controller
@@ -13,7 +16,16 @@ class OdfInterfaceController extends Controller
      */
     public function index()
     {
-        //
+        $odfinterface=odfInterface::orderBy("id","desc")->with(['odfRack'])->paginate();
+
+
+        $olt = olt::all();
+//        $odfInterface = odfInterface::all();
+        $odfrack = odfRack::all();
+
+//return $odfinterface;
+
+        return view("odf_interfaces.index")->with("odfInterface_list",$odfinterface)->with ("olt",$olt) ;
     }
 
     /**

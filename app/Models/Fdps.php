@@ -12,7 +12,7 @@ class Fdps extends Model
         'fdp_device_id',
         'device_address',
         'device_status',
-        'atollislandsite'
+        'devicesites_id'
     ];
 
 
@@ -21,5 +21,8 @@ class Fdps extends Model
 
         return $this->belongsTo('App\Models\Fdps','fdp_id','id');
     }
+    public function devicesites(){
 
+        return $this->belongsTo(\App\Models\devicesites::class);
+    }
 }

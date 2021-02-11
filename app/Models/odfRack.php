@@ -10,11 +10,11 @@ class odfRack extends Model
     use HasFactory;
 
 
-    public function Interfaces()
-    {
 
-        return $this->belongsTo(odfInterface::class);
+    public function devicesites(){
+        return $this->belongsTo(\App\Models\devicesites::class);
     }
+
 
 
 }

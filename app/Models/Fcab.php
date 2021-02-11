@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fcab extends Model
 {
-    public function Interfaces()
+    public function FcabSplitter()
     {
 
         return $this->belongsTo(FcabSplitter::class);
@@ -18,6 +18,7 @@ class Fcab extends Model
 
         return $this->belongsTo(FdpsInterface::class);
     }
-
-
+    public function devicesites(){
+        return $this->belongsTo(\App\Models\devicesites::class);
+    }
 }

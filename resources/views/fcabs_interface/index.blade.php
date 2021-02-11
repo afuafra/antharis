@@ -42,72 +42,74 @@
                     </button>
 
                     <!-- Modal -->
-{{--                    <div class="container-fluid">--}}
-{{--                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"--}}
-{{--                             aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
-{{--                            <div class="modal-dialog" role="document">--}}
-{{--                                <div class="modal-content">--}}
-{{--                                    <div class="modal-header">--}}
-{{--                                        <h5 class="modal-title" id="exampleModalLabel">Add FIDP Interface</h5>--}}
-{{--                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                                            <span aria-hidden="true">&times;</span>--}}
-{{--                                        </button>--}}
-{{--                                    </div>--}}
-{{--                                    <form class="container-fluid" id="fidpsCreate" method="POST"--}}
-{{--                                          action="{{route("fidp.store")}}" oninput="fidp_device_id.value = 'FIDP' +'|'+ fidp_no.value +'|'+ atollislandsite.value">--}}
+                    <div class="container-fluid">
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Add FIDP Interface</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form class="container-fluid" id="fidpsCreate" method="POST"
+                                          action="{{route("fcabs_interface.store")}}" oninput="fidp_device_id.value = 'FIDP' +'|'+ fidp_no.value +'|'+ atollislandsite.value">
 
 
-{{--                                        <div class="modal-body">--}}
+                                        <div class="modal-body">
 
 
-{{--                                            <div id="success"></div>--}}
+                                            <div id="success"></div>
 
 
-{{--                                            <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">--}}
+                                            <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">FIDP NO</label>--}}
-{{--                                                <input type="text" class="form-control" name="fidp_no"--}}
-{{--                                                       id="fidp_no">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">Device Address</label>--}}
-{{--                                                <input type="text" class="form-control" name="device_address"--}}
-{{--                                                       id="device_address">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">Device Status</label>--}}
-{{--                                                <input type="text" class="form-control" name="device_status"--}}
-{{--                                                       id="device_status">--}}
-{{--                                            </div>--}}
+                                            <div class="mb-3">
+                                                <label class="form-label">terminal_side</label>
+                                                <input type="text" class="form-control" name="fidp_no"
+                                                       id="fidp_no">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">port</label>
+                                                <input type="text" class="form-control" name="device_address"
+                                                       id="device_address">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">odf_interfaces_id</label>
+                                                <input type="text" class="form-control" name="device_status"
+                                                       id="device_status">
+                                            </div>
 
 
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">Device Site </label>--}}
-{{--                                                <input  class="form-control" name="atollislandsite" list="list" id="atollislandsite">--}}
-{{--                                                <datalist id="list">--}}
-{{--                                                    @foreach($devicesites_list as $devicesite)--}}
-{{--                                                    <option value="{{ $devicesite }}">{{ $devicesite }}</option>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </datalist>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">FIDP Device ID</label>--}}
-{{--                                                <input type="text" class="form-control" name="fidp_device_id"--}}
-{{--                                                       id="fidp_device_id" readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="modal-footer">--}}
-{{--                                            <a href="{{route("fidp.index")}}" class="btn btn-secondary"--}}
-{{--                                               data-bs-dismiss="modal">back</a>--}}
-{{--                                            <input name="submit" type="submit" class="btn btn-primary"></input>--}}
-{{--                                        </div>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                                            <div class="mb-3">
+                                                <label class="form-label">fcab_id </label>
+                                                <input  class="form-control" name="atollislandsite" list="list" id="atollislandsite">
+                                                <datalist id="list">
+                                                </datalist>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">fcab_splitter_interfaces_id</label>
+                                                <input type="text" class="form-control" name="fidp_device_id"
+                                                       id="fidp_device_id" readonly>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">fcab_splitter_device_id</label>
+                                                <input type="text" class="form-control" name="fidp_device_id"
+                                                       id="fidp_device_id" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{{route("fcabs_interface.index")}}" class="btn btn-secondary"
+                                               data-bs-dismiss="modal">back</a>
+                                            <input name="submit" type="submit" class="btn btn-primary"></input>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
                 <div class="card-body">
@@ -125,6 +127,10 @@
                                     <strong>FCAB Port</strong>
                                 </th>
                                 <th>
+                                    <strong>odf_interfaces_id</strong>
+                                </th>
+
+                                <th>
                                     <strong>Splitter Port</strong>
                                 </th>
                                 <th>
@@ -135,13 +141,11 @@
 
                             <tbody>
                             @foreach ($fcabs as $fcab)
-                                {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
 
                                     <td>
                                         <a href="" class="text-primary" data-bs-toggle="modal"
                                            data-bs-target="#routeView">
-
                                         {{$fcab->fcabs->fcab_device_id}}
                                     </td>
                                     <td>
@@ -149,13 +153,20 @@
                                     </td>
                                     <td>
                                         {{$fcab->port}}
+                                    </td>
+                                    <td>
+                                        @if(isset($fcab->SplitterInterface->port))
+                                            {{$fcab->SplitterInterface->port}}
+                                        @else
 
+                                        @endif
                                     </td>
                                     <td>
-                                        {{$fcab->SplitterInterface->port}}
-                                    </td>
-                                    <td>
-                                        {{$fcab->splitter->fcab_splitter_device_id}}
+                                        @if(isset($fcab->splitter->fcab_splitter_device_id))
+                                            {{$fcab->splitter->fcab_splitter_device_id}}
+                                        @else
+
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach()

@@ -85,8 +85,13 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                         </li>
 
                         <li >
-                            <a href="../examples/components/grid.html">
+                            <a href="{{route("odf_racks.index")}}">
                                 <span class="sidebar-mini-icon pl-5"><strong>ODF</strong></span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="{{route("odf_interfaces.index")}}">
+                                <span class="sidebar-mini-icon pl-5">ODF Interface</span>
                             </a>
                         </li>
                         <li >
@@ -260,7 +265,9 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
         @yield('fdpsInterface')
         @yield('fcab')
         @yield('olts')
-
+        @yield('odf')
+        @yield('olt_interface')
+        @yield('odf_interface')
     </div>
 
 

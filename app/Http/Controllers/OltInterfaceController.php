@@ -18,15 +18,13 @@ class OltInterfaceController extends Controller
     public function index()
     {
         $oltinterface=oltinterface::orderBy("id","desc")->with(['olt','odfinterface','odfinterface.odfRack'])->paginate();
-
-
         $olt = olt::all();
-        $odfInterface = odfInterface::all();
+        $odfinterface = odfinterface::with('odfRack')->get();
         $odfrack = odfRack::all();
 
-//return $oltinterface;
+//return $odfrack;
 
-        return view("olt_interfaces.index")->with("olt_list",$oltinterface)->with ("olt",$olt)->with ("odf_interface",$odfInterface) ;
+        return view("olt_interfaces.index")->with("olt_interface",$oltinterface)->with ("olt_list",$olt)->with ("odf_interface",$odfinterface) ;
     }
 
     /**
@@ -47,7 +45,16 @@ class OltInterfaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $res=new \App\Models\oltInterface();
+        $res->olt_frame=$request->input("olt_frame");
+        $res->olt_card=$request->input("olt_card");
+        $res->olt_port=$request->input("olt_port");
+        $res->odf_interfaces_id=$request->input("odf_interfaces_id");
+        $res->olts_id=$request->input("olts_id");
+        $res->save();
+
+        $request->session()->flash("msg","New Service Added");
+        return redirect("olt_interfaces");
     }
 
     /**

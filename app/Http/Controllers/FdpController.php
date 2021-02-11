@@ -15,8 +15,8 @@ class FdpController extends Controller
      */
     public function index()
     {
-        $fdps=Fdps::orderBy("id","desc")->paginate();
-        $devicesites = devicesites::pluck('atollislandsite')->all();
+        $fdps=Fdps::orderBy("id","desc")->with('devicesites')->paginate();
+        $devicesites = devicesites::all();
 
 //        return $devicesites;
 
@@ -46,7 +46,7 @@ class FdpController extends Controller
         $res->fdp_device_id=$request->input("fdp_device_id");
         $res->device_address=$request->input("device_address");
         $res->device_status=$request->input("device_status");
-        $res->atollislandsite=$request->input("atollislandsite");
+        $res->devicesites_id=$request->input("devicesites_id");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");

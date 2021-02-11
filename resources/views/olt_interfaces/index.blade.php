@@ -1,5 +1,5 @@
 @extends("layout")
-@section("fcab")
+@section("olt_interface")
 
     <div class="panel-header panel-header-sm">
     </div>
@@ -37,78 +37,73 @@
 
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add FCAB
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addOltInterface">
+                        +Add OLT Interface
                     </button>
 
-{{--                    <!-- Modal -->--}}
-{{--                    <div class="container-fluid">--}}
-{{--                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"--}}
-{{--                             aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
-{{--                            <div class="modal-dialog" role="document">--}}
-{{--                                <div class="modal-content">--}}
-{{--                                    <div class="modal-header">--}}
-{{--                                        <h5 class="modal-title" id="exampleModalLabel">Add fcab</h5>--}}
-{{--                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                                            <span aria-hidden="true">&times;</span>--}}
-{{--                                        </button>--}}
-{{--                                    </div>--}}
-{{--                                    <form class="container-fluid" id="fcabsCreate" method="POST"--}}
-{{--                                          action="{{route("olt_interfaces.store")}}" oninput="fcab_device_id.value = 'FCAB' +'|'+ fcab_no.value +'|'+ atollislandsite.value">--}}
+                    <!-- Modal -->
+                    <div class="container-fluid">
+                        <div class="modal fade" id="addOltInterface" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Add fcab</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form class="container-fluid" id="oltInterfaceCreate" method="POST"
+                                          action="{{route("olt_interfaces.store")}}" oninput="odf_interfaces_id.value = 'FCAB' +'|'+ olt_frame.value +'|'+ atollislandsite.value">
 
 
-{{--                                        <div class="modal-body">--}}
-
-
-{{--                                            <div id="success"></div>--}}
-
-
-{{--                                            <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">--}}
-
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">FCAB NO</label>--}}
-{{--                                                <input type="text" class="form-control" name="fcab_no"--}}
-{{--                                                       id="fcab_no">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">Device Address</label>--}}
-{{--                                                <input type="text" class="form-control" name="device_address"--}}
-{{--                                                       id="device_address">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">Device Status</label>--}}
-{{--                                                <input type="text" class="form-control" name="device_status"--}}
-{{--                                                       id="device_status">--}}
-{{--                                            </div>--}}
-
-
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">Device Site </label>--}}
-{{--                                                <input  class="form-control" name="atollislandsite" list="list" id="atollislandsite">--}}
-{{--                                                <datalist id="list">--}}
-{{--                                                    @foreach($devicesites_list as $devicesite)--}}
-{{--                                                    <option value="{{ $devicesite }}">{{ $devicesite }}</option>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </datalist>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">FCAB Device ID</label>--}}
-{{--                                                <input type="text" class="form-control" name="fcab_device_id"--}}
-{{--                                                       id="fcab_device_id" readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="modal-footer">--}}
-{{--                                            <a href="{{route("fcab.index")}}" class="btn btn-secondary"--}}
-{{--                                               data-bs-dismiss="modal">back</a>--}}
-{{--                                            <input name="submit" type="submit" class="btn btn-primary"></input>--}}
-{{--                                        </div>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
+                                        <div class="modal-body">
+                                            <div id="success"></div>
+                                            <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
+                                            <div class="mb-3">
+                                                <label class="form-label">olt_frame</label>
+                                                <input type="text" class="form-control" name="olt_frame"
+                                                       id="olt_frame">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">olt_card</label>
+                                                <input type="text" class="form-control" name="olt_card"
+                                                       id="olt_card">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">olt_port</label>
+                                                <input type="text" class="form-control" name="olt_port"
+                                                       id="olt_port">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">odf_interfaces_id</label>
+                                                    <select  class="form-control" name="odf_interfaces_id" list="list" id="odf_interfaces_id">
+                                                            <option> </option>
+                                                        @foreach($odf_interface as $Interface)
+                                                            <option value="{{$Interface->id}}">ODF {{$Interface->odf_no}}--> PORT {{$Interface->odf_port}} -->
+                                                                RACK {{$Interface}}</option>
+                                                        @endforeach
+                                                    </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">olts_id</label>
+                                                <select  class="form-control" name="olts_id" list="list" id="olts_id">
+                                                    @foreach($olt_list as $olt)
+                                                        <option value="{{$olt->id }}">{{ $olt->olt_device_id}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        <div class="modal-footer">
+                                            <a href="{{route("olt_interfaces.index")}}" class="btn btn-secondary"
+                                               data-bs-dismiss="modal">back</a>
+                                            <input name="submit" type="submit" class="btn btn-primary">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -119,22 +114,22 @@
                                     <strong>OLT Name</strong>
                                 </th>
                                 <th>
-                                    <strong>olt_frame</strong>
+                                    <strong>Frame</strong>
                                 </th>
                                 <th>
-                                    <strong>olt_card</strong>
+                                    <strong>Card</strong>
                                 </th>
                                 <th>
-                                    <strong>olt_port</strong>
+                                    <strong>Port</strong>
                                 </th>
                                 <th>
-                                    <strong>odf rack</strong>
+                                    <strong>ODF Rack</strong>
                                 </th>
                                 <th>
-                                    <strong>odf_number</strong>
+                                    <strong>ODF Number</strong>
                                 </th>
                                 <th>
-                                    <strong>odf_interfaces_port</strong>
+                                    <strong>ODF Port</strong>
                                 </th>
 
                                 <th>
@@ -144,11 +139,8 @@
                             </thead>
 
                             <tbody>
-                            @foreach ($olt_list as $interface)
-                                {{--                            @include('services.service_item',['service'=>$service])--}}
+                            @foreach ($olt_interface as $interface)
                                 <tr>
-
-
                                     <td>
                                         <a href="" class="text-primary" data-bs-toggle="modal"
                                            data-bs-target="#routeView">
@@ -165,13 +157,22 @@
                                         {{$interface->olt_port}}
                                     </td>
                                     <td>
-                                        {{$interface->odfinterface->odfrack->odf_device_id}}
+                                        @if(isset($interface->odfinterface->odfrack->odf_device_id))
+                                            {{$interface->odfinterface->odfrack->odf_device_id}}
+                                        @else
+                                        @endif
                                     </td>
                                     <td>
-                                        {{$interface->odfinterface->odf_no}}
+                                        @if(isset($interface->odfinterface->odf_no))
+                                            {{$interface->odfinterface->odf_no}}
+                                        @else
+                                        @endif
                                     </td>
                                     <td>
-                                        {{$interface->odfinterface->odf_port}}
+                                        @if(isset($interface->odfinterface->odf_port))
+                                            {{$interface->odfinterface->odf_port}}
+                                        @else
+                                        @endif
                                     </td>
 
                                     <td>
@@ -198,7 +199,7 @@
 
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                {!! $olt_list->links() !!}
+                                {!! $olt_interface->links() !!}
                             </ul>
                         </nav>
 
@@ -216,7 +217,7 @@
 @push('scripts')
     <script>
 
-        var form = $("#fcabsCreate")
+        var form = $("#oltInterfaceCreate")
         var method = form.attr('method')
         var url = form.attr('action')
 
@@ -226,11 +227,14 @@
 
             var formData = {
 
-                'fcab_no': $("#fcab_no").val(),
-                'fcab_device_id': $("#fcab_device_id").val(),
-                'device_address': $("#device_address").val(),
-                'device_status': $("#device_status").val(),
-                'atollislandsite': $("#atollislandsite").val(),
+                'olt_frame': $("#olt_frame").val(),
+                'odf_interfaces_id': $("#odf_interfaces_id").val(),
+                'olt_card': $("#olt_card").val(),
+                'olt_port': $("#olt_port").val(),
+                'odf_interfaces_id': $("#odf_interfaces_id").val(),
+                'olts_id': $("#olts_id").val(),
+
+                olts_id
                 '_token': $("#csrf").val()
 
             }

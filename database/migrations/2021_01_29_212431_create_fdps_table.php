@@ -16,10 +16,11 @@ class CreateFdpsTable extends Migration
         Schema::create('fdps', function (Blueprint $table) {
             $table->id();
             $table->string("fdp_no");
-            $table->string("fdp_device_id");
+            $table->string("fdp_device_id")->unique();
             $table->string("device_address");
             $table->string("device_status");
-            $table->string("atollislandsite");
+            $table->foreign('devicesites_id')->references('id')->on('devicesites');
+            $table->unsignedBigInteger('devicesites_id');
             $table->timestamps();
         });
     }

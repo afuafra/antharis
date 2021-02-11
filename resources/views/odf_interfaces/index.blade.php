@@ -1,5 +1,5 @@
 @extends("layout")
-@section("fcab")
+@section("odf_interface")
 
     <div class="panel-header panel-header-sm">
     </div>
@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">FCAB </h4>
+                    <h4 class="card-title">ODF Interface </h4>
                 </div>
 
                 <div class="container-fluid">
@@ -15,7 +15,7 @@
                         <tbody>
                         <form class="well form-horizontal">
                             <fieldset>
-                                <label class="col-md-4 control-label">FCAB Search</label>
+                                <label class="col-md-4 control-label">ODF Interface Search</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon" style="max-width: 100%;"><i
@@ -38,76 +38,76 @@
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add FCAB
+                        +Add OLT Interface
                     </button>
 
-                    <!-- Modal -->
-                    <div class="container-fluid">
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add fcab</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form class="container-fluid" id="fcabsCreate" method="POST"
-                                          action="{{route("fcab.store")}}" oninput="fcab_device_id.value = 'FCAB' +'|'+ fcab_no.value +'|'+ atollislandsite.value">
+{{--                    <!-- Modal -->--}}
+{{--                    <div class="container-fluid">--}}
+{{--                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"--}}
+{{--                             aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
+{{--                            <div class="modal-dialog" role="document">--}}
+{{--                                <div class="modal-content">--}}
+{{--                                    <div class="modal-header">--}}
+{{--                                        <h5 class="modal-title" id="exampleModalLabel">Add fcab</h5>--}}
+{{--                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                                            <span aria-hidden="true">&times;</span>--}}
+{{--                                        </button>--}}
+{{--                                    </div>--}}
+{{--                                    <form class="container-fluid" id="fcabsCreate" method="POST"--}}
+{{--                                          action="{{route("olt_interfaces.store")}}" oninput="fcab_device_id.value = 'FCAB' +'|'+ fcab_no.value +'|'+ atollislandsite.value">--}}
 
 
-                                        <div class="modal-body">
+{{--                                        <div class="modal-body">--}}
 
 
-                                            <div id="success"></div>
+{{--                                            <div id="success"></div>--}}
 
 
-                                            <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
+{{--                                            <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">--}}
 
-                                            <div class="mb-3">
-                                                <label class="form-label">FCAB NO</label>
-                                                <input type="text" class="form-control" name="fcab_no"
-                                                       id="fcab_no">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Device Address</label>
-                                                <input type="text" class="form-control" name="device_address"
-                                                       id="device_address">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Device Status</label>
-                                                <input type="text" class="form-control" name="device_status"
-                                                       id="device_status">
-                                            </div>
+{{--                                            <div class="mb-3">--}}
+{{--                                                <label class="form-label">FCAB NO</label>--}}
+{{--                                                <input type="text" class="form-control" name="fcab_no"--}}
+{{--                                                       id="fcab_no">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="mb-3">--}}
+{{--                                                <label class="form-label">Device Address</label>--}}
+{{--                                                <input type="text" class="form-control" name="device_address"--}}
+{{--                                                       id="device_address">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="mb-3">--}}
+{{--                                                <label class="form-label">Device Status</label>--}}
+{{--                                                <input type="text" class="form-control" name="device_status"--}}
+{{--                                                       id="device_status">--}}
+{{--                                            </div>--}}
 
 
-                                            <div class="mb-3">
-                                                <label class="form-label">Device Site </label>
-                                                <input  class="form-control" name="atollislandsite" list="list" id="atollislandsite">
-                                                <datalist id="list">
-                                                    @foreach($devicesites_list as $devicesite)
-                                                    <option value="{{ $devicesite }}">{{ $devicesite }}</option>
-                                                    @endforeach
-                                                </datalist>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">FCAB Device ID</label>
-                                                <input type="text" class="form-control" name="fcab_device_id"
-                                                       id="fcab_device_id" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a href="{{route("fcab.index")}}" class="btn btn-secondary"
-                                               data-bs-dismiss="modal">back</a>
-                                            <input name="submit" type="submit" class="btn btn-primary"></input>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{{--                                            <div class="mb-3">--}}
+{{--                                                <label class="form-label">Device Site </label>--}}
+{{--                                                <input  class="form-control" name="atollislandsite" list="list" id="atollislandsite">--}}
+{{--                                                <datalist id="list">--}}
+{{--                                                    @foreach($devicesites_list as $devicesite)--}}
+{{--                                                    <option value="{{ $devicesite }}">{{ $devicesite }}</option>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </datalist>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="mb-3">--}}
+{{--                                                <label class="form-label">FCAB Device ID</label>--}}
+{{--                                                <input type="text" class="form-control" name="fcab_device_id"--}}
+{{--                                                       id="fcab_device_id" readonly>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="modal-footer">--}}
+{{--                                            <a href="{{route("fcab.index")}}" class="btn btn-secondary"--}}
+{{--                                               data-bs-dismiss="modal">back</a>--}}
+{{--                                            <input name="submit" type="submit" class="btn btn-primary"></input>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
 
                 <div class="card-body">
@@ -116,19 +116,13 @@
                             <thead class=" text-primary">
                             <tr>
                                 <th>
-                                    <strong>Name</strong>
+                                    <strong>odf_no</strong>
                                 </th>
                                 <th>
-                                    <strong>Device Address</strong>
+                                    <strong>odf_port</strong>
                                 </th>
                                 <th>
-                                    <strong>Device Status</strong>
-                                </th>
-                                <th>
-                                    <strong>Device Site</strong>
-                                </th>
-                                <th>
-                                    <strong>FCAB No</strong>
+                                    <strong>odf_racks_id</strong>
                                 </th>
                                 <th>
                                     <strong>Action</strong>
@@ -137,35 +131,31 @@
                             </thead>
 
                             <tbody>
-                            @foreach ($fcab_list as $fcab)
+                            @foreach ($odfInterface_list as $interface)
                                 {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
+
 
                                     <td>
                                         <a href="" class="text-primary" data-bs-toggle="modal"
                                            data-bs-target="#routeView">
+                                        {{$interface->odf_no}}
+                                    </td>
 
-                                        {{$fcab->fcab_device_id}}
+                                    <td>
+                                        {{$interface->odf_port}}
                                     </td>
                                     <td>
-                                        {{$fcab->device_address}}
+                                        {{$interface->odfRack->odf_device_id}}
                                     </td>
-                                    <td>
-                                        {{$fcab->device_status}}
-                                    </td>
-                                    <td>
-                                        {{$fcab->atollislandsite}}
-                                    </td>
-                                    <td>
-                                        {{$fcab->fcab_no}}
-                                    </td>
+
                                     <td>
                                         {{--        <button type="button" rel="tooltip" class="btn btn-success"--}}
                                         {{--                data-toggle="modal" data-target="#updateService{{$service->id}}">--}}
                                         {{--            <i class="now-ui-icons ui-2_settings-90"></i>--}}
                                         {{--        </button>--}}
 
-                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editService({{$fcab}})">
+                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editService({{$interface}})">
                                             <i class="now-ui-icons ui-2_settings-90"></i></button>
 
                                     </td>
@@ -183,7 +173,7 @@
 
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                {!! $fcab_list->links() !!}
+                                {!! $odfInterface_list->links() !!}
                             </ul>
                         </nav>
 

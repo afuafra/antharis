@@ -19,7 +19,8 @@ class CreateOdfRacksTable extends Migration
             $table->string("odf_device_id");
             $table->string("device_address");
             $table->string("device_status");
-            $table->string("atollislandsite");
+            $table->foreign('devicesites_id')->references('id')->on('devicesites');
+            $table->unsignedBigInteger('devicesites_id')->nullable();
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\devicesites;
 use App\Models\Fcab;
+use App\Models\FcabInterface;
 use Illuminate\Http\Request;
 
 class FcabController extends Controller
@@ -15,8 +16,10 @@ class FcabController extends Controller
      */
     public function index()
     {
-        $fcab=Fcab::orderBy("id","desc")->paginate();
-        $devicesites = devicesites::pluck('atollislandsite')->all();
+        $fcab=Fcab::orderBy("id","desc")->with('devicesites')->paginate();
+        $devicesites = devicesites::all();
+
+
 
         return view("fcab.index")->with("fcab_list",$fcab)->with ("devicesites_list",$devicesites) ;
     }
@@ -44,7 +47,7 @@ class FcabController extends Controller
         $res->fcab_device_id=$request->input("fcab_device_id");
         $res->device_address=$request->input("device_address");
         $res->device_status=$request->input("device_status");
-        $res->atollislandsite=$request->input("atollislandsite");
+        $res->devicesites_id=$request->input("devicesites_id");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");

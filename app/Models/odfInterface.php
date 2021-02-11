@@ -9,9 +9,11 @@ class odfInterface extends Model
 {
     use HasFactory;
 
+
     public function odfRack(){
         return $this->belongsTo ('App\Models\odfRack','odf_racks_id','id');
 
     }
+
 
 }

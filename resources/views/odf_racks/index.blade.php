@@ -1,5 +1,5 @@
 @extends("layout")
-@section("fcab")
+@section("odf")
 
     <div class="panel-header panel-header-sm">
     </div>
@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">FCAB </h4>
+                    <h4 class="card-title">ODF </h4>
                 </div>
 
                 <div class="container-fluid">
@@ -15,7 +15,7 @@
                         <tbody>
                         <form class="well form-horizontal">
                             <fieldset>
-                                <label class="col-md-4 control-label">FCAB Search</label>
+                                <label class="col-md-4 control-label">ODF Search</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon" style="max-width: 100%;"><i
@@ -38,7 +38,7 @@
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add FCAB
+                        +Add odfs
                     </button>
 
                     <!-- Modal -->
@@ -48,13 +48,13 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add fcab</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add odf</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form class="container-fluid" id="fcabsCreate" method="POST"
-                                          action="{{route("fcab.store")}}" oninput="fcab_device_id.value = 'FCAB' +'|'+ fcab_no.value +'|'+ atollislandsite.value">
+                                    <form class="container-fluid" id="odfRackCreate" method="POST"
+                                          action="{{route("odf_racks.store")}}" oninput="odf_device_id.value = 'ODF-RACK' +'|'+ odf_rack_name.value +'|'+ devicesites_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
@@ -66,39 +66,36 @@
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
                                             <div class="mb-3">
-                                                <label class="form-label">FCAB NO</label>
-                                                <input type="text" class="form-control" name="fcab_no"
-                                                       id="fcab_no">
+                                                <label class="form-label">odf_rack_name</label>
+                                                <input type="text" class="form-control" name="odf_rack_name"
+                                                       id="odf_rack_name">
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Device Address</label>
+                                                <label class="form-label">device_address</label>
                                                 <input type="text" class="form-control" name="device_address"
                                                        id="device_address">
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Device Status</label>
+                                                <label class="form-label">device_status</label>
                                                 <input type="text" class="form-control" name="device_status"
                                                        id="device_status">
                                             </div>
-
-
                                             <div class="mb-3">
                                                 <label class="form-label">Device Site </label>
-                                                <input  class="form-control" name="atollislandsite" list="list" id="atollislandsite">
-                                                <datalist id="list">
+                                                <select  class="form-control" name="devicesites_id" list="list" id="devicesites_id">
                                                     @foreach($devicesites_list as $devicesite)
-                                                    <option value="{{ $devicesite }}">{{ $devicesite }}</option>
+                                                        <option value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
                                                     @endforeach
-                                                </datalist>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">FCAB Device ID</label>
-                                                <input type="text" class="form-control" name="fcab_device_id"
-                                                       id="fcab_device_id" readonly>
+                                                <label class="form-label">odf_device_id</label>
+                                                <input type="text" class="form-control" name="odf_device_id"
+                                                       id="odf_device_id">
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="{{route("fcab.index")}}" class="btn btn-secondary"
+                                            <a href="{{route("odf_racks.index")}}" class="btn btn-secondary"
                                                data-bs-dismiss="modal">back</a>
                                             <input name="submit" type="submit" class="btn btn-primary"></input>
                                         </div>
@@ -116,19 +113,19 @@
                             <thead class=" text-primary">
                             <tr>
                                 <th>
-                                    <strong>Name</strong>
+                                    <strong>odf_rack_name</strong>
                                 </th>
                                 <th>
-                                    <strong>Device Address</strong>
+                                    <strong>odf_device_id</strong>
                                 </th>
                                 <th>
-                                    <strong>Device Status</strong>
+                                    <strong>device_status</strong>
                                 </th>
                                 <th>
-                                    <strong>Device Site</strong>
+                                    <strong>device_address</strong>
                                 </th>
                                 <th>
-                                    <strong>FCAB No</strong>
+                                    <strong>atollislandsite</strong>
                                 </th>
                                 <th>
                                     <strong>Action</strong>
@@ -137,7 +134,7 @@
                             </thead>
 
                             <tbody>
-                            @foreach ($fcab_list as $fcab)
+                            @foreach ($odf_list as $odf)
                                 {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
 
@@ -145,19 +142,19 @@
                                         <a href="" class="text-primary" data-bs-toggle="modal"
                                            data-bs-target="#routeView">
 
-                                        {{$fcab->fcab_device_id}}
+                                        {{$odf->odf_rack_name}}
                                     </td>
                                     <td>
-                                        {{$fcab->device_address}}
+                                        {{$odf->odf_device_id}}
                                     </td>
                                     <td>
-                                        {{$fcab->device_status}}
+                                        {{$odf->device_status}}
                                     </td>
                                     <td>
-                                        {{$fcab->atollislandsite}}
+                                        {{$odf->device_address}}
                                     </td>
                                     <td>
-                                        {{$fcab->fcab_no}}
+                                        {{$odf->devicesites->atollislandsite}}
                                     </td>
                                     <td>
                                         {{--        <button type="button" rel="tooltip" class="btn btn-success"--}}
@@ -165,7 +162,7 @@
                                         {{--            <i class="now-ui-icons ui-2_settings-90"></i>--}}
                                         {{--        </button>--}}
 
-                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editService({{$fcab}})">
+                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editService({{$odf}})">
                                             <i class="now-ui-icons ui-2_settings-90"></i></button>
 
                                     </td>
@@ -183,7 +180,7 @@
 
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                {!! $fcab_list->links() !!}
+                                {!! $odf_list->links() !!}
                             </ul>
                         </nav>
 
@@ -201,7 +198,7 @@
 @push('scripts')
     <script>
 
-        var form = $("#fcabsCreate")
+        var form = $("#odfRackCreate")
         var method = form.attr('method')
         var url = form.attr('action')
 
@@ -211,11 +208,11 @@
 
             var formData = {
 
-                'fcab_no': $("#fcab_no").val(),
-                'fcab_device_id': $("#fcab_device_id").val(),
-                'device_address': $("#device_address").val(),
+                'odf_rack_name': $("#odf_rack_name").val(),
                 'device_status': $("#device_status").val(),
-                'atollislandsite': $("#atollislandsite").val(),
+                'odf_device_id': $("#odf_device_id").val(),
+                'device_address': $("#device_address").val(),
+                'devicesites_id': $("#devicesites_id").val(),
                 '_token': $("#csrf").val()
 
             }

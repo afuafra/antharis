@@ -14,8 +14,11 @@ class FcabInterfaceController extends Controller
      */
     public function index()
     {
-        $fcabs = FcabInterface::orderBy("fcab_id","asc")->orderBy("port","asc")->with(['Fcabs','SplitterInterface.FcabSplitter','Splitter','SplitterInterface.FcabSplitter.splitterdevice'])->paginate();
-       return $fcabs;
+        $fcabs = FcabInterface::orderBy("fcab_id","asc")->orderBy("port","asc")->with(['Fcabs','SplitterInterface','Splitter'])->paginate();
+
+//        dd($fcabs);
+
+//       return $fcabs;
 
 
         return view("fcabs_interface.index")->with("fcabs",$fcabs);

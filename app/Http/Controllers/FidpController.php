@@ -20,14 +20,12 @@ class FidpController extends Controller
     public function index(Request $request)
     {
 //
-        $fidps=Fidps::orderBy("id","desc")->paginate();
-        $devicesites = devicesites::pluck('atollislandsite')->all();
+        $fidps=Fidps::orderBy("id","desc")->with('devicesites')->paginate();
+        $devicesites = devicesites::all();
         $fidpinterface = FidpsInterface::all();
 
-//        return $fidpinterface;
+//        return $fidps;
 
-//        dump($fidps,$fidpinterface);
-//        dd(Fidps::all()->toArray());
 
         return view("fidp.index")->with ("devicesites_list",$devicesites)->with(['fidp_list'=>$fidps,'fiinterface'=>$fidpinterface]);
 
@@ -59,7 +57,7 @@ class FidpController extends Controller
         $res->fidp_device_id=$request->input("fidp_device_id");
         $res->device_address=$request->input("device_address");
         $res->device_status=$request->input("device_status");
-        $res->atollislandsite=$request->input("atollislandsite");
+        $res->devicesites_id=$request->input("devicesites_id");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");

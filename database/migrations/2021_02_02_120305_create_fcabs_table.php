@@ -16,10 +16,11 @@ class CreateFcabsTable extends Migration
         Schema::create('fcabs', function (Blueprint $table) {
             $table->id();
             $table->string("fcab_no");
-            $table->string("fcab_device_id");
+            $table->string("fcab_device_id")->unique();
             $table->string("device_address");
             $table->string("device_status");
-            $table->string("atollislandsite");
+            $table->foreign('devicesites_id')->references('id')->on('devicesites');
+            $table->unsignedBigInteger('devicesites_id');
             $table->timestamps();
         });
     }

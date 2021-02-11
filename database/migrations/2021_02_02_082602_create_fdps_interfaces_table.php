@@ -17,7 +17,7 @@ class CreateFdpsInterfacesTable extends Migration
             $table->id();
             $table->string('terminal_side');
             $table->string('port');
-            $table->unsignedBigInteger('fcab_interface_id');
+            $table->unsignedBigInteger('fcab_interface_id')->nullable();
             $table->foreign('fcab_interface_id')->references('id')->on('fcab_interfaces');
             $table->unsignedBigInteger('fdp_id');
             $table->foreign('fdp_id')->references('id')->on('fdps');

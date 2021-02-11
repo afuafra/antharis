@@ -85,8 +85,13 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                         </li>
 
                         <li >
-                            <a href="../examples/components/grid.html">
+                            <a href="<?php echo e(route("odf_racks.index")); ?>">
                                 <span class="sidebar-mini-icon pl-5"><strong>ODF</strong></span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="<?php echo e(route("odf_interfaces.index")); ?>">
+                                <span class="sidebar-mini-icon pl-5">ODF Interface</span>
                             </a>
                         </li>
                         <li >
@@ -262,7 +267,9 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
         <?php echo $__env->yieldContent('fdpsInterface'); ?>
         <?php echo $__env->yieldContent('fcab'); ?>
         <?php echo $__env->yieldContent('olts'); ?>
-
+        <?php echo $__env->yieldContent('odf'); ?>
+        <?php echo $__env->yieldContent('olt_interface'); ?>
+        <?php echo $__env->yieldContent('odf_interface'); ?>
     </div>
 
 

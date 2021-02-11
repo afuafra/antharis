@@ -13,7 +13,8 @@ class olt extends Model
         'devicesites_id'
     ];
 
-    public function devicesites(){
+    public function devicesites()
+    {
         return $this->belongsTo(\App\Models\devicesites::class);
     }
 

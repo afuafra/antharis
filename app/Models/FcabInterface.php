@@ -22,7 +22,7 @@ class FcabInterface extends Model
 
     public function Splitter(){
 
-        return $this->belongsTo('App\Models\FcabSplitter','fcab_splitter_device_id','id',);
+        return $this->belongsTo('App\Models\FcabSplitter','fcab_splitter_device_id','id');
     }
 
     public function FdpsInterface(){

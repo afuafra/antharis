@@ -18,10 +18,10 @@ class CreateOltInterfacesTable extends Migration
             $table->string('olt_frame');
             $table->string('olt_card');
             $table->string('olt_port');
+            $table->unsignedBigInteger('odf_interfaces_id')->nullable();
             $table->foreign('odf_interfaces_id')->references('id')->on('odf_interfaces');
-            $table->unsignedBigInteger('odf_interfaces_id');
             $table->foreign('olts_id')->references('id')->on('olts');
-            $table->unsignedBigInteger('olts_id')->nullable();
+            $table->unsignedBigInteger('olts_id');
             $table->timestamps();
         });
     }

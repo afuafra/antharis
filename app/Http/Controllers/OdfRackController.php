@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\devicesites;
+use App\Models\odfInterface;
+use App\Models\odfRack;
 use Illuminate\Http\Request;
 
 class OdfRackController extends Controller
@@ -13,7 +16,13 @@ class OdfRackController extends Controller
      */
     public function index()
     {
-        //
+        $odf=odfRack::orderBy("id","desc")->with('devicesites')->paginate();
+        $devicesites = devicesites::all();
+//        $rack=odfInterface::with('')->paginate();
+//
+//        return $rack;
+
+        return view("odf_racks.index")->with("odf_list",$odf)->with ("devicesites_list",$devicesites) ;
     }
 
     /**
@@ -34,7 +43,16 @@ class OdfRackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $res=new \App\Models\odfRack();
+        $res->odf_rack_name=$request->input("odf_rack_name");
+        $res->odf_device_id=$request->input("odf_device_id");
+        $res->device_address=$request->input("device_address");
+        $res->device_status=$request->input("device_status");
+        $res->devicesites_id=$request->input("devicesites_id");
+        $res->save();
+
+        $request->session()->flash("msg","New Service Added");
+        return redirect("odf_racks");
     }
 
     /**

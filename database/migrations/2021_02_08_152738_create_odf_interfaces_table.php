@@ -17,8 +17,10 @@ class CreateOdfInterfacesTable extends Migration
             $table->id();
             $table->string('odf_no');
             $table->string('odf_port');
+            $table->unsignedBigInteger('odf_racks_id');
             $table->foreign('odf_racks_id')->references('id')->on('odf_racks');
-            $table->unsignedBigInteger('odf_racks_id')->nullable();
+            $table->unsignedBigInteger('fcab_interfaces_id')->nullable();
+            $table->foreign('fcab_interfaces_id')->references('id')->on('fcab_interfaces');
             $table->timestamps();
         });
     }

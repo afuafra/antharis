@@ -30,5 +30,9 @@ class FdpsInterface extends Model
 
         return $this->belongsTo('App\Models\Fcab','fcab_id','id');
 
+
+
+
+
     }
 }

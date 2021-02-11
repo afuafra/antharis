@@ -20,7 +20,8 @@ class FcabSplitter extends Model
 
     public function splitterdevice(){
 
-        return $this->belongsTo(FcabSplitter::class);
+        return $this->belongsToMany('App\Models\FcabSplitterInterface','fcab_splitter_id');
     }
+
 
 }

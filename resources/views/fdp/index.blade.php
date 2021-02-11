@@ -54,7 +54,7 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="fdpsCreate" method="POST"
-                                          action="{{route("fdp.store")}}" oninput="fdp_device_id.value = 'FDP' +'|'+ fdp_no.value +'|'+ atollislandsite.value">
+                                          action="{{route("fdp.store")}}" oninput="fdp_device_id.value = 'FDP' +'|'+ fdp_no.value +'|'+ devicesites_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
@@ -84,12 +84,11 @@
 
                                             <div class="mb-3">
                                                 <label class="form-label">Device Site </label>
-                                                <input  class="form-control" name="atollislandsite" list="list" id="atollislandsite">
-                                                <datalist id="list">
+                                                <select  class="form-control" name="devicesites_id" list="list" id="devicesites_id">
                                                     @foreach($devicesites_list as $devicesite)
-                                                    <option value="{{ $devicesite }}">{{ $devicesite }}</option>
+                                                        <option value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
                                                     @endforeach
-                                                </datalist>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">FDP Device ID</label>
@@ -154,7 +153,7 @@
                                         {{$fdp->device_status}}
                                     </td>
                                     <td>
-                                        {{$fdp->atollislandsite}}
+                                        {{$fdp->devicesites->atollislandsite}}
                                     </td>
                                     <td>
                                         {{$fdp->fdp_no}}
@@ -215,7 +214,7 @@
                 'fdp_device_id': $("#fdp_device_id").val(),
                 'device_address': $("#device_address").val(),
                 'device_status': $("#device_status").val(),
-                'atollislandsite': $("#atollislandsite").val(),
+                'devicesites_id': $("#devicesites_id").val(),
                 '_token': $("#csrf").val()
 
             }
