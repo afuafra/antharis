@@ -22,20 +22,20 @@
 
 <div class="card">
     <div class="container-fluid col-md-3">
-        <img src="../assets/img/logo3.png" >
+        <img src="<?php echo e(asset('assets/img/Logo3.png')); ?>">
 
-<div class="container-fluid col-md-5">
+<div class="text-center my-5">
     <body class="antialiased">
         <div class="container-fluid">
             <?php if(Route::has('login')): ?>
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="">
                     <?php if(auth()->guard()->check()): ?>
-                        <a href="<?php echo e(url('/home')); ?>" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="<?php echo e(url('/home')); ?>" class="me-2">Home</a>
                     <?php else: ?>
-                        <a href="<?php echo e(route('login')); ?>" class="text-sm text-gray-700 underline">Login</a>
+                        <a href="<?php echo e(route('login')); ?>" class="me-2">Login</a>
 
                         <?php if(Route::has('register')): ?>
-                            <a href="<?php echo e(route('register')); ?>" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            <a href="<?php echo e(route('register')); ?>" class="me-2">Register</a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
@@ -153,7 +153,7 @@
 
 
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0 my-5">
                         Laravel v<?php echo e(Illuminate\Foundation\Application::VERSION); ?>
 
                     </div>
