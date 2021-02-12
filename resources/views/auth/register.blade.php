@@ -20,7 +20,7 @@
 
 <div class="card">
     <div class="container-fluid col-md-3 mid pt-5">
-        <img src="../assets/img/logo3.png" >
+        <img src="{{ asset('assets/img/Logo3.png')}}">
         </div>
 
 <div class="container">

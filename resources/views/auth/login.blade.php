@@ -23,6 +23,7 @@
 <div class="card">
         <div class="container-fluid col-md-3 mid pt-5">
             <img src="{{ asset('assets/img/Logo3.png')}}">
+
                            <div class="card">
                                <div class="card-header">{{ __('Login') }}</div>
                                     <div class="card-body">
