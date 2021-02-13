@@ -110,7 +110,7 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                             </a>
                         </li>
                         <li >
-                            <a href="{{route("fcab.index")}}">
+                            <a href="{{route("fcab_splitter_interface.index")}}">
                                 <span class="sidebar-mini-icon pl-5">FCAB Splitter Interface</span>
                             </a>
                         </li>
@@ -185,12 +185,12 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                     </ul>
                 </div>
             </li>
-            <li>
-                <a href="{{route("users.index")}}">
-                    <i class="now-ui-icons users_single-02"></i>
-                    <p>Users</p>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="{{route("users.index")}}">--}}
+{{--                    <i class="now-ui-icons users_single-02"></i>--}}
+{{--                    <p>Users</p>--}}
+{{--                </a>--}}
+{{--            </li>--}}
 
         </ul>
     </div>
