@@ -28,7 +28,7 @@ class FcabSplitterController extends Controller
 
         }
 
-        $splitters   = $query->paginate();
+        $splitters   = $query->with('interface')->paginate();
 
 
 //        $splitters=::orderBy("id","desc")->with(['fcab'])->paginate();

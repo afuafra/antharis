@@ -17,10 +17,11 @@ class FdpsInterfaceController extends Controller
 
         $fdps = FdpsInterface::orderBy("fdp_id","asc")->orderBy("port","asc")->with(['Fdps','fcabinterface.Fcabs','fcabinterface','fcabinterface.SplitterInterface.FcabSplitter'])->paginate();
 //
+        $fdp = FdpsInterface::select('id')->with('Interface','Interface.fdp')->get();
 
 
 
-//       return $fdps;
+//       return $fdp;
 
 
             return view("fdps_interface.index")->with("fdps",$fdps);

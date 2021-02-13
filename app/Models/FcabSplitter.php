@@ -23,5 +23,8 @@ class FcabSplitter extends Model
         return $this->belongsToMany('App\Models\FcabSplitterInterface','fcab_splitter_id');
     }
 
-
+    public function Interface()
+    {
+        return $this->hasMany(FcabSplitterInterface::class, 'fcab_splitter_id');
+    }
 }

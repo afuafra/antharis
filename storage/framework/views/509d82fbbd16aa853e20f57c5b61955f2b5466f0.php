@@ -22,7 +22,8 @@
 
 <div class="card">
         <div class="container-fluid col-md-3 mid pt-5">
-              <img src="../assets/img/logo3.png" >
+            <img src="<?php echo e(asset('assets/img/Logo3.png')); ?>">
+
                            <div class="card">
                                <div class="card-header"><?php echo e(__('Login')); ?></div>
                                     <div class="card-body">

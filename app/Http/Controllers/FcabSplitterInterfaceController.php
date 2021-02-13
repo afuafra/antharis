@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FcabSplitterInterface;
 use Illuminate\Http\Request;
 
 class FcabSplitterInterfaceController extends Controller
@@ -13,7 +14,9 @@ class FcabSplitterInterfaceController extends Controller
      */
     public function index()
     {
-        //
+        $fcabsplitterinterface = FcabSplitterInterface::select('id')->with('Interface.splitter')->get();
+
+        return $fcabsplitterinterface;
     }
 
     /**

@@ -34,9 +34,9 @@
                     <?php else: ?>
                         <a href="<?php echo e(route('login')); ?>" class="me-2">Login</a>
 
-                        <?php if(Route::has('register')): ?>
-                            <a href="<?php echo e(route('register')); ?>" class="me-2">Register</a>
-                        <?php endif; ?>
+
+
+
                     <?php endif; ?>
                 </div>
             <?php endif; ?>

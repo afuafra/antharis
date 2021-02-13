@@ -34,9 +34,9 @@
                     @else
                         <a href="{{ route('login') }}" class="me-2">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="me-2">Register</a>
-                        @endif
+{{--                        @if (Route::has('register'))--}}
+{{--                            <a href="{{ route('register') }}" class="me-2">Register</a>--}}
+{{--                        @endif--}}
                     @endauth
                 </div>
             @endif

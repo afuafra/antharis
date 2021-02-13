@@ -103,7 +103,7 @@
 <footer class="footer">
     <ul>
         <li>
-            {{--                            Copyright © 2021 | Dhiraagu Cable Networks--}}
+                                        Copyright © 2021 | Dhiraagu Cable Networks
             Ibrahim Afrah | Laravel v{{ Illuminate\Foundation\Application::VERSION }} | (PHP v{{ PHP_VERSION }})
 
         </li>

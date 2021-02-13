@@ -154,13 +154,22 @@
                                         {{$fdp->port}}
                                     </td>
                                     <td>
-                                        {{$fdp->fcabinterface->fcabs->fcab_device_id}}
+                                        @if(isset($fdp->fcabinterface->fcabs->fcab_device_id))
+                                            {{$fdp->fcabinterface->fcabs->fcab_device_id}}
+                                        @else
+                                        @endif
                                     </td>
                                     <td>
-                                        {{$fdp->fcabinterface->terminal_side}}
+                                        @if(isset($fdp->fcabinterface->terminal_side))
+                                            {{$fdp->fcabinterface->terminal_side}}
+                                        @else
+                                        @endif
                                     </td>
                                     <td>
-                                        {{$fdp->fcabinterface->port}}
+                                        @if(isset($fdp->fcabinterface->port))
+                                            {{$fdp->fcabinterface->port}}
+                                        @else
+                                        @endif
                                     </td>
 
                                 </tr>
