@@ -18,10 +18,12 @@ class olt extends Model
         return $this->belongsTo(\App\Models\devicesites::class);
     }
 
-    public function Interfaces()
+    public function Interface()
     {
-
-        return $this->belongsTo(oltInterface::class);
+        return $this->hasMany(oltInterface::class, 'olts_id');
     }
+
+
+
 
 }

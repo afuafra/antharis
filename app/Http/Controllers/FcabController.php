@@ -16,10 +16,10 @@ class FcabController extends Controller
      */
     public function index()
     {
-        $fcab=Fcab::orderBy("id","desc")->with('devicesites')->paginate();
+        $fcab=Fcab::orderBy("id","desc")->with('devicesites')->with(['interface','Interface.Splitter','Interface.SplitterInterface'])->paginate();
         $devicesites = devicesites::all();
 
-
+//return $fcab;
 
         return view("fcab.index")->with("fcab_list",$fcab)->with ("devicesites_list",$devicesites) ;
     }

@@ -15,10 +15,10 @@ class OltController extends Controller
      */
     public function index()
     {
-        $olt=olt::orderBy("id","desc")->with('devicesites')->paginate();
+        $olt=olt::orderBy("id","desc")->with('devicesites')->with('interface')->paginate();
         $devicesites = devicesites::all();
 
-//        return $devicesites;
+//        return $olt;
 
         return view("olts.index")->with("olt_list",$olt)->with ("devicesites_list",$devicesites) ;
     }

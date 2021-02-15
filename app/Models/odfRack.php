@@ -15,6 +15,10 @@ class odfRack extends Model
         return $this->belongsTo(\App\Models\devicesites::class);
     }
 
+    public function Interface()
+    {
+        return $this->hasMany(odfInterface::class, 'odf_racks_id');
+    }
 
 
 }

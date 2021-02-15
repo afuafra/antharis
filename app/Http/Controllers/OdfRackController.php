@@ -16,11 +16,11 @@ class OdfRackController extends Controller
      */
     public function index()
     {
-        $odf=odfRack::orderBy("id","desc")->with('devicesites')->paginate();
+        $odf=odfRack::orderBy("id","desc")->with('devicesites')->with('interface')->paginate();
         $devicesites = devicesites::all();
 //        $rack=odfInterface::with('')->paginate();
 //
-//        return $rack;
+//        return $odf;
 
         return view("odf_racks.index")->with("odf_list",$odf)->with ("devicesites_list",$devicesites) ;
     }

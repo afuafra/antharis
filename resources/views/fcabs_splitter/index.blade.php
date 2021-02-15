@@ -131,6 +131,7 @@
                         </div>
 
 
+
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
                                 {!! $splitters->links() !!}
@@ -144,6 +145,11 @@
 
 
     </div>
+
+
+
+
+
 
 
 

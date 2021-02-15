@@ -21,4 +21,11 @@ class Fcab extends Model
     public function devicesites(){
         return $this->belongsTo(\App\Models\devicesites::class);
     }
+
+    public function Interface()
+    {
+        return $this->hasMany(FcabInterface::class, 'fcab_id');
+    }
+
+
 }

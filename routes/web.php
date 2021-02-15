@@ -4,6 +4,10 @@ use App\Http\Controllers\FcabController;
 use App\Http\Controllers\FcabInterfaceController;
 use App\Http\Controllers\FcabSplitterController;
 use App\Http\Controllers\FcabSplitterInterfaceController;
+use App\Http\Controllers\FdpSplitterController;
+use App\Http\Controllers\FdpSplitterInterfaceController;
+use App\Http\Controllers\FidpSplitterController;
+use App\Http\Controllers\FidpSplitterInterfaceController;
 use App\Http\Controllers\OdfInterfaceController;
 use App\Http\Controllers\OdfRackController;
 use App\Http\Controllers\OltController;
@@ -76,6 +80,13 @@ Route::resource('olts', oltController::class);
 
 Route::resource('olt_interfaces', OltInterfaceController::class);
 
+Route::resource('fdp_splitters', FdpSplitterController::class);
+
+Route::resource('fdp_splitter_interfaces', FdpSplitterInterfaceController::class);
+
+Route::resource('fidp_splitters', FidpSplitterController::class);
+
+Route::resource('fidp_splitter_interfaces', FidpSplitterInterfaceController::class);
 
 Auth::routes();
 

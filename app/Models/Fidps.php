@@ -23,4 +23,8 @@ class Fidps extends Model
         return $this->belongsTo(\App\Models\devicesites::class);
     }
 
+    public function Interface()
+    {
+        return $this->hasMany(FidpsInterface::class, 'fidp_id');
+    }
 }

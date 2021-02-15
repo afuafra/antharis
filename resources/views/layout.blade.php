@@ -126,6 +126,11 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                             </a>
                         </li>
                         <li >
+                            <a href="{{route("fdp_splitters.index")}}">
+                                <span class="sidebar-mini-icon pl-5">FDP Splitter</span>
+                            </a>
+                        </li>
+                        <li >
                             <a href="{{route("fidp.index")}}">
                                 <span class="sidebar-mini-icon pl-5"><strong>FIDP</strong></span>
                             </a>
@@ -133,6 +138,11 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                         <li >
                             <a href="{{route("fidps_interface.index")}}">
                                 <span class="sidebar-mini-icon pl-5">FIDP Interface</span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="{{route("fidp_splitters.index")}}">
+                                <span class="sidebar-mini-icon pl-5">FIDP Splitter</span>
                             </a>
                         </li>
                     </ul>
@@ -216,14 +226,14 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                 <span class="navbar-toggler-bar navbar-kebab"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                <form>
-                    <div class="input-group no-border">
-                        <input type="text" value="" class="form-control" placeholder="Search...">
-                        <span class="input-group-addon">
-                            <i class="now-ui-icons ui-1_zoom-bold"></i>
-                        </span>
-                    </div>
-                </form>
+{{--                <form>--}}
+{{--                    <div class="input-group no-border">--}}
+{{--                        <input type="text" value="" class="form-control" placeholder="Search...">--}}
+{{--                        <span class="input-group-addon">--}}
+{{--                            <i class="now-ui-icons ui-1_zoom-bold"></i>--}}
+{{--                        </span>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
