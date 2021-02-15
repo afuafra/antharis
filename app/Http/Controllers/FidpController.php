@@ -24,7 +24,7 @@ class FidpController extends Controller
         $devicesites = devicesites::all();
         $fidpinterface = FidpsInterface::all();
 
-        return $fidps;
+//        return $fidps;
 
 
         return view("fidp.index")->with ("devicesites_list",$devicesites)->with(['fidp_list'=>$fidps,'fiinterface'=>$fidpinterface]);
