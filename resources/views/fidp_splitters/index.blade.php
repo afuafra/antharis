@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">fidp Splitter</h4>
+                    <h4 class="card-title">FIDP Splitter</h4>
                 </div>
 
 
@@ -25,7 +25,7 @@
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add fidp Splitter
+                        +Add FIDP Splitter
                     </button>
 
                     <!-- Modal -->
@@ -35,7 +35,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add fidp Splitter</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add FIDP Splitter</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -53,12 +53,12 @@
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
                                             <div class="mb-3">
-                                                <label class="form-label">fidp splitter no</label>
+                                                <label class="form-label">FIDP splitter no</label>
                                                 <input type="text" class="form-control" name="fidp_splitter_no"
                                                        id="fidp_splitter_no">
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">fidp Device Name </label>
+                                                <label class="form-label">FIDP Device Name </label>
                                                 <select class="form-control" id="fidp_id" name="fidp_id"  >
                                                     @foreach($fidp_list as $fidp_li)
                                                         <option value="{{ $fidp_li->id }}">{{ $fidp_li->fidp_device_id}}</option>
@@ -66,7 +66,7 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">fidp_splitter_device_id</label>
+                                                <label class="form-label">FIDP Splitter Device ID</label>
                                                 <input type="text" class="form-control" name="fidp_splitter_device_id"
                                                        id="fidp_splitter_device_id">
                                             </div>
@@ -93,10 +93,10 @@
                                     <strong>Splitter No</strong>
                                 </th>
                                 <th>
-                                    <strong>fidp Splitter Device Name</strong>
+                                    <strong>FIDP Splitter Device Name</strong>
                                 </th>
                                 <th>
-                                    <strong>fidp Device Name</strong>
+                                    <strong>FIDP Device Name</strong>
                                 </th>
                             </tr>
                             </thead>

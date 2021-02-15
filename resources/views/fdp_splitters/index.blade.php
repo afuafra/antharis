@@ -25,7 +25,7 @@
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add fdp Splitter
+                        +Add FDP Splitter
                     </button>
 
                     <!-- Modal -->
@@ -53,12 +53,12 @@
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
                                             <div class="mb-3">
-                                                <label class="form-label">fdp splitter no</label>
+                                                <label class="form-label">FDP Splitter No</label>
                                                 <input type="text" class="form-control" name="fdp_splitter_no"
                                                        id="fdp_splitter_no">
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">fdp Device Name </label>
+                                                <label class="form-label">FDP Device Name </label>
                                                 <select class="form-control" id="fdp_id" name="fdp_id"  >
                                                     @foreach($fdp_list as $fdp_li)
                                                         <option value="{{ $fdp_li->id }}">{{ $fdp_li->fdp_device_id}}</option>
@@ -66,14 +66,14 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">fdp_splitter_device_id</label>
+                                                <label class="form-label">FDP Splitter Device ID</label>
                                                 <input type="text" class="form-control" name="fdp_splitter_device_id"
                                                        id="fdp_splitter_device_id">
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <a href="{{route("fdp_splitters.index")}}" class="btn btn-secondary"
-                                               data-bs-dismiss="modal">back</a>
+                                               data-bs-dismiss="modal">Back</a>
                                             <input name="submit" type="submit" class="btn btn-primary">
                                         </div>
                                     </form>
@@ -93,10 +93,10 @@
                                     <strong>Splitter No</strong>
                                 </th>
                                 <th>
-                                    <strong>fdp Splitter Device Name</strong>
+                                    <strong>FDP Splitter Device Name</strong>
                                 </th>
                                 <th>
-                                    <strong>fdp Device Name</strong>
+                                    <strong>FDP Device Name</strong>
                                 </th>
                             </tr>
                             </thead>
