@@ -56,7 +56,7 @@ class FidpSplitterController extends Controller
      */
     public function store(Request $request)
     {
-        $res=new \App\Models\fidpSplitter;
+        $res=new \App\Models\FidpSplitter;
         $res->fidp_splitter_no=$request->input("fidp_splitter_no");
         $res->fidp_id=$request->input("fidp_id");
         $res->fidp_splitter_device_id=$request->input("fidp_splitter_device_id");

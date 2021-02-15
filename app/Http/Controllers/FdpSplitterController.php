@@ -64,7 +64,7 @@ class FdpSplitterController extends Controller
         $res->save();
 
         $request->session()->flash("msg","New Service Added");
-        return redirect("fdp");
+        return redirect("fdp_splitters");
     }
 
     /**
