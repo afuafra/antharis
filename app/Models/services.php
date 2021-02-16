@@ -13,4 +13,17 @@ class services extends Model
             'customerAddress',
             'serviceStatus'
         ];
+
+    public function fidpsinterface()
+    {
+        return $this->hasMany(FidpsInterface::class, 'service_id');
+    }
+
+    public function fdps()
+    {
+        return $this->hasMany(FdpsInterface::class, 'service_id');
+    }
+
+
+
 }

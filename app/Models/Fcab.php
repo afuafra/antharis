@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fcab extends Model
 {
-    public function FcabSplitter()
+    public function fcabsplitter()
     {
 
         return $this->belongsTo(FcabSplitter::class);
@@ -22,7 +22,7 @@ class Fcab extends Model
         return $this->belongsTo(\App\Models\devicesites::class);
     }
 
-    public function Interface()
+    public function interface()
     {
         return $this->hasMany(FcabInterface::class, 'fcab_id');
     }

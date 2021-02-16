@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models;
+use App\Models\devicesites;
 use Illuminate\Http\Request;
 
 class devicesitesController extends Controller
@@ -11,9 +13,24 @@ class devicesitesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $devicesites=\App\Models\devicesites::orderBy("id","desc")->paginate();
+
+        $query = devicesites::query();
+
+        if($request->has('search')){
+
+            $searchValue = $request->get('search');
+
+            $query->where('AtollCity','like' ,'%'.$searchValue.'%')
+                ->orWhere('IslandDistrict', 'like', '%'.$searchValue.'%')
+                ->orWhere('Site', 'like', '%'.$searchValue.'%')
+                ->orWhere('atollislandsite', 'like', '%'.$searchValue.'%');
+
+        }
+
+        $devicesites   = $query->paginate();
+
         return view("devicesites.index")->with("devicesites",$devicesites);
     }
 

@@ -16,13 +16,16 @@ class Fdps extends Model
     ];
 
 
-    public function Interfaces()
+    public function interface()
     {
-
-        return $this->belongsTo('App\Models\Fdps','fdp_id','id');
+        return $this->hasMany(FdpsInterface::class, 'fdp_id');
     }
+
     public function devicesites(){
 
         return $this->belongsTo(\App\Models\devicesites::class);
     }
+
+
+
 }

@@ -35,7 +35,7 @@ class FcabSplitterController extends Controller
         $fcab = Fcab::all();
 
 //        dd($fcab);
-        return $splitters;
+//        return $splitters;
 
         return view("fcabs_splitter.index")->with("splitters",$splitters)->with ("fcab_list",$fcab);
     }

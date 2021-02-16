@@ -17,10 +17,22 @@ class FidpsInterface extends Model
         'atollislandsite'
     ];
 
-    public function Fidps(){
+    public function fidps(){
 
 
         return $this->belongsTo('App\Models\Fidps','fidp_id','id');
 
+    }
+
+    public function fdps(){
+
+
+        return $this->belongsTo(Fidpsinterface::class);
+
+    }
+
+    public function fdpsinterface()
+    {
+        return $this->belongsTo(FdpsInterface::class, 'fdps_interface_id');
     }
 }

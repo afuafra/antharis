@@ -48,7 +48,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add fcab</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add OLT Interface</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -75,16 +75,7 @@
                                                 <input type="text" class="form-control" name="olt_port"
                                                        id="olt_port">
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">odf_interfaces_id</label>
-                                                    <select  class="form-control" name="odf_interfaces_id" list="list" id="odf_interfaces_id">
-                                                            <option> </option>
-                                                        @foreach($odf_interface as $Interface)
-                                                            <option value="{{$Interface->id}}">ODF {{$Interface->odf_no}}--> PORT {{$Interface->odf_port}} -->
-                                                                RACK {{$Interface}}</option>
-                                                        @endforeach
-                                                    </select>
-                                            </div>
+
                                             <div class="mb-3">
                                                 <label class="form-label">olts_id</label>
                                                 <select  class="form-control" name="olts_id" list="list" id="olts_id">
@@ -122,17 +113,17 @@
                                 <th>
                                     <strong>Port</strong>
                                 </th>
-                                <th>
-                                    <strong>ODF Rack</strong>
-                                </th>
-                                <th>
-                                    <strong>ODF Number</strong>
-                                </th>
-                                <th>
-                                    <strong>ODF Port</strong>
-                                </th>
+{{--                                <th>--}}
+{{--                                    <strong>ODF Rack</strong>--}}
+{{--                                </th>--}}
+{{--                                <th>--}}
+{{--                                    <strong>ODF Number</strong>--}}
+{{--                                </th>--}}
+{{--                                <th>--}}
+{{--                                    <strong>ODF Port</strong>--}}
+{{--                                </th>--}}
 
-                                <th>
+{{--                                <th>--}}
                                     <strong>Action</strong>
                                 </th>
                             </tr>
@@ -156,24 +147,24 @@
                                     <td>
                                         {{$interface->olt_port}}
                                     </td>
-                                    <td>
-                                        @if(isset($interface->odfinterface->odfrack->odf_device_id))
-                                            {{$interface->odfinterface->odfrack->odf_device_id}}
-                                        @else
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if(isset($interface->odfinterface->odf_no))
-                                            {{$interface->odfinterface->odf_no}}
-                                        @else
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if(isset($interface->odfinterface->odf_port))
-                                            {{$interface->odfinterface->odf_port}}
-                                        @else
-                                        @endif
-                                    </td>
+{{--                                    <td>--}}
+{{--                                        @if(isset($interface->odfinterface->odfrack->odf_device_id))--}}
+{{--                                            {{$interface->odfinterface->odfrack->odf_device_id}}--}}
+{{--                                        @else--}}
+{{--                                        @endif--}}
+{{--                                    </td>--}}
+{{--                                    <td>--}}
+{{--                                        @if(isset($interface->odfinterface->odf_no))--}}
+{{--                                            {{$interface->odfinterface->odf_no}}--}}
+{{--                                        @else--}}
+{{--                                        @endif--}}
+{{--                                    </td>--}}
+{{--                                    <td>--}}
+{{--                                        @if(isset($interface->odfinterface->odf_port))--}}
+{{--                                            {{$interface->odfinterface->odf_port}}--}}
+{{--                                        @else--}}
+{{--                                        @endif--}}
+{{--                                    </td>--}}
 
                                     <td>
                                         {{--        <button type="button" rel="tooltip" class="btn btn-success"--}}
@@ -228,10 +219,8 @@
             var formData = {
 
                 'olt_frame': $("#olt_frame").val(),
-                'odf_interfaces_id': $("#odf_interfaces_id").val(),
                 'olt_card': $("#olt_card").val(),
                 'olt_port': $("#olt_port").val(),
-                'odf_interfaces_id': $("#odf_interfaces_id").val(),
                 'olts_id': $("#olts_id").val(),
 
                 olts_id

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateServiceRequest;
 use App\Models;
+use App\Models\services;
 use Illuminate\Http\Request;
 
 
@@ -14,10 +15,28 @@ class ServicesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $services=\App\Models\services::paginate();
+        $query = services::query();
+
+        if($request->has('search')){
+
+            $searchValue = $request->get('search');
+
+            $query->where('orderNumber','like' ,'%'.$searchValue.'%')
+                ->orWhere('serviceNumber', 'like', '%'.$searchValue.'%')
+                ->orWhere('customerName', 'like', '%'.$searchValue.'%')
+                ->orWhere('customerAddress', 'like', '%'.$searchValue.'%');
+
+
+
+        }
+
+        $services   = $query->orderBy("id","desc")->paginate();
+
+
+
         return view("services.index")->with("services",$services);
     }
 

@@ -13,9 +13,24 @@ class FdpController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $fdps=Fdps::orderBy("id","desc")->with('devicesites')->paginate();
+
+        $query = Fdps::query();
+
+        if($request->has('search')){
+
+            $searchValue = $request->get('search');
+
+            $query->where('fdp_no','like' ,'%'.$searchValue.'%')
+                ->orWhere('fdp_device_id', 'like', '%'.$searchValue.'%')
+                ->orWhere('device_address', 'like', '%'.$searchValue.'%')
+                ->orWhere('devicesites_id', 'like', '%'.$searchValue.'%');
+
+        }
+
+        $fdps   = $query->orderBy("id","desc")->paginate();
+
         $devicesites = devicesites::all();
 
 //        return $devicesites;

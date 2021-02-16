@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\odfInterface;
 use App\Models\odfRack;
 use App\Models\olt;
+use App\Models\oltInterface;
 use Illuminate\Http\Request;
 
 class OdfInterfaceController extends Controller
@@ -16,16 +17,17 @@ class OdfInterfaceController extends Controller
      */
     public function index()
     {
-        $odfinterface=odfInterface::orderBy("id","desc")->with(['odfRack'])->paginate();
+        $odfinterface=odfInterface::orderBy("id","desc")->with(['odfrack.interface.oltinterface.olt'])->paginate();
 
 
-        $olt = olt::all();
+        $oltInterfaces = oltInterface::with('olt')->paginate();
 //        $odfInterface = odfInterface::all();
-        $odfrack = odfRack::all();
+        $odfrack = odfRack::paginate();
+
 
 //return $odfinterface;
 
-        return view("odf_interfaces.index")->with("odfInterface_list",$odfinterface)->with ("olt",$olt) ;
+        return view("odf_interfaces.index")->with("odfInterface_list",$odfinterface)->with("oltInterfaces",$oltInterfaces)->with("odfracks",$odfrack) ;
     }
 
     /**
@@ -46,7 +48,15 @@ class OdfInterfaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $res=new \App\Models\odfInterface();
+        $res->odf_no=$request->input("odf_no");
+        $res->odf_port=$request->input("odf_port");
+        $res->odf_racks_id=$request->input("odf_racks_id");
+        $res->olt_interface_id=$request->input("olt_interface_id");
+        $res->save();
+
+        $request->session()->flash("msg","New Service Added");
+        return redirect("odf_interfaces");
     }
 
     /**
@@ -80,7 +90,12 @@ class OdfInterfaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $res = \App\Models\odfInterface::find($id);
+        $input = $request->all();
+
+        $res->fill($input)->save();
+
+        return $res;
     }
 
     /**

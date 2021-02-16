@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fidps;
+use App\Models\services;
 use Illuminate\Http\Request;
 
 class ServiceRouteController extends Controller
@@ -11,9 +13,39 @@ class ServiceRouteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view("serviceRoute.index");
+        $search = $request->query('search');
+
+        if (isset($search)){
+
+            $service = services::with(['fidpsinterface.fidps.fidpsinterface.fdpsinterface.fdps.interface.fcabinterface.fcabs.interface.odfinterface.oltinterface.olt',
+                                       'fidpsinterface.fidps.fidpsinterface.fdpsinterface.fdps.interface.fcabinterface.fcabs.interface.splitterinterface.splitter',
+                                       'fidpsinterface.fidps.fidpsinterface.fdpsinterface.fdps.interface.fcabinterface.fcabs.interface.odfinterface.odfrack.interface'])->where('serviceNumber','like','%'.$search.'%')->first();
+
+//            return $service;
+
+//            dd($service);
+
+
+            return view("serviceRoute.index")->with("service",$service);
+        }
+        else{
+
+            return view("serviceRoute.index")->with("service",null);
+
+        }
+
+//        $number  = services::with(['fidpsinterface.Fidps.Interface.FdpsInterface.Fdps.Interface.fcabinterface.Fcabs.Interface.SplitterInterface.splitter',
+//            'fidpsinterface.Fidps.Interface.FdpsInterface.Fdps.Interface.fcabinterface.Fcabs',
+//            'fidpsinterface.Fidps.Interface.FdpsInterface.Fdps.Interface.fcabinterface.Fcabs.Interface.OdfInterface.odfRack.Interface',
+//            'fidpsinterface.Fidps.Interface.FdpsInterface.Fdps.Interface.fcabinterface.Fcabs.Interface.OdfInterface.oltInterface.olt'])->where('serviceNumber','=','BB16693181')->first();
+//
+////        dd($search);
+//        return $number;
+//        $id = $services->find(8);
+
+
     }
 
     /**

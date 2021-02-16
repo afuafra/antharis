@@ -10,30 +10,13 @@
                     <h4 class="card-title">Device Sites</h4>
                 </div>
 
-                <div class="container-fluid">
-                    <table class="table">
-                        <tbody>
-                        <form class="well form-horizontal">
-                            <fieldset>
-                                <label class="col-md-4 control-label">Service Number Search</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" style="max-width: 100%;"><i
-                                                class="glyphicon glyphicon-list"></i></span>
-                                        <select class="selectpicker form-control">
-                                            <option></option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                        </tbody>
-                    </table>
-                </div>
+                <form class="form-inline" action="" method="get">
+                    <div class="form-group mx-sm-3">
+                        <input class="form-control" name='search' type="search" placeholder="Search">
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
 
                 {{--                <div class="container-fluid">--}}
                 {{--                    <a href="{{route("devicesites.create")}}" type="button" class="btn btn-primary" data-bs-toggle="modal">--}}

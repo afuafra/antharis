@@ -21,7 +21,7 @@ class FidpSplitter extends Model
     }
 
 
-    public function Interface()
+    public function interface()
     {
         return $this->hasMany(FidpSplitterInterface::class, 'fidp_splitter_id');
     }

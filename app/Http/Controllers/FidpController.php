@@ -20,7 +20,7 @@ class FidpController extends Controller
     public function index(Request $request)
     {
 //
-        $fidps=Fidps::orderBy("id","desc")->with('devicesites','interface')->paginate();
+        $fidps=Fidps::orderBy("id","desc")->with('devicesites','fidpsinterface')->paginate();
         $devicesites = devicesites::all();
         $fidpinterface = FidpsInterface::all();
 

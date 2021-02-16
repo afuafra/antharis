@@ -19,6 +19,12 @@ class CreateFidpsInterfacesTable extends Migration
             $table->string('port');
             $table->unsignedBigInteger('fidp_id');
             $table->foreign('fidp_id')->references('id')->on('fidps');
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('service_id')->references('id')->on('services');
+            $table->unsignedBigInteger('fidp_splitter_interface_id')->nullable();
+            $table->foreign('fidp_splitter_interface_id')->references('id')->on('fidp_splitter_interfaces');
+            $table->unsignedBigInteger('fdps_interface_id')->nullable();
+            $table->foreign('fdps_interface_id')->references('id')->on('fdps_interfaces');
             $table->timestamps();
 
         });

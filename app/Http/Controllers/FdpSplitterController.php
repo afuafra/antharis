@@ -26,7 +26,7 @@ class FdpSplitterController extends Controller
 
         }
 
-        $splitters   = $query->with('interface')->paginate();
+        $splitters   = $query->with('interface')->orderBy("id","desc")->paginate();
 
 
 //        $splitters=::orderBy("id","desc")->with(['fcab'])->paginate();

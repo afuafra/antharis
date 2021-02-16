@@ -88,6 +88,7 @@ Route::resource('fidp_splitters', FidpSplitterController::class);
 
 Route::resource('fidp_splitter_interfaces', FidpSplitterInterfaceController::class);
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

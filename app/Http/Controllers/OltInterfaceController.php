@@ -17,14 +17,22 @@ class OltInterfaceController extends Controller
      */
     public function index()
     {
-        $oltinterface=oltinterface::orderBy("id","desc")->with(['olt','odfinterface','odfinterface.odfRack'])->paginate();
+        $oltinterface=oltinterface::orderBy("id","desc")->with(['olt'])->paginate();
         $olt = olt::all();
         $odfinterface = odfinterface::with('odfRack')->get();
+
+        $oltinterfaces = odfinterface::with('odfRack.interface.oltinterface.olt')->paginate();
         $odfrack = odfRack::all();
 
-//return $odfrack;
+        $olt=oltinterface::all();
+        $oltinter = odfinterface::with('odfRack.interface.oltinterface.olt')->get();
 
-        return view("olt_interfaces.index")->with("olt_interface",$oltinterface)->with ("olt_list",$olt)->with ("odf_interface",$odfinterface) ;
+        $added = compact('olt','oltinter');
+
+
+//return $added;
+
+        return view("olt_interfaces.index")->with("olt_interface",$oltinterface)->with ("olt_list",$olt)->with ("odf_interface",$odfinterface);
     }
 
     /**
@@ -49,7 +57,6 @@ class OltInterfaceController extends Controller
         $res->olt_frame=$request->input("olt_frame");
         $res->olt_card=$request->input("olt_card");
         $res->olt_port=$request->input("olt_port");
-        $res->odf_interfaces_id=$request->input("odf_interfaces_id");
         $res->olts_id=$request->input("olts_id");
         $res->save();
 

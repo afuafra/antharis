@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class FcabSplitterInterface extends Model
 {
-    public function FcabSplitter(){
+    public function fcabSplitter(){
 
         return $this->belongsTo(FcabSplitter::class );
     }
 
 
-    public function Interface()
+    public function interface()
     {
         return $this->hasMany(FcabSplitterInterface::class, 'fcab_splitter_id');
     }

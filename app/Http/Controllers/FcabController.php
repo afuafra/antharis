@@ -14,14 +14,31 @@ class FcabController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $fcab=Fcab::orderBy("id","desc")->with('devicesites')->with(['interface','Interface.Splitter','Interface.SplitterInterface'])->paginate();
-        $devicesites = devicesites::all();
 
-//return $fcab;
+        $query = Fcab::query();
 
-        return view("fcab.index")->with("fcab_list",$fcab)->with ("devicesites_list",$devicesites) ;
+        if($request->has('search')){
+
+            $searchValue = $request->get('search');
+
+            $query->where('fcab_no','like' ,'%'.$searchValue.'%')
+                ->orWhere('fcab_device_id', 'like', '%'.$searchValue.'%')
+                ->orWhere('device_address', 'like', '%'.$searchValue.'%')
+                ->orWhere('devicesites_id', 'like', '%'.$searchValue.'%');
+
+        }
+
+        $fcab   = $query->orderBy("id","desc")->with(['interface','Interface.Splitter','Interface.SplitterInterface'])->paginate();
+
+
+
+        $devicesite = devicesites::all();
+
+//return $devicesite;
+
+        return view("fcab.index")->with("fcab_list",$fcab)->with ("devicesites_list",$devicesite) ;
     }
 
     /**

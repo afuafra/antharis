@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FdpsInterface extends Model
 {
-    public function Fdps(){
+    public function fdps(){
 
 
         return $this->belongsTo('App\Models\Fdps','fdp_id','id');
@@ -19,13 +19,13 @@ class FdpsInterface extends Model
         return $this->belongsTo('App\Models\FcabInterface','fcab_interface_id','id');
 
     }
-    public function Fcab(){
+    public function fcab(){
 
 
         return $this->belongsTo('App\Models\Fcab','fcab_id','id');
 
     }
-    public function Fcabs(){
+    public function fcabs(){
 
 
         return $this->belongsTo('App\Models\Fcab','fcab_id','id');
@@ -37,7 +37,7 @@ class FdpsInterface extends Model
         return $this->belongsTo(fdps::class, 'id', 'fdp_id');
     }
 
-    public function Interface()
+    public function interface()
     {
         return $this->hasMany(fdpsinterface::class, 'fdp_id');
     }
