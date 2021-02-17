@@ -48,13 +48,13 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add FIDP Interface</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add FCAB Interface</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form class="container-fluid" id="fidpsCreate" method="POST"
-                                          action="{{route("fcabs_interface.store")}}" oninput="fidp_device_id.value = 'FIDP' +'|'+ fidp_no.value +'|'+ atollislandsite.value">
+                                    <form class="container-fluid" id="fcabInterfaceCreate" method="POST"
+                                          action="{{route("fcabs_interface.store")}}">
 
 
                                         <div class="modal-body">
@@ -66,37 +66,47 @@
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
                                             <div class="mb-3">
-                                                <label class="form-label">terminal_side</label>
-                                                <input type="text" class="form-control" name="fidp_no"
-                                                       id="fidp_no">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">port</label>
-                                                <input type="text" class="form-control" name="device_address"
-                                                       id="device_address">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">odf_interfaces_id</label>
-                                                <input type="text" class="form-control" name="device_status"
-                                                       id="device_status">
-                                            </div>
+                                                <label class="form-label">Terminal Side</label>
+                                                <select class="form-control" name="terminal_side"
+                                                        id="terminal_side"  >
+                                                    <option disabled selected>Select Terminal Side...</option>
+                                                    <option value="E-SIDE">E-SIDE</option>
+                                                    <option value="D-SIDE">D-SIDE</option>
+                                                </select>
 
-
-                                            <div class="mb-3">
-                                                <label class="form-label">fcab_id </label>
-                                                <input  class="form-control" name="atollislandsite" list="list" id="atollislandsite">
-                                                <datalist id="list">
-                                                </datalist>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">fcab_splitter_interfaces_id</label>
-                                                <input type="text" class="form-control" name="fidp_device_id"
-                                                       id="fidp_device_id" readonly>
+                                                <label class="form-label">Port No</label>
+                                                <input type="text" class="form-control" name="port"
+                                                       id="port" placeholder="Format: A/1">
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">fcab_splitter_device_id</label>
-                                                <input type="text" class="form-control" name="fidp_device_id"
-                                                       id="fidp_device_id" readonly>
+                                                <label class="form-label">ODF Interface ID</label>
+                                                <select  class="form-control" name="odf_interfaces_id" list="list" id="odf_interfaces_id">
+                                                    @foreach($odfInterfaces as $odfInterface)
+                                                        <option></option>
+                                                        <option value="{{ $odfInterface->id }}">{{ $odfInterface->odfrack->odf_device_id}}#ODF-{{ $odfInterface->odf_no}}#PORT-#ODF-{{ $odfInterface->odf_port}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">FCAB ID</label>
+                                                <select  class="form-control" name="fcab_id" list="list" id="fcab_id">
+                                                    @foreach($fcablist as $fcabs)
+                                                        <option></option>
+                                                        <option value="{{ $fcabs->id }}">{{ $fcabs->fcab_device_id}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">FCAB Splitter Interfaces ID</label>
+                                                <input type="text" class="form-control" name="fcab_splitter_interfaces_id"
+                                                       id="fcab_splitter_interfaces_id">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">FCAB Splitter Device ID</label>
+                                                <input type="text" class="form-control" name="fcab_splitter_device_id"
+                                                       id="fcab_splitter_device_id">
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -136,16 +146,19 @@
                                 <th>
                                     <strong>Splitter Name</strong>
                                 </th>
+                                <th>
+                                    <strong>Action</strong>
+                                </th>
                             </tr>
                             </thead>
 
                             <tbody>
-                            @foreach ($fcabs as $fcab)
+                            @foreach ($fcabsinterfaces as $fcab)
                                 <tr>
 
                                     <td>
-                                        <a href="" class="text-primary" data-bs-toggle="modal"
-                                           data-bs-target="#routeView">
+{{--                                        <a href="" class="text-primary" data-bs-toggle="modal"--}}
+{{--                                           data-bs-target="#routeView">--}}
                                         {{$fcab->fcabs->fcab_device_id}}
                                     </td>
                                     <td>
@@ -153,6 +166,9 @@
                                     </td>
                                     <td>
                                         {{$fcab->port}}
+                                    </td>
+                                    <td>
+
                                     </td>
                                     <td>
                                         @if(isset($fcab->SplitterInterface->port))
@@ -168,6 +184,13 @@
 
                                         @endif
                                     </td>
+                                    </td>
+                                    <td>
+
+                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editInterface({{$fcab}})">
+                                            <i class="now-ui-icons ui-2_settings-90"></i></button>
+
+                                    </td>
                                 </tr>
                             @endforeach()
                             </tbody>
@@ -182,7 +205,7 @@
 
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                {!! $fcabs->links() !!}
+                                {!! $fcabsinterfaces->links() !!}
                             </ul>
                         </nav>
 
@@ -194,13 +217,145 @@
 
     </div>
 
+            <!-- Modal -->
+            <div class="container-fluid">
+                <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Update FCAB Interface</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form class="container-fluid">
+                                <div class="mb-3">
+                                    <input type="hidden" id="_id">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Terminal Side</label>
+                                    <select class="form-control" name="_terminal_side"
+                                            id="_terminal_side"  >
+                                        <option disabled selected>Select Terminal Side...</option>
+                                        <option value="E-SIDE">E-SIDE</option>
+                                        <option value="D-SIDE">D-SIDE</option>
+                                    </select>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Port No</label>
+                                        <input type="text" class="form-control" name="_port"
+                                               id="_port" placeholder="Format: A/1">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">ODF Interface ID</label>
+                                        <select  class="form-control" name="_odf_interfaces_id" list="list" id="_odf_interfaces_id">
+                                            @foreach($odfInterfaces as $odfInterface)
+                                                <option disabled selected>Select Terminal Side...</option>
+                                                <option value="{{ $odfInterface->id }}">{{ $odfInterface->odfrack->odf_device_id}}#ODF-{{ $odfInterface->odf_no}}#PORT-#ODF-{{ $odfInterface->odf_port}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">FCAB ID</label>
+                                        <select  class="form-control" name="_fcab_id" list="list" id="_fcab_id">
+                                            @foreach($fcablist as $fcabs)
+                                                <option value="{{ $fcabs->id }}">{{ $fcabs->fcab_device_id}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">FCAB Splitter Interfaces ID</label>
+                                        <input type="text" class="form-control" name="_fcab_splitter_interfaces_id"
+                                               id="_fcab_splitter_interfaces_id">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">FCAB Splitter Device ID</label>
+                                        <input type="text" class="form-control" name="_fcab_splitter_device_id"
+                                               id="_fcab_splitter_device_id">
+                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" onclick="updateInterface()" class="btn btn-primary">Save changes</button>
+                                </div>
+                                </div>
+                            </form>
+                    </div>
+                </div>
 
 
-@endsection
+                    @endsection
 @push('scripts')
     <script>
 
-        var form = $("#fidpsCreate")
+        function editInterface(fcabs_interface){
+            $("#_id").val(fcabs_interface.id)
+            $("#_terminal_side").val(fcabs_interface.terminal_side)
+            $("#_port").val(fcabs_interface.port)
+            $("#_odf_interfaces_id").val(fcabs_interface.odf_interfaces_id)
+            $("#_fcab_id").val(fcabs_interface.fcab_id)
+            $("#_fcab_splitter_interfaces_id").val(fcabs_interface.fcab_splitter_interfaces_id)
+            $("#_fcab_splitter_device_id").val(fcabs_interface.fcab_splitter_device_id)
+
+            var myModel = new bootstrap.Modal(document.getElementById('editModel'),{
+
+                keyboard: false
+            });
+
+            myModel.show()
+            console.log(fcabs_interface)
+
+        }
+
+        function updateInterface(fcab_interfaces){
+
+            var id = $("#_id").val()
+            var url = '/fcabs_interface/'+id
+
+            var formData2 = {
+
+
+
+                'terminal_side': $("#_terminal_side").val(),
+                'port': $("#_port").val(),
+                'odf_interfaces_id': $("#_odf_interfaces_id").val(),
+                'fcab_id': $("#_fcab_id").val(),
+                'fcab_splitter_interfaces_id': $("#_fcab_splitter_interfaces_id").val(),
+                'fcab_splitter_device_id': $("#_fcab_splitter_device_id").val(),
+                '_token': "{{ csrf_token() }}"
+
+            }
+
+            $.ajax({
+
+                type:"PUT",
+                url: url,
+                data: formData2,
+                dataType: "json",
+
+
+                success: function (data){
+
+                    $("").text('Yey!! Service Updated')
+                    setTimeout(() => {
+
+                        location.reload()
+
+                    }, 300)
+
+                },
+
+                error: function (error){
+
+                    console.error('ERROR:',error)
+
+                }
+            });
+
+
+
+        }
+
+
+        var form = $("#fcabInterfaceCreate")
         var method = form.attr('method')
         var url = form.attr('action')
 
@@ -210,11 +365,12 @@
 
             var formData = {
 
-                'fidp_no': $("#fidp_no").val(),
-                'fidp_device_id': $("#fidp_device_id").val(),
-                'device_address': $("#device_address").val(),
-                'device_status': $("#device_status").val(),
-                'atollislandsite': $("#atollislandsite").val(),
+                'terminal_side': $("#terminal_side").val(),
+                'port': $("#port").val(),
+                'odf_interfaces_id': $("#odf_interfaces_id").val(),
+                'fcab_id': $("#fcab_id").val(),
+                'fcab_splitter_interfaces_id': $("#fcab_splitter_interfaces_id").val(),
+                'fcab_splitter_device_id': $("#fcab_splitter_device_id").val(),
                 '_token': $("#csrf").val()
 
             }
@@ -222,7 +378,7 @@
             $.post(url, formData, function (data) {
 
 
-                $("#success").text('Yey!! Service Created')
+                $("#success").text('Yey!!')
                 setTimeout(() => {
 
                     location.reload()

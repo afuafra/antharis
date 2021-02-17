@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class FcabInterface extends Model
 {
+
+    protected $fillable=[
+        'terminal_side',
+        'port',
+        'fcab_id'
+    ];
     public function fcabs(){
 
 
