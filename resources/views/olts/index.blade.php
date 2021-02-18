@@ -182,10 +182,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Update Service</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Update ODF Interface</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="container-fluid">
+                    <form class="container-fluid" oninput="_olt_device_id.value = 'OLT' +'|'+ _olt_name.value +'|'+ _devicesites_id.selectedOptions[0].text">
                         <div class="mb-3">
                             <input type="hidden" id="_id">
                         </div>
@@ -217,7 +217,7 @@
                         <div class="mb-3">
                             <label class="form-label">olt_device_id</label>
                             <input type="text" class="form-control" name="_olt_device_id"
-                                   id="_olt_device_id" readonly>
+                                   id="_olt_device_id">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
@@ -226,7 +226,6 @@
                     </form>
                 </div>
             </div>
-        </div>
 
 @endsection
 @push('scripts')
@@ -260,10 +259,10 @@
 
 
                 'olt_name': $("#_olt_name").val(),
-                'olt_device_id': $("#_device_address").val(),
-                'device_address': $("#_device_status").val(),
-                'device_status': $("#_devicesites_id").val(),
-                'devicesites_id': $("#_olt_device_id").val(),
+                'olt_device_id': $("#_olt_device_id").val(),
+                'device_address': $("#_device_address").val(),
+                'device_status': $("#_device_status").val(),
+                'devicesites_id': $("#_devicesites_id").val(),
                 '_token': "{{ csrf_token() }}"
 
             }

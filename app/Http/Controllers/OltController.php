@@ -85,7 +85,13 @@ class OltController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $res = \App\Models\olt::find($id);
+
+        $input = $request->all();
+
+        $res->fill($input)->save();
+
+        return $res;
     }
 
     /**

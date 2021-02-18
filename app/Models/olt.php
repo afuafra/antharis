@@ -10,6 +10,8 @@ class olt extends Model
     protected $fillable=[
         'olt_name',
         'olt_device_id',
+        'device_address',
+        'device_status',
         'devicesites_id'
     ];
 
