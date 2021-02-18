@@ -169,8 +169,8 @@
 
                                 </td>
                                 <td>
-                                    @if(isset($service->fidpsinterface[0]->fidps->fidpsinterface[0]->fdpsinterface->fdps->interface[0]->fcabinterface->fcabs->interface[1]->splitterinterface))
-                                        {{$service->fidpsinterface[0]->fidps->fidpsinterface[0]->fdpsinterface->fdps->interface[0]->fcabinterface->fcabs->interface[1]->splitterinterface->port}}
+                                    @if(isset($service->fidpsinterface[0]->fidps->fidpsinterface[0]->fdpsinterface->fdps->interface[0]->fcabinterface->fcabs->interface[2]->splitterinterface))
+                                        {{$service->fidpsinterface[0]->fidps->fidpsinterface[0]->fdpsinterface->fdps->interface[0]->fcabinterface->fcabs->interface[2]->splitterinterface->port}}
                                     @else
 
                                     @endif</td>
