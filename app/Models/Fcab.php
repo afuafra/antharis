@@ -19,7 +19,8 @@ class Fcab extends Model
         return $this->belongsTo(FdpsInterface::class);
     }
     public function devicesites(){
-        return $this->belongsTo(\App\Models\devicesites::class);
+
+        return $this->belongsTo(devicesites::class);
     }
 
     public function interface()

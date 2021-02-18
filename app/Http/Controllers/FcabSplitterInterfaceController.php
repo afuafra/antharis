@@ -16,10 +16,11 @@ class FcabSplitterInterfaceController extends Controller
      */
     public function index()
     {
-        $fcabsplitterinterface = FcabSplitterInterface::with('splitter')->paginate();
+        $fcabsplitterinterface = FcabSplitterInterface::with('splitter.fcab.devicesites')->paginate();
 
         $fcabsplitter = FcabSplitter::paginate();
-        $fcabinterfaces = FcabInterface::with('fcabs')->paginate();
+        $fcabinterfaces = FcabInterface::with('fcabs.devicesites')->paginate();
+
 //        return $fcabsplitterinterface;
 
         return view("fcabs_splitter_interface.index")->with("fcabsplitters",$fcabsplitter)->with("splitterinterfaces",$fcabsplitterinterface)->with("fcabinterfaces",$fcabinterfaces);

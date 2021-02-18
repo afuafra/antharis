@@ -94,6 +94,12 @@
                             <thead class=" text-primary">
                             <tr>
                                 <th>
+                                    <strong>Device Site</strong>
+                                </th>
+                                <th>
+                                    <strong>FCAB Name</strong>
+                                </th>
+                                <th>
                                     <strong>Splitter Name</strong>
                                 </th>
                                 <th>
@@ -106,10 +112,15 @@
                             @foreach ($splitterinterfaces as $splitterinterface)
                                 {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
-
                                     <td>
-                                        <a href="" class="text-primary" data-bs-toggle="modal"
-                                           data-bs-target="#routeView">
+                                        {{$splitterinterface->splitter->fcab->devicesites->atollislandsite}}
+                                    </td>
+                                    <td>
+                                        {{$splitterinterface->splitter->fcab->fcab_no}}
+                                    </td>
+                                    <td>
+{{--                                        <a href="" class="text-primary" data-bs-toggle="modal"--}}
+{{--                                           data-bs-target="#routeView">--}}
 
                                         {{$splitterinterface->splitter->fcab_splitter_no}}
                                     </td>
