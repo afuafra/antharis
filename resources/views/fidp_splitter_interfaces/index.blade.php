@@ -104,6 +104,9 @@
                                     <strong>Splitter Name</strong>
                                 </th>
                                 <th>
+                                    <strong>Terminal Side</strong>
+                                </th>
+                                <th>
                                     <strong>Port</strong>
                                 </th>
                             </tr>
@@ -114,10 +117,16 @@
                                 {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
                                     <td>
-                                        {{$splittersinterface->splitter->fidp->devicesites->atollislandsite}}
+                                        @if(isset($splittersinterface->splitter->fidp->devicesites->atollislandsite))
+                                            {{$splittersinterface->splitter->fidp->devicesites->atollislandsite}}
+                                        @else
+                                        @endif
                                     </td>
                                     <td>
-                                        {{$splittersinterface->splitter->fidp->fidp_no}}
+                                        @if(isset($splittersinterface->splitter->fidp->fidp_no))
+                                            {{$splittersinterface->splitter->fidp->fidp_no}}
+                                        @else
+                                        @endif
                                     </td>
                                     <td>
 {{--                                        <a href="" class="text-primary" data-bs-toggle="modal"--}}
@@ -129,6 +138,10 @@
                                         {{$splittersinterface->port}}
                                     </td>
                                     <td>
+                                        @if(isset($splittersinterface->fidpsinterfaces->terminal_side))
+                                            {{$splittersinterface->fidpsinterfaces->terminal_side}}
+                                        @else
+                                        @endif
 
                                     </td>
                                 </tr>

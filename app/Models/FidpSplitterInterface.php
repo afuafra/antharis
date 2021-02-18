@@ -22,6 +22,9 @@ class FidpSplitterInterface extends Model
         return $this->belongsTo(FidpSplitter::class,'fidp_splitter_id');
     }
 
-
+    public function fidpsinterfaces()
+    {
+        return $this->belongsTo(FidpsInterface::class,'fidps_interface_id');
+    }
 
 }

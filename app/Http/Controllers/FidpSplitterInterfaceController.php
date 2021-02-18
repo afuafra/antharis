@@ -28,14 +28,14 @@ class FidpSplitterInterfaceController extends Controller
 
             }
 
-            $splitterinterfaces   = $query->with('splitter.fidp.devicesites')->paginate();
+            $splitterinterfaces   = $query->with('splitter.fidp.devicesites','fidpsinterfaces')->paginate();
 
 
         $splitters=FidpSplitter::paginate();
             $fidpinterfaces = FidpsInterface::with('fidps')->paginate();
 
 //        dd($fcab);
-//        return $fidpinterfaces;
+//        return $splitterinterfaces;
 
             return view("fidp_splitter_interfaces.index")->with("splittersinterfaces",$splitterinterfaces)->with('fidpinterfaces',$fidpinterfaces)->with('splitters',$splitters);
     }
