@@ -10,36 +10,20 @@
                     <h4 class="card-title">ODF Interface </h4>
                 </div>
 
-                <div class="container-fluid">
-                    <table class="table">
-                        <tbody>
-                        <form class="well form-horizontal">
-                            <fieldset>
-                                <label class="col-md-4 control-label">ODF Interface Search</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" style="max-width: 100%;"><i
-                                                class="glyphicon glyphicon-list"></i></span>
-                                        <select class="selectpicker form-control">
-                                            <option></option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                        </tbody>
-                    </table>
-                </div>
+            <div>
+                <form class="form-inline" action="" method="get">
+                    <div class="form-group mx-sm-3">
+                        <input class="form-control" name='search' type="search" placeholder="Search">
+                    </div>
+                    <button class="btn btn-primary mr-4" type="submit">Search</button>
 
-                <div class="container-fluid">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add ODF Interface
-                    </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                            +Add ODF Interface
+                        </button>
+                </form>
+
+
 
                     <!-- Modal -->
                     <div class="container-fluid">
@@ -86,8 +70,8 @@
                                             <div class="mb-3">
                                                 <label class="form-label">olt_interface_id</label>
                                                 <select  class="form-control" name="olt_interface_id" list="list" id="olt_interface_id">
-                                                    @foreach($oltInterfaces as $oltInterface)
                                                         <option></option>
+                                                    @foreach($oltInterfaces as $oltInterface)
                                                         <option value="{{ $oltInterface->id }}">{{ $oltInterface->olt->olt_device_id}} # {{ $oltInterface->olt_frame}}/{{ $oltInterface->olt_card}}/{{ $oltInterface->olt_port}}</option>
                                                     @endforeach
                                                 </select>
@@ -108,24 +92,24 @@
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-sm">
                             <thead class=" text-primary">
                             <tr>
                                 <th>
-                                    <strong>odf_racks_id</strong>
+                                    <strong>ODF Rack</strong>
                                 </th>
                                 <th>
-                                    <strong>odf_no</strong>
+                                    <strong>ODF No</strong>
                                 </th>
                                 <th>
-                                    <strong>odf_port</strong>
+                                    <strong>ODF Port</strong>
                                 </th>
 
                                 <th>
-                                    <strong>olt_interface_id</strong>
+                                    <strong>OLT Name</strong>
                                 </th>
                                 <th>
-                                    <strong>olt port</strong>
+                                    <strong>Frame/Card/Port</strong>
                                 </th>
                                 <th>
                                     <strong>Action</strong>
@@ -138,13 +122,13 @@
                                 {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
                                     <td>
-                                        {{$interface->odfRack->odf_device_id}}
+                                        {{$interface->odfRack->odf_rack_name}}
                                     </td>
 
                                     <td>
-                                        <a href="" class="text-primary" data-bs-toggle="modal"
-                                           data-bs-target="#routeView">
-                                        {{$interface->odf_no}}
+{{--                                        <a href="" class="text-primary" data-bs-toggle="modal"--}}
+{{--                                           data-bs-target="#routeView">--}}
+                                        ODF-{{$interface->odf_no}}
                                     </td>
 
                                     <td>
@@ -152,10 +136,21 @@
                                     </td>
 
                                     <td>
-                                        {{$interface->odfRack->interface[0]->oltinterface->olt->olt_device_id}}
+                                        @if(isset($interface->oltinterface->olt->olt_name))
+                                            {{$interface->oltinterface->olt->olt_name}}
+                                        @else
+                                        @endif
+
                                     </td>
                                     <td>
-                                        {{$interface->odfRack->interface[0]->oltinterface->olt_frame}}/{{$interface->odfRack->interface[0]->oltinterface->olt_card}}/{{$interface->odfRack->interface[0]->oltinterface->olt_port}}
+                                        @if(isset($interface->oltinterface))
+                                            {{$interface->oltinterface->olt_frame}}/{{$interface->oltinterface->olt_card}}/{{$interface->oltinterface->olt_port}}
+                                        @else
+
+
+
+                                        @endif
+
                                     </td>
                                     <td>
                                         {{--        <button type="button" rel="tooltip" class="btn btn-success"--}}
@@ -226,8 +221,8 @@
                         <div class="mb-3">
                             <label class="form-label">olt_interface_id</label>
                             <select  class="form-control" name="_olt_interface_id" list="list" id="_olt_interface_id">
+                                <option></option>
                                 @foreach($oltInterfaces as $oltInterface)
-                                    <option></option>
                                     <option value="{{ $oltInterface->id }}">{{ $oltInterface->olt->olt_device_id}} # {{ $oltInterface->olt_frame}}/{{ $oltInterface->olt_card}}/{{ $oltInterface->olt_port}}</option>
                                 @endforeach
                             </select>

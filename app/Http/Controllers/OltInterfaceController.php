@@ -18,7 +18,7 @@ class OltInterfaceController extends Controller
     public function index()
     {
         $oltinterface=oltinterface::orderBy("id","desc")->with(['olt'])->paginate();
-        $olt = olt::all();
+        $olts = olt::all();
         $odfinterface = odfinterface::with('odfRack')->get();
 
         $oltinterfaces = odfinterface::with('odfRack.interface.oltinterface.olt')->paginate();
@@ -30,9 +30,9 @@ class OltInterfaceController extends Controller
         $added = compact('olt','oltinter');
 
 
-//return $added;
+//return $oltinterface;
 
-        return view("olt_interfaces.index")->with("olt_interface",$oltinterface)->with ("olt_list",$olt)->with ("odf_interface",$odfinterface);
+        return view("olt_interfaces.index")->with("olt_interface",$oltinterface)->with ("olt_list",$olts)->with ("odf_interface",$odfinterface);
     }
 
     /**

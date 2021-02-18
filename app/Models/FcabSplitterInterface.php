@@ -23,4 +23,9 @@ class FcabSplitterInterface extends Model
         return $this->belongsTo(FcabSplitter::class,'fcab_splitter_id');
     }
 
+    public function fcabinterfaces()
+    {
+        return $this->belongsTo(FcabInterface::class,'fcab_interface_id');
+    }
+
 }

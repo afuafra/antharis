@@ -65,13 +65,13 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li>
-                <a data-toggle="collapse" href="#inventory" >
-                    <i class="now-ui-icons education_atom"></i>
+                <a data-toggle="collapse" href="#devices" >
+                    <i class="now-ui-icons design_bullet-list-67"></i>
                     <p>
-                        Inventory <b class="caret"></b>
+                        Devices <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse " id="inventory">
+                <div class="collapse " id="devices">
                     <ul class="nav">
                         <li >
                             <a href="{{route("olts.index")}}">
@@ -79,19 +79,8 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                             </a>
                         </li>
                         <li >
-                            <a href="{{route("olt_interfaces.index")}}">
-                                <span class="sidebar-mini-icon pl-5">OLT Interface</span>
-                            </a>
-                        </li>
-
-                        <li >
                             <a href="{{route("odf_racks.index")}}">
                                 <span class="sidebar-mini-icon pl-5"><strong>ODF</strong></span>
-                            </a>
-                        </li>
-                        <li >
-                            <a href="{{route("odf_interfaces.index")}}">
-                                <span class="sidebar-mini-icon pl-5">ODF Interface</span>
                             </a>
                         </li>
                         <li >
@@ -100,18 +89,8 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                             </a>
                         </li>
                         <li >
-                            <a href="{{route("fcabs_interface.index")}}">
-                                <span class="sidebar-mini-icon pl-5">FCAB Interface</span>
-                            </a>
-                        </li>
-                        <li >
                             <a href="{{route("fcabs_splitter.index")}}">
-                                <span class="sidebar-mini-icon pl-5">FCAB Splitter</span>
-                            </a>
-                        </li>
-                        <li >
-                            <a href="{{route("fcab_splitter_interface.index")}}">
-                                <span class="sidebar-mini-icon pl-5">FCAB Splitter Interface</span>
+                                <span class="sidebar-mini-icon pl-5"><strong>FCAB Splitter</strong></span>
                             </a>
                         </li>
                         <li >
@@ -121,13 +100,8 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                             </a>
                         </li>
                         <li >
-                            <a href="{{route("fdps_interface.index")}}">
-                                <span class="sidebar-mini-icon pl-5">FDP Interface</span>
-                            </a>
-                        </li>
-                        <li >
                             <a href="{{route("fdp_splitters.index")}}">
-                                <span class="sidebar-mini-icon pl-5">FDP Splitter</span>
+                                <span class="sidebar-mini-icon pl-5"><strong>FDP Splitter</strong></span>
                             </a>
                         </li>
                         <li >
@@ -136,21 +110,60 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                             </a>
                         </li>
                         <li >
-                            <a href="{{route("fidps_interface.index")}}">
-                                <span class="sidebar-mini-icon pl-5">FIDP Interface</span>
-                            </a>
-                        </li>
-                        <li >
                             <a href="{{route("fidp_splitters.index")}}">
-                                <span class="sidebar-mini-icon pl-5">FIDP Splitter</span>
+                                <span class="sidebar-mini-icon pl-5"><strong>FIDP Splitter</strong></span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li>
+                <a data-toggle="collapse" href="#interfaces" >
+                    <i class="now-ui-icons design_bullet-list-67"></i>
+                    <p>
+                        Interfaces <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse " id="interfaces">
+                    <ul class="nav">
+                        <li >
+                            <a href="{{route("olt_interfaces.index")}}">
+                                <span class="sidebar-mini-icon pl-5">OLT Interface</span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="{{route("odf_interfaces.index")}}">
+                                <span class="sidebar-mini-icon pl-5">ODF Interface</span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="{{route("fcabs_interface.index")}}">
+                                <span class="sidebar-mini-icon pl-5">FCAB Interface</span>
+                            </a>
+                        </li>
+
+                        <li >
+                            <a href="{{route("fcab_splitter_interface.index")}}">
+                                <span class="sidebar-mini-icon pl-5">FCAB Splitter Interface</span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="{{route("fdps_interface.index")}}">
+                                <span class="sidebar-mini-icon pl-5">FDP Interface</span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="{{route("fidps_interface.index")}}">
+                                <span class="sidebar-mini-icon pl-5">FIDP Interface</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+            <li>
                 <a href="{{route("services.index")}}">
-                    <i class="now-ui-icons education_atom"></i>
+                    <i class="now-ui-icons education_agenda-bookmark"></i>
                     <p>Services</p>
                 </a>
             </li>
@@ -160,20 +173,20 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                     <p>Route</p>
                 </a>
             </li>
-            <li>
-                <a href="{{route("connectivity")}}">
-                    <i class="now-ui-icons arrows-1_share-66"></i>
-                    <p>Connectivity</p>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="{{route("connectivity")}}">--}}
+{{--                    <i class="now-ui-icons arrows-1_share-66"></i>--}}
+{{--                    <p>Connectivity</p>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li>
 
                 <a data-toggle="collapse" href="#customObjects" >
 
-                    <i class="now-ui-icons education_atom"></i>
+                    <i class="now-ui-icons shopping_shop"></i>
 
                     <p>
-                        Custome Objects <b class="caret"></b>
+                        Custom Objects <b class="caret"></b>
                     </p>
                 </a>
 

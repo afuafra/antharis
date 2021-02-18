@@ -60,6 +60,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label">FCAB Device Name </label>
                                                 <select class="form-control" id="fcab_id" name="fcab_id"  >
+                                                    <option disabled selected>Select FCAB...</option>
                                                     @foreach($fcab_list as $fcab_li)
                                                         <option value="{{ $fcab_li->id }}">{{ $fcab_li->fcab_device_id}}</option>
                                                     @endforeach

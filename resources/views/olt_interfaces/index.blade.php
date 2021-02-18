@@ -10,30 +10,12 @@
                     <h4 class="card-title">OLT Interface </h4>
                 </div>
 
-                <div class="container-fluid">
-                    <table class="table">
-                        <tbody>
-                        <form class="well form-horizontal">
-                            <fieldset>
-                                <label class="col-md-4 control-label">OLT Interface Search</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" style="max-width: 100%;"><i
-                                                class="glyphicon glyphicon-list"></i></span>
-                                        <select class="selectpicker form-control">
-                                            <option></option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                        </tbody>
-                    </table>
-                </div>
+                <form class="form-inline" action="" method="get">
+                    <div class="form-group mx-sm-3">
+                        <input class="form-control" name='search' type="search" placeholder="Search">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
 
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
@@ -105,13 +87,7 @@
                                     <strong>OLT Name</strong>
                                 </th>
                                 <th>
-                                    <strong>Frame</strong>
-                                </th>
-                                <th>
-                                    <strong>Card</strong>
-                                </th>
-                                <th>
-                                    <strong>Port</strong>
+                                    <strong>Frame/Card/Port</strong>
                                 </th>
 {{--                                <th>--}}
 {{--                                    <strong>ODF Rack</strong>--}}
@@ -123,7 +99,7 @@
 {{--                                    <strong>ODF Port</strong>--}}
 {{--                                </th>--}}
 
-{{--                                <th>--}}
+                                <th>
                                     <strong>Action</strong>
                                 </th>
                             </tr>
@@ -135,17 +111,11 @@
                                     <td>
                                         <a href="" class="text-primary" data-bs-toggle="modal"
                                            data-bs-target="#routeView">
-                                        {{$interface->olt->olt_device_id}}
+                                        {{$interface->olt->olt_name}}
                                     </td>
 
                                     <td>
-                                        {{$interface->olt_frame}}
-                                    </td>
-                                    <td>
-                                        {{$interface->olt_card}}
-                                    </td>
-                                    <td>
-                                        {{$interface->olt_port}}
+                                        {{$interface->olt_frame}}/{{$interface->olt_card}}/{{$interface->olt_port}}
                                     </td>
 {{--                                    <td>--}}
 {{--                                        @if(isset($interface->odfinterface->odfrack->odf_device_id))--}}

@@ -4,8 +4,10 @@ use App\Http\Controllers\FcabController;
 use App\Http\Controllers\FcabInterfaceController;
 use App\Http\Controllers\FcabSplitterController;
 use App\Http\Controllers\FcabSplitterInterfaceController;
+use App\Http\Controllers\FdpsInterfaceController;
 use App\Http\Controllers\FdpSplitterController;
 use App\Http\Controllers\FdpSplitterInterfaceController;
+use App\Http\Controllers\FidpsInterfaceController;
 use App\Http\Controllers\FidpSplitterController;
 use App\Http\Controllers\FidpSplitterInterfaceController;
 use App\Http\Controllers\OdfInterfaceController;
@@ -57,12 +59,9 @@ Route::resource('fidp', FidpController::class);
 
 Route::resource('fdp', FdpController::class);
 
+Route::resource('fidps_interface', FidpsInterfaceController::class);
 
-//Route::get('fidps_interface', [App\Http\Controllers\FidpsInterfaceController::class,'index'])-> name('fidps_interface');
-
-Route::resource('fidps_interface', \App\Http\Controllers\FidpsInterfaceController::class);
-
-Route::resource('fdps_interface', \App\Http\Controllers\FdpsInterfaceController::class);
+Route::resource('fdps_interface', FdpsInterfaceController::class);
 
 Route::resource('fcab', FcabController::class);
 

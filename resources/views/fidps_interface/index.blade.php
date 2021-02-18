@@ -124,12 +124,17 @@
                                 <th>
                                     <strong>Port</strong>
                                 </th>
+                                <th>
+                                    <strong>Service No</strong>
+                                </th>
+                                <th>
+                                    <strong>Action</strong>
+                                </th>
                             </tr>
                             </thead>
 
                             <tbody>
                             @foreach ($fidps as $fidp)
-                                {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
 
                                     <td>
@@ -143,6 +148,14 @@
                                     </td>
                                     <td>
                                         {{$fidp->port}}
+                                    </td>
+                                    <td>
+                                        {{$fidp->services->serviceNumber}}
+                                    </td>
+                                    <td>
+                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editInterface({{$fidp}})">
+                                            <i class="now-ui-icons ui-2_settings-90"></i></button>
+
                                     </td>
                                 </tr>
                             @endforeach()
@@ -170,11 +183,142 @@
 
     </div>
 
+        <!-- Modal -->
+        <div class="container-fluid">
+            <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Update ODF Interface</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form class="container-fluid">
+                            <div class="mb-3">
+                                <input type="hidden" id="_id">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">_terminal_side</label>
+                                <input type="text" id="_terminal_side" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">_port</label>
+                                <input type="text" id="_port" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">_fidp_id</label>
+{{--                                <select  class="form-control" name="_fidp_id" list="list" id="_fidp_id">--}}
+{{--                                    @foreach($odfracks as $odfrack)--}}
+{{--                                        <option value="{{ $odfrack->id }}">{{ $odfrack->odf_device_id}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">_service_id</label>
+{{--                                <select  class="form-control" name="_service_id" list="list" id="_service_id">--}}
+{{--                                    <option></option>--}}
+{{--                                    @foreach($oltInterfaces as $oltInterface)--}}
+{{--                                        <option value="{{ $oltInterface->id }}">{{ $oltInterface->olt->olt_device_id}} # {{ $oltInterface->olt_frame}}/{{ $oltInterface->olt_card}}/{{ $oltInterface->olt_port}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">_fidp_splitter_interface_id</label>
+                                {{--                                <select  class="form-control" name="_service_id" list="list" id="_service_id">--}}
+                                {{--                                    <option></option>--}}
+                                {{--                                    @foreach($oltInterfaces as $oltInterface)--}}
+                                {{--                                        <option value="{{ $oltInterface->id }}">{{ $oltInterface->olt->olt_device_id}} # {{ $oltInterface->olt_frame}}/{{ $oltInterface->olt_card}}/{{ $oltInterface->olt_port}}</option>--}}
+                                {{--                                    @endforeach--}}
+                                {{--                                </select>--}}
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">_fdps_interface_id</label>
+                                {{--                                <select  class="form-control" name="_service_id" list="list" id="_service_id">--}}
+                                {{--                                    <option></option>--}}
+                                {{--                                    @foreach($oltInterfaces as $oltInterface)--}}
+                                {{--                                        <option value="{{ $oltInterface->id }}">{{ $oltInterface->olt->olt_device_id}} # {{ $oltInterface->olt_frame}}/{{ $oltInterface->olt_card}}/{{ $oltInterface->olt_port}}</option>--}}
+                                {{--                                    @endforeach--}}
+                                {{--                                </select>--}}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" onclick="updateInterface()" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
 
 @endsection
 @push('scripts')
     <script>
+
+        function editInterface(fidps_interface){
+            $("#_id").val(fidps_interface.id)
+            $("#_terminal_side").val(fidps_interface.terminal_side)
+            $("#_port").val(fidps_interface.port)
+            $("#_fidp_id").val(fidps_interface.fidp_id)
+            $("#_service_id").val(fidps_interface.service_id)
+            $("#_fidp_splitter_interface_id").val(fidps_interface.fidp_splitter_interface_id)
+            $("#_fdps_interface_id").val(fidps_interface.fdps_interface_id)
+
+            var myModel = new bootstrap.Modal(document.getElementById('editModel'),{
+
+                keyboard: false
+            });
+
+            myModel.show()
+            console.log(odf_interfaces)
+
+        }
+
+        function updateInterface(fidps_interface){
+
+            var id = $("#_id").val()
+            var url = '/fidps_interface/'+id
+
+            var formData2 = {
+
+
+
+                'terminal_side': $("#_terminal_side").val(),
+                'port': $("#_port").val(),
+                'fidp_id': $("#_fidp_id").val(),
+                'service_id': $("#_service_id").val(),
+                'fidp_splitter_interface_id': $("#_fidp_splitter_interface_id").val(),
+                'fdps_interface_id': $("#_fdps_interface_id").val(),
+                '_token': "{{ csrf_token() }}"
+
+            }
+
+            $.ajax({
+
+                type:"PUT",
+                url: url,
+                data: formData2,
+                dataType: "json",
+
+
+                success: function (data){
+
+                    $("").text('Yey!! Service Updated')
+                    setTimeout(() => {
+
+                        location.reload()
+
+                    }, 300)
+
+                },
+
+                error: function (error){
+
+                    console.error('ERROR:',error)
+
+                }
+            });
+
+
+
+        }
 
         var form = $("#fidpsCreate")
         var method = form.attr('method')

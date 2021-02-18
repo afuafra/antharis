@@ -10,11 +10,12 @@ class FidpsInterface extends Model
 {
 
     protected $fillable=[
-        'fidp_no',
-        'fidp_device_id',
-        'device_address',
-        'device_status',
-        'atollislandsite'
+        'terminal_side',
+        'port',
+        'fidp_id',
+        'service_id',
+        'fidp_splitter_interface_id',
+        'fdps_interface_id'
     ];
 
     public function fidps(){
@@ -34,5 +35,10 @@ class FidpsInterface extends Model
     public function fdpsinterface()
     {
         return $this->belongsTo(FdpsInterface::class, 'fdps_interface_id');
+    }
+
+    public function services()
+    {
+        return $this->belongsTo(Services::class, 'service_id');
     }
 }

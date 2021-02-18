@@ -9,13 +9,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">FCAB Splitter</h4>
+                    <h4 class="card-title">FCAB Splitter Interface</h4>
                 </div>
 
 
                 <form class="form-inline" action="" method="get">
                     <div class="form-group mx-sm-3">
-                        <label for="inputPassword2" class="sr-only">Password</label>
                         <input class="form-control" name='search' type="search" placeholder="Search">
                     </div>
 
@@ -25,7 +24,7 @@
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add FCAB Splitter
+                        +Add FCAB Splitter Interface
                     </button>
 
                     <!-- Modal -->
@@ -35,7 +34,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add FCAB Splitter</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add FCAB Splitter Interface</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -53,26 +52,31 @@
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
                                             <div class="mb-3">
-                                                <label class="form-label">fcab splitter no</label>
-                                                <input type="text" class="form-control" name="fcab_splitter_no"
-                                                       id="fcab_splitter_no">
+                                                <label class="form-label">port</label>
+                                                <input type="text" class="form-control" name="port"
+                                                       id="port">
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">FCAB Device Name </label>
-                                                <select class="form-control" id="fcab_id" name="fcab_id"  >
-                                                    @foreach($fcab_list as $fcab_li)
-                                                        <option value="{{ $fcab_li->id }}">{{ $fcab_li->fcab_device_id}}</option>
+                                                <label class="form-label">fcab_splitter_device_id </label>
+                                                <select class="form-control" id="fcab_splitter_device_id" name="fcab_splitter_device_id" >
+                                                    @foreach($fcabsplitters as $fcabsplitter)
+                                                        <option value="{{ $fcabsplitter->id }}">{{ $fcabsplitter->fcab_splitter_device_id}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">fcab_splitter_device_id</label>
-                                                <input type="text" class="form-control" name="fcab_splitter_device_id"
-                                                       id="fcab_splitter_device_id">
+                                                <label class="form-label">fcab_interface_id </label>
+                                                <select class="form-control" id="fcab_interface_id" name="fcab_interface_id"  >
+                                                    <option disabled selected>Select FCAB...</option>
+                                                    @foreach($fcabinterfaces as $fcabinterface)
+                                                        <option value="{{ $fcabinterface->id }}">{{ $fcabinterface->fcabs->fcab_device_id}}#PORT-{{ $fcabinterface->port}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
+
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="{{route("fcabs_splitter.index")}}" class="btn btn-secondary"
+                                            <a href="{{route("fcab_splitter_interface.index")}}" class="btn btn-secondary"
                                                data-bs-dismiss="modal">back</a>
                                             <input name="submit" type="submit" class="btn btn-primary">
                                         </div>
@@ -90,19 +94,16 @@
                             <thead class=" text-primary">
                             <tr>
                                 <th>
-                                    <strong>Splitter No</strong>
+                                    <strong>Splitter Name</strong>
                                 </th>
                                 <th>
-                                    <strong>FCAB Splitter Device Name</strong>
-                                </th>
-                                <th>
-                                    <strong>FCAB Device Name</strong>
+                                    <strong>Port</strong>
                                 </th>
                             </tr>
                             </thead>
 
                             <tbody>
-                            @foreach ($splitters as $splitter)
+                            @foreach ($splitterinterfaces as $splitterinterface)
                                 {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
 
@@ -110,13 +111,12 @@
                                         <a href="" class="text-primary" data-bs-toggle="modal"
                                            data-bs-target="#routeView">
 
-                                        {{$splitter->fcab_splitter_no}}
+                                        {{$splitterinterface->splitter->fcab_splitter_no}}
                                     </td>
                                     <td>
-                                        {{$splitter->fcab_splitter_device_id}}
+                                        {{$splitterinterface->port}}
                                     </td>
                                     <td>
-                                        {{$splitter->fcab->fcab_device_id}}
 
                                     </td>
                                 </tr>
@@ -133,7 +133,7 @@
 
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                {!! $splitters->links() !!}
+                                {!! $splitterinterfaces->links() !!}
                             </ul>
                         </nav>
 

@@ -15,13 +15,28 @@ class OdfInterfaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $odfinterface=odfInterface::orderBy("id","desc")->with(['odfrack.interface.oltinterface.olt'])->paginate();
+
+        $query = odfInterface::query();
+
+        if($request->has('search')){
+
+            $searchValue = $request->get('search');
+
+            $query->where('odf_no','like' ,'%'.$searchValue.'%')
+                ->orWhere('odf_port', 'like', '%'.$searchValue.'%')
+                ->orWhere('odf_racks_id', 'like', '%'.$searchValue.'%')
+                ->orWhere('olt_interface_id', 'like', '%'.$searchValue.'%');
+
+
+
+        }
+        $odfinterface= $query ->with('oltinterface.olt')->paginate();
 
 
         $oltInterfaces = oltInterface::with('olt')->paginate();
-//        $odfInterface = odfInterface::all();
+//
         $odfrack = odfRack::paginate();
 
 

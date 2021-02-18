@@ -92,8 +92,8 @@
                                             <div class="mb-3">
                                                 <label class="form-label">FCAB ID</label>
                                                 <select  class="form-control" name="fcab_id" list="list" id="fcab_id">
+                                                    <option disabled selected>Select FCAB...</option>
                                                     @foreach($fcablist as $fcabs)
-                                                        <option></option>
                                                         <option value="{{ $fcabs->id }}">{{ $fcabs->fcab_device_id}}</option>
                                                     @endforeach
                                                 </select>
@@ -248,8 +248,8 @@
                                     <div class="mb-3">
                                         <label class="form-label">ODF Interface ID</label>
                                         <select  class="form-control" name="_odf_interfaces_id" list="list" id="_odf_interfaces_id">
-                                            @foreach($odfInterfaces as $odfInterface)
                                                 <option disabled selected>Select Terminal Side...</option>
+                                            @foreach($odfInterfaces as $odfInterface)
                                                 <option value="{{ $odfInterface->id }}">{{ $odfInterface->odfrack->odf_device_id}}#ODF-{{ $odfInterface->odf_no}}#PORT-#ODF-{{ $odfInterface->odf_port}}</option>
                                             @endforeach
                                         </select>
@@ -257,6 +257,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">FCAB ID</label>
                                         <select  class="form-control" name="_fcab_id" list="list" id="_fcab_id">
+                                            <option></option>
                                             @foreach($fcablist as $fcabs)
                                                 <option value="{{ $fcabs->id }}">{{ $fcabs->fcab_device_id}}</option>
                                             @endforeach

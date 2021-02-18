@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FcabInterface;
 use App\Models\FcabSplitter;
 use App\Models\FcabSplitterInterface;
 use Illuminate\Http\Request;
@@ -15,11 +16,13 @@ class FcabSplitterInterfaceController extends Controller
      */
     public function index()
     {
-        $fcabsplitterinterface = FcabSplitterInterface::select('id')->with('Interface.splitter')->get();
+        $fcabsplitterinterface = FcabSplitterInterface::with('splitter')->paginate();
 
         $fcabsplitter = FcabSplitter::paginate();
+        $fcabinterfaces = FcabInterface::with('fcabs')->paginate();
+//        return $fcabsplitterinterface;
 
-        return $fcabsplitter;
+        return view("fcabs_splitter_interface.index")->with("fcabsplitters",$fcabsplitter)->with("splitterinterfaces",$fcabsplitterinterface)->with("fcabinterfaces",$fcabinterfaces);
 
     }
 
