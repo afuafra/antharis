@@ -153,11 +153,20 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                             </a>
                         </li>
                         <li >
+                            <a href="{{route("fdp_splitter_interfaces.index")}}">
+                                <span class="sidebar-mini-icon pl-5">FDP Splitter Interface</span>
+                            </a>
+                        </li>
+                        <li >
                             <a href="{{route("fidps_interface.index")}}">
                                 <span class="sidebar-mini-icon pl-5">FIDP Interface</span>
                             </a>
                         </li>
-
+                        <li >
+                            <a href="{{route("fidp_splitter_interfaces.index")}}">
+                                <span class="sidebar-mini-icon pl-5">FIDP Splitter Interface</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>

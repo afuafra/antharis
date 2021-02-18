@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fidps;
+use App\Models\FidpsInterface;
+use App\Models\FidpSplitter;
+use App\Models\FidpSplitterInterface;
 use Illuminate\Http\Request;
 
 class FidpSplitterInterfaceController extends Controller
@@ -11,9 +15,29 @@ class FidpSplitterInterfaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+            $query = FidpSplitterInterface::query();
+
+            if($request->has('search')){
+
+                $searchValue = $request->get('search');
+
+                $query->where('fidp_splitter_device_id','like' ,'%'.$searchValue.'%')
+                    ->orWhere('fidp_splitter_no', 'like', '%'.$searchValue.'%');
+
+            }
+
+            $splitterinterfaces   = $query->with('splitter.fidp.devicesites')->paginate();
+
+
+        $splitters=FidpSplitter::paginate();
+            $fidpinterfaces = FidpsInterface::with('fidps')->paginate();
+
+//        dd($fcab);
+//        return $fidpinterfaces;
+
+            return view("fidp_splitter_interfaces.index")->with("splittersinterfaces",$splitterinterfaces)->with('fidpinterfaces',$fidpinterfaces)->with('splitters',$splitters);
     }
 
     /**
@@ -34,7 +58,14 @@ class FidpSplitterInterfaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $res=new \App\Models\FidpSplitterInterface();
+        $res->port=$request->input("port");
+        $res->fidp_splitter_id=$request->input("fidp_splitter_id");
+        $res->fidps_interface_id =$request->input("fidps_interface_id");
+        $res->save();
+
+        $request->session()->flash("msg","New Service Added");
+        return redirect("fidp_splitter_interfaces");
     }
 
     /**
