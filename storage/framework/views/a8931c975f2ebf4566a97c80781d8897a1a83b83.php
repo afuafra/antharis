@@ -8,30 +8,18 @@
                 <div class="card-header">
                     <h4 class="card-title">Services</h4>
                 </div>
+                <div>
+                    <form class="form-inline" action="" method="get">
+                        <div class="form-group mx-sm-3">
+                            <input class="form-control" name='search' type="search" placeholder="Search">
+                        </div>
+                        <button class="btn btn-primary btn-round mr-4" type="submit">Service Search</button>
 
-                <form class="form-inline" action="" method="get">
-                    <div class="form-group mx-sm-3">
-                        <input class="form-control" name='search' type="search" placeholder="Search">
-                    </div>
-
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </form>
-
-                
-                
-                
-                
-
-
-                
-                
-                
-                
-                <div class="container-fluid">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add Service
-                    </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                            +Add Service
+                        </button>
+                    </form>
 
                     <!-- Modal -->
                     <div class="container-fluid">
@@ -125,6 +113,9 @@
                                 </th>
                                 <th>
                                     <strong>Service Status</strong>
+                                </th>
+                                <th>
+                                    <strong>FIDP Name</strong>
                                 </th>
                                 <th>
                                     <strong>Action</strong>
@@ -258,6 +249,14 @@
         <?php echo e($service->serviceStatus); ?>
 
     </td>
+                                        <td>
+                                            <?php if(isset($service->fidpsinterface[0]->fidps->fidp_device_id)): ?>
+                                                <?php echo e($service->fidpsinterface[0]->fidps->fidp_device_id); ?>
+
+                                            <?php else: ?>
+                                            <?php endif; ?>
+
+                                        </td>
     <td>
         
         

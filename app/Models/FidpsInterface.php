@@ -41,4 +41,5 @@ class FidpsInterface extends Model
     {
         return $this->belongsTo(services::class, 'service_id');
     }
+
 }

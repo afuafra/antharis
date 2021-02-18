@@ -33,7 +33,7 @@ class ServicesController extends Controller
 
         }
 
-        $services   = $query->orderBy("id","desc")->paginate();
+        $services   = $query->orderBy("id","desc")->with('fidpsinterface.fidps')->paginate();
 
 
 

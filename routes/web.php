@@ -14,6 +14,7 @@ use App\Http\Controllers\OdfInterfaceController;
 use App\Http\Controllers\OdfRackController;
 use App\Http\Controllers\OltController;
 use App\Http\Controllers\OltInterfaceController;
+use App\Http\Controllers\ServiceViewController;
 use App\Models\FidpsInterface;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\servicesController;
@@ -87,6 +88,7 @@ Route::resource('fidp_splitters', FidpSplitterController::class);
 
 Route::resource('fidp_splitter_interfaces', FidpSplitterInterfaceController::class);
 
+Route::resource('service_view', ServiceViewController::class);
 
 Auth::routes();
 

@@ -10,18 +10,18 @@
                     <h4 class="card-title">OLT Interface </h4>
                 </div>
 
-                <form class="form-inline" action="" method="get">
-                    <div class="form-group mx-sm-3">
-                        <input class="form-control" name='search' type="search" placeholder="Search">
-                    </div>
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </form>
+                <div>
+                    <form class="form-inline" action="" method="get">
+                        <div class="form-group mx-sm-3">
+                            <input class="form-control" name='search' type="search" placeholder="Search">
+                        </div>
+                        <button class="btn btn-primary btn-round mr-4" type="submit">OLT Interface Search</button>
 
-                <div class="container-fluid">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addOltInterface">
-                        +Add OLT Interface
-                    </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#addOltInterface">
+                            +Add Add OLT Interface
+                        </button>
+                    </form>
 
                     <!-- Modal -->
                     <div class="container-fluid">

@@ -177,6 +177,13 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                 </a>
             </li>
             <li>
+                <a href="{{route("service_view.index")}}">
+                    <i class="now-ui-icons education_agenda-bookmark"></i>
+                    <p>Service View</p>
+                </a>
+            </li>
+
+            <li>
                 <a href="{{route("serviceRoute.index")}}">
                     <i class="now-ui-icons education_atom"></i>
                     <p>Route</p>

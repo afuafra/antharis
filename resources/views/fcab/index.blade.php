@@ -10,20 +10,18 @@
                     <h4 class="card-title">FCAB </h4>
                 </div>
 
-                <form class="form-inline" action="" method="get">
-                    <div class="form-group mx-sm-3">
-                        <label for="inputPassword2" class="sr-only">Password</label>
-                        <input class="form-control" name='search' type="search" placeholder="Search">
-                    </div>
+                <div>
+                    <form class="form-inline" action="" method="get">
+                        <div class="form-group mx-sm-3">
+                            <input class="form-control" name='search' type="search" placeholder="Search">
+                        </div>
+                        <button class="btn btn-primary btn-round mr-4" type="submit">FCAB Search</button>
 
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </form>
-
-                <div class="container-fluid">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add FCAB
-                    </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                            +Add FCAB
+                        </button>
+                    </form>
 
                     <!-- Modal -->
                     <div class="container-fluid">

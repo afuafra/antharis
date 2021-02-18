@@ -15,10 +15,10 @@
                     <div class="form-group mx-sm-3">
                         <input class="form-control" name='search' type="search" placeholder="Search">
                     </div>
-                    <button class="btn btn-primary mr-4" type="submit">Search</button>
+                    <button class="btn btn-primary btn-round mr-4" type="submit">ODF Interface Search</button>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
                             +Add ODF Interface
                         </button>
                 </form>

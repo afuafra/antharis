@@ -10,36 +10,19 @@
                     <h4 class="card-title">OLT</h4>
                 </div>
 
-                <div class="container-fluid">
-                    <table class="table">
-                        <tbody>
-                        <form class="well form-horizontal">
-                            <fieldset>
-                                <label class="col-md-4 control-label">OLT Search</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" style="max-width: 100%;"><i
-                                                class="glyphicon glyphicon-list"></i></span>
-                                        <select class="selectpicker form-control">
-                                            <option></option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                            <option>Test</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                        </tbody>
-                    </table>
-                </div>
+                <div>
+                    <form class="form-inline" action="" method="get">
+                        <div class="form-group mx-sm-3">
+                            <input class="form-control" name='search' type="search" placeholder="Search">
+                        </div>
+                        <button class="btn btn-primary btn-round" type="submit">OLT Search</button>
 
-                <div class="container-fluid">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add olts
-                    </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                            +Add olts
+                        </button>
+                    </form>
+
 
                     <!-- Modal -->
                     <div class="container-fluid">
@@ -164,7 +147,7 @@
                                         {{--            <i class="now-ui-icons ui-2_settings-90"></i>--}}
                                         {{--        </button>--}}
 
-                                        <button type="button" rel="tooltsip" class="btn btn-round btn-round-xs mr5" onclick="editService({{$olt}})">
+                                        <button type="button" rel="tooltsip" class="btn btn-round btn-round-xs mr4" onclick="editService({{$olt}})">
                                             <i class="now-ui-icons ui-2_settings-90"></i></button>
 
                                     </td>

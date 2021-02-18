@@ -9,26 +9,18 @@
                     <h4 class="card-title">Device Sites</h4>
                 </div>
 
-                <form class="form-inline" action="" method="get">
-                    <div class="form-group mx-sm-3">
-                        <input class="form-control" name='search' type="search" placeholder="Search">
-                    </div>
+                <div>
+                    <form class="form-inline" action="" method="get">
+                        <div class="form-group mx-sm-3">
+                            <input class="form-control" name='search' type="search" placeholder="Search">
+                        </div>
+                        <button class="btn btn-primary btn-round mr-4" type="submit">Device Site Search</button>
 
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </form>
-
-                
-                
-                
-                
-                
-                
-
-                
-                <div class="container-fluid">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        +Add Device Site
-                    </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                            +Add Device Site
+                        </button>
+                    </form>
 
                     <!-- Modal -->
                     <div class="container-fluid">
@@ -37,7 +29,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add Service</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add Device Site</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
