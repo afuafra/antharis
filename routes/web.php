@@ -76,7 +76,7 @@ Route::resource('odf_racks', OdfRackController::class);
 
 Route::resource('odf_interfaces', OdfInterfaceController::class);
 
-Route::resource('olts', oltController::class);
+Route::resource('olts', OltController::class);
 
 Route::resource('olt_interfaces', OltInterfaceController::class);
 

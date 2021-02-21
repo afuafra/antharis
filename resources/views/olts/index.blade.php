@@ -2,8 +2,6 @@
 @section("olts")
 
 
-
-
     <div class="panel-header panel-header-sm">
     </div>
     <div class="content">
@@ -26,7 +24,7 @@
                             +Add olts
                         </button>
                     </form>
-
+                </div>
 
                     <!-- Modal -->
                     <div class="container-fluid">
@@ -89,7 +87,7 @@
                                             <div class="modal-footer">
                                                 <a href="{{route("olts.index")}}" class="btn btn-secondary"
                                                    data-bs-dismiss="modal">back</a>
-                                                <input name="submit" type="submit" class="btn btn-primary"></input>
+                                                <input name="submit" type="submit" class="btn btn-primary">
                                             </div>
                                         </div>
                                     </form>
@@ -97,11 +95,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+
 
 
                 <div class="card-body">
-                    <form class="table-responsive">
+                    <div class="table-responsive">
                         <table class="table">
                             <thead class=" text-primary">
                             <tr>
@@ -161,7 +159,7 @@
                                         <form action="{{route('olts.destroy',$olt->id)}}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn" >
+                                            <button type="submit" class="btn">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </form>
@@ -170,22 +168,23 @@
                             @endforeach()
                             </tbody>
                         </table>
-                    </form>
+                    </div>
                 </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
-                            </div>
-                        </div>
 
 
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                {!! $olt_list->links() !!}
-                            </ul>
-                        </nav>
-
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                    </div>
                 </div>
+
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        {!! $olt_list->links() !!}
+                    </ul>
+                </nav>
+
             </div>
         </div>
     </div>
@@ -242,125 +241,127 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+@endsection
+
+@push('scripts')
+
+    <script>
 
 
-            @endsection
-            @push('scripts')
-                <script>
+        function editOlt(olts) {
+            $("#_id").val(olts.id)
+            $("#_olt_name").val(olts.olt_name)
+            $("#_device_address").val(olts.device_address)
+            $("#_device_status").val(olts.device_status)
+            $("#_devicesites_id").val(olts.devicesites_id)
+            $("#_olt_device_id").val(olts.olt_device_id)
+
+            var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
+
+                keyboard: false
+            });
+
+            myModel.show()
+            console.log(olts)
+
+        }
+
+        function updateOlt(olts) {
+
+            var id = $("#_id").val()
+            var url = '/olts/' + id
+
+            var formData2 = {
 
 
-                    function editOlt(olts) {
-                        $("#_id").val(olts.id)
-                        $("#_olt_name").val(olts.olt_name)
-                        $("#_device_address").val(olts.device_address)
-                        $("#_device_status").val(olts.device_status)
-                        $("#_devicesites_id").val(olts.devicesites_id)
-                        $("#_olt_device_id").val(olts.olt_device_id)
+                'olt_name': $("#_olt_name").val(),
+                'olt_device_id': $("#_olt_device_id").val(),
+                'device_address': $("#_device_address").val(),
+                'device_status': $("#_device_status").val(),
+                'devicesites_id': $("#_devicesites_id").val(),
+                '_token': "{{ csrf_token() }}"
 
-                        var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
+            }
 
-                            keyboard: false
-                        });
+            $.ajax({
 
-                        myModel.show()
-                        console.log(olts)
-
-                    }
-
-                    function updateOlt(olts) {
-
-                        var id = $("#_id").val()
-                        var url = '/olts/' + id
-
-                        var formData2 = {
+                type: "PUT",
+                url: url,
+                data: formData2,
+                dataType: "json",
 
 
-                            'olt_name': $("#_olt_name").val(),
-                            'olt_device_id': $("#_olt_device_id").val(),
-                            'device_address': $("#_device_address").val(),
-                            'device_status': $("#_device_status").val(),
-                            'devicesites_id': $("#_devicesites_id").val(),
-                            '_token': "{{ csrf_token() }}"
+                success: function (data) {
 
-                        }
+                    $("").text('Yey!! OLT Updated')
+                    setTimeout(() => {
 
-                        $.ajax({
+                        location.reload()
 
-                            type: "PUT",
-                            url: url,
-                            data: formData2,
-                            dataType: "json",
+                    }, 300)
 
+                },
 
-                            success: function (data) {
+                error: function (error) {
 
-                                $("").text('Yey!! OLT Updated')
-                                setTimeout(() => {
+                    console.error('ERROR:', error)
 
-                                    location.reload()
-
-                                }, 300)
-
-                            },
-
-                            error: function (error) {
-
-                                console.error('ERROR:', error)
-
-                            }
-                        });
+                }
+            });
 
 
-                    }
+        }
 
 
-                    var form = $("#oltsCreate")
-                    var method = form.attr('method')
-                    var url = form.attr('action')
+        var form = $("#oltsCreate")
+        var method = form.attr('method')
+        var url = form.attr('action')
 
 
-                    form.submit(function (e) {
+        form.submit(function (e) {
 
 
-                        var formData = {
+            var formData = {
 
-                            'olt_name': $("#olt_name").val(),
-                            'olt_device_id': $("#olt_device_id").val(),
-                            'device_address': $("#device_address").val(),
-                            'device_status': $("#device_status").val(),
-                            'devicesites_id': $("#devicesites_id").val(),
-                            '_token': $("#csrf").val()
+                'olt_name': $("#olt_name").val(),
+                'olt_device_id': $("#olt_device_id").val(),
+                'device_address': $("#device_address").val(),
+                'device_status': $("#device_status").val(),
+                'devicesites_id': $("#devicesites_id").val(),
+                '_token': $("#csrf").val()
 
-                        }
+            }
 
-                        $.post(url, formData, function (data) {
-
-
-                            $("#success").text('Yey!! Service Created')
-                            setTimeout(() => {
-
-                                location.reload()
-
-                            }, 150)
+            $.post(url, formData, function (data) {
 
 
-                        }).fail(function (error) {
-                            console.error('ERROR', error.responseJSON.errors)
+                $("#success").text('Yey!! Service Created')
+                setTimeout(() => {
 
-                        })
+                    location.reload()
 
-
-                        e.preventDefault();
-
-
-                    });
+                }, 150)
 
 
-                    $(function () {
-                        $('select').selectpicker();
-                    });
+            }).fail(function (error) {
+                console.error('ERROR', error.responseJSON.errors)
 
-                </script>
-    @endpush
+            })
+
+
+            e.preventDefault();
+
+
+        });
+
+
+        $(function () {
+            $('select').selectpicker();
+        });
+
+    </script>
+@endpush
 
 
