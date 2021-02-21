@@ -36,7 +36,7 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="fdpsCreate" method="POST"
-                                          action="{{route("fdp.store")}}" oninput="fdp_device_id.value = 'FDP' +'|'+ fdp_no.value +'|'+ devicesites_id.selectedOptions[0].text">
+                                          action="{{route("fdp.store")}}" oninput="fdp_device_id.value = device_type.value +'|'+ fdp_no.value +'|'+ devicesites_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
@@ -46,6 +46,14 @@
 
 
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
+
+                                            <div class="mb-3">
+                                                <label class="form-label">FDP Type</label>
+                                                <select  class="form-control" name="device_type" list="list" id="device_type">
+                                                        <option value="FEDP">FEDP</option>
+                                                        <option value="FPDP">FPDP</option>
+                                                </select>
+                                            </div>
 
                                             <div class="mb-3">
                                                 <label class="form-label">FDP NO</label>
@@ -193,6 +201,7 @@
             var formData = {
 
                 'fdp_no': $("#fdp_no").val(),
+                'device_type': $("#device_type").val(),
                 'fdp_device_id': $("#fdp_device_id").val(),
                 'device_address': $("#device_address").val(),
                 'device_status': $("#device_status").val(),

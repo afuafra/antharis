@@ -305,6 +305,7 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
 </div>
 
 
+
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/popper.min.js"></script>
@@ -321,8 +322,9 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/demo/demo.js"></script>
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+{{--<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>--}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
 
 @stack('scripts')
 

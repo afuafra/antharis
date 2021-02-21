@@ -58,6 +58,7 @@ class FdpController extends Controller
     {
         $res=new \App\Models\Fdps;
         $res->fdp_no=$request->input("fdp_no");
+        $res->device_type=$request->input("device_type");
         $res->fdp_device_id=$request->input("fdp_device_id");
         $res->device_address=$request->input("device_address");
         $res->device_status=$request->input("device_status");

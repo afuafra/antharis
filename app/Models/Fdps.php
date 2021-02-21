@@ -9,6 +9,7 @@ class Fdps extends Model
 {
     protected $fillable=[
         'fdp_no',
+        'device_type',
         'fdp_device_id',
         'device_address',
         'device_status',

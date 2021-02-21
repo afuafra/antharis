@@ -193,4 +193,7 @@ $( "#failure-btn" ).click(function() {
 $( "#warning-btn" ).click(function() {
     $( "div.warning" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
 });
+
+
+
 //# sourceMappingURL=now-ui-dashboard.js.map

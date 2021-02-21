@@ -1,6 +1,9 @@
 @extends("layout")
 @section("olts")
 
+
+
+
     <div class="panel-header panel-header-sm">
     </div>
     <div class="content">
@@ -50,6 +53,17 @@
 
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Device Site </label>
+                                                <select    class="form-control" data-style="select-with-transition btn-primary btn-round "
+                                                           name="devicesites_id" id="devicesites_id"  >
+                                                    @foreach($devicesites_list as $devicesite)
+                                                        <option  value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
                                             <div class="mb-3">
                                                 <label class="form-label">olt_name</label>
                                                 <input type="text" class="form-control" name="olt_name"
@@ -68,20 +82,12 @@
 
 
                                             <div class="mb-3">
-                                                <label class="form-label">Device Site </label>
-                                                <select   class="selectpicker" data-live-search-style="startsWith" data-style="select-with-transition btn-primary btn-round" name="devicesites_id" id="devicesites_id" data-live-search="true">
-                                                    @foreach($devicesites_list as $devicesite)
-                                                    <option value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
                                                 <label class="form-label">olt_device_id</label>
                                                 <input type="text" class="form-control" name="olt_device_id"
                                                        id="olt_device_id" readonly>
                                             </div>
 
-                                        <div class="modal-footer">
+                                            <div class="modal-footer">
                                             <a href="{{route("olts.index")}}" class="btn btn-secondary"
                                                data-bs-dismiss="modal">back</a>
                                             <input name="submit" type="submit" class="btn btn-primary"></input>
@@ -232,6 +238,7 @@
 @endsection
 @push('scripts')
     <script>
+
 
         function editOlt(olts){
             $("#_id").val(olts.id)

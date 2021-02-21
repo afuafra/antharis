@@ -18,6 +18,7 @@ class CreateFdpsTable extends Migration
             $table->string("fdp_no");
             $table->string("fdp_device_id")->unique();
             $table->string("device_address");
+            $table->string("device_type");
             $table->string("device_status");
             $table->foreign('devicesites_id')->references('id')->on('devicesites');
             $table->unsignedBigInteger('devicesites_id');
