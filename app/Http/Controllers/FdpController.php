@@ -111,6 +111,8 @@ class FdpController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fdps = \App\Models\Fdps::find($id);
+        $fdps->delete();
+        return redirect()->route('fdp.index');
     }
 }

@@ -18,7 +18,8 @@
                         <button class="btn btn-primary btn-round mr-4" type="submit">FDP Search</button>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal"
+                                data-target="#exampleModal">
                             +Add FDP
                         </button>
                     </form>
@@ -36,7 +37,8 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="fdpsCreate" method="POST"
-                                          action="{{route("fdp.store")}}" oninput="fdp_device_id.value = device_type.value +'|'+ fdp_no.value +'|'+ devicesites_id.selectedOptions[0].text">
+                                          action="{{route("fdp.store")}}"
+                                          oninput="fdp_device_id.value = device_type.value +'|'+ fdp_no.value +'|'+ devicesites_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
@@ -49,9 +51,10 @@
 
                                             <div class="mb-3">
                                                 <label class="form-label">FDP Type</label>
-                                                <select  class="form-control" name="device_type" list="list" id="device_type">
-                                                        <option value="FEDP">FEDP</option>
-                                                        <option value="FPDP">FPDP</option>
+                                                <select class="form-control" name="device_type" list="list"
+                                                        id="device_type">
+                                                    <option value="FEDP">FEDP</option>
+                                                    <option value="FPDP">FPDP</option>
                                                 </select>
                                             </div>
 
@@ -74,9 +77,11 @@
 
                                             <div class="mb-3">
                                                 <label class="form-label">Device Site </label>
-                                                <select  class="form-control" name="devicesites_id" list="list" id="devicesites_id">
+                                                <select class="form-control" name="devicesites_id" list="list"
+                                                        id="devicesites_id">
                                                     @foreach($devicesites_list as $devicesite)
-                                                        <option value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
+                                                        <option
+                                                            value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -120,7 +125,10 @@
                                     <strong>FDP No</strong>
                                 </th>
                                 <th>
-                                    <strong>Action</strong>
+                                    <strong>Edit</strong>
+                                </th>
+                                <th>
+                                    <strong>Delete</strong>
                                 </th>
                             </tr>
                             </thead>
@@ -149,14 +157,18 @@
                                         {{$fdp->fdp_no}}
                                     </td>
                                     <td>
-                                        {{--        <button type="button" rel="tooltip" class="btn btn-success"--}}
-                                        {{--                data-toggle="modal" data-target="#updateService{{$service->id}}">--}}
-                                        {{--            <i class="now-ui-icons ui-2_settings-90"></i>--}}
-                                        {{--        </button>--}}
-
-                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editService({{$fdp}})">
+                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5"
+                                                onclick="editService({{$fdp}})">
                                             <i class="now-ui-icons ui-2_settings-90"></i></button>
 
+                                    </td>
+                                    <td>
+                                        <form action="{{route('fdp.destroy',$fdp->id)}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-round btn-round-xs mr5">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
                                     </td>
                                 </tr>
                             @endforeach()

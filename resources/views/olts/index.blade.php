@@ -21,12 +21,11 @@
                         <button class="btn btn-primary btn-round" type="submit">OLT Search</button>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal"
+                                data-target="#exampleModal">
                             +Add olts
                         </button>
                     </form>
-
-
 
 
                     <!-- Modal -->
@@ -42,24 +41,23 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="oltsCreate" method="POST"
-                                          action="{{route("olts.store")}}" oninput="olt_device_id.value = 'OLT' +'|'+ olt_name.value +'|'+ devicesites_id.selectedOptions[0].text">
+                                          action="{{route("olts.store")}}"
+                                          oninput="olt_device_id.value = 'OLT' +'|'+ olt_name.value +'|'+ devicesites_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
-
-
-                                            <div id="success"></div>
-
 
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
 
                                             <div class="mb-3">
                                                 <label class="form-label">Device Site </label>
-                                                <select    class="form-control" data-style="select-with-transition btn-primary btn-round "
-                                                           name="devicesites_id" id="devicesites_id"  >
+                                                <select class="form-control"
+                                                        data-style="select-with-transition btn-primary btn-round "
+                                                        name="devicesites_id" id="devicesites_id" data-live-search="true">
                                                     @foreach($devicesites_list as $devicesite)
-                                                        <option  value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
+                                                        <option
+                                                            value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -88,9 +86,10 @@
                                             </div>
 
                                             <div class="modal-footer">
-                                            <a href="{{route("olts.index")}}" class="btn btn-secondary"
-                                               data-bs-dismiss="modal">back</a>
-                                            <input name="submit" type="submit" class="btn btn-primary"></input>
+                                                <a href="{{route("olts.index")}}" class="btn btn-secondary"
+                                                   data-bs-dismiss="modal">back</a>
+                                                <input name="submit" type="submit" class="btn btn-primary"></input>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -109,19 +108,22 @@
                                     <strong>OLT Name</strong>
                                 </th>
                                 <th>
-                                    <strong>olt_device_id</strong>
+                                    <strong>OLT Device ID</strong>
                                 </th>
                                 <th>
-                                    <strong>device_address</strong>
+                                    <strong>Device Address</strong>
                                 </th>
                                 <th>
-                                    <strong>device_status</strong>
+                                    <strong>Device Status</strong>
                                 </th>
                                 <th>
-                                    <strong>devicesites_id</strong>
+                                    <strong>Device Site</strong>
                                 </th>
                                 <th>
-                                    <strong>Action</strong>
+                                    <strong>Edit</strong>
+                                </th>
+                                <th>
+                                    <strong>Delete</strong>
                                 </th>
                             </tr>
                             </thead>
@@ -155,9 +157,18 @@
                                         {{--            <i class="now-ui-icons ui-2_settings-90"></i>--}}
                                         {{--        </button>--}}
 
-                                        <button type="button" rel="tooltsip" class="btn btn-round btn-round-xs mr4" onclick="editOlt({{$olt}})">
+                                        <button type="button" rel="tooltsip" class="btn btn-round btn-round-xs mr4"
+                                                onclick="editOlt({{$olt}})">
                                             <i class="now-ui-icons ui-2_settings-90"></i></button>
 
+                                    </td>
+                                    <td>
+                                        <form action="{{route('olts.destroy',$olt->id)}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-round btn-round-xs mr5">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
                                     </td>
                                 </tr>
                             @endforeach()
@@ -193,7 +204,8 @@
                         <h5 class="modal-title" id="exampleModalLabel">Update ODF Interface</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="container-fluid" oninput="_olt_device_id.value = 'OLT' +'|'+ _olt_name.value +'|'+ _devicesites_id.selectedOptions[0].text">
+                    <form class="container-fluid"
+                          oninput="_olt_device_id.value = 'OLT' +'|'+ _olt_name.value +'|'+ _devicesites_id.selectedOptions[0].text">
                         <div class="mb-3">
                             <input type="hidden" id="_id">
                         </div>
@@ -216,7 +228,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">Device Site </label>
-                            <select  class="form-control" name="_devicesites_id" list="list" id="_devicesites_id">
+                            <select class="form-control" name="_devicesites_id" list="list" id="_devicesites_id">
                                 @foreach($devicesites_list as $devicesite)
                                     <option value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
                                 @endforeach
@@ -235,125 +247,123 @@
                 </div>
             </div>
 
-@endsection
-@push('scripts')
-    <script>
+            @endsection
+            @push('scripts')
+                <script>
 
 
-        function editOlt(olts){
-            $("#_id").val(olts.id)
-            $("#_olt_name").val(olts.olt_name)
-            $("#_device_address").val(olts.device_address)
-            $("#_device_status").val(olts.device_status)
-            $("#_devicesites_id").val(olts.devicesites_id)
-            $("#_olt_device_id").val(olts.olt_device_id)
+                    function editOlt(olts) {
+                        $("#_id").val(olts.id)
+                        $("#_olt_name").val(olts.olt_name)
+                        $("#_device_address").val(olts.device_address)
+                        $("#_device_status").val(olts.device_status)
+                        $("#_devicesites_id").val(olts.devicesites_id)
+                        $("#_olt_device_id").val(olts.olt_device_id)
 
-            var myModel = new bootstrap.Modal(document.getElementById('editModel'),{
+                        var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
 
-                keyboard: false
-            });
+                            keyboard: false
+                        });
 
-            myModel.show()
-            console.log(olts)
+                        myModel.show()
+                        console.log(olts)
 
-        }
+                    }
 
-        function updateOlt(olts){
+                    function updateOlt(olts) {
 
-            var id = $("#_id").val()
-            var url = '/olts/'+id
+                        var id = $("#_id").val()
+                        var url = '/olts/' + id
 
-            var formData2 = {
-
-
-
-                'olt_name': $("#_olt_name").val(),
-                'olt_device_id': $("#_olt_device_id").val(),
-                'device_address': $("#_device_address").val(),
-                'device_status': $("#_device_status").val(),
-                'devicesites_id': $("#_devicesites_id").val(),
-                '_token': "{{ csrf_token() }}"
-
-            }
-
-            $.ajax({
-
-                type:"PUT",
-                url: url,
-                data: formData2,
-                dataType: "json",
+                        var formData2 = {
 
 
-                success: function (data){
+                            'olt_name': $("#_olt_name").val(),
+                            'olt_device_id': $("#_olt_device_id").val(),
+                            'device_address': $("#_device_address").val(),
+                            'device_status': $("#_device_status").val(),
+                            'devicesites_id': $("#_devicesites_id").val(),
+                            '_token': "{{ csrf_token() }}"
 
-                    $("").text('Yey!! OLT Updated')
-                    setTimeout(() => {
+                        }
 
-                        location.reload()
+                        $.ajax({
 
-                    }, 300)
-
-                },
-
-                error: function (error){
-
-                    console.error('ERROR:',error)
-
-                }
-            });
+                            type: "PUT",
+                            url: url,
+                            data: formData2,
+                            dataType: "json",
 
 
+                            success: function (data) {
 
-        }
+                                $("").text('Yey!! OLT Updated')
+                                setTimeout(() => {
 
+                                    location.reload()
 
-        var form = $("#oltsCreate")
-        var method = form.attr('method')
-        var url = form.attr('action')
+                                }, 300)
 
+                            },
 
-        form.submit(function (e) {
+                            error: function (error) {
 
+                                console.error('ERROR:', error)
 
-            var formData = {
-
-                'olt_name': $("#olt_name").val(),
-                'olt_device_id': $("#olt_device_id").val(),
-                'device_address': $("#device_address").val(),
-                'device_status': $("#device_status").val(),
-                'devicesites_id': $("#devicesites_id").val(),
-                '_token': $("#csrf").val()
-
-            }
-
-            $.post(url, formData, function (data) {
+                            }
+                        });
 
 
-                $("#success").text('Yey!! Service Created')
-                setTimeout(() => {
-
-                    location.reload()
-
-                }, 150)
+                    }
 
 
-            }).fail(function (error) {
-                console.error('ERROR', error.responseJSON.errors)
-
-            })
-
-
-            e.preventDefault();
+                    var form = $("#oltsCreate")
+                    var method = form.attr('method')
+                    var url = form.attr('action')
 
 
-        });
+                    form.submit(function (e) {
 
 
-        $(function () {
-            $('select').selectpicker();
-        });
+                        var formData = {
 
-    </script>
-@endpush
+                            'olt_name': $("#olt_name").val(),
+                            'olt_device_id': $("#olt_device_id").val(),
+                            'device_address': $("#device_address").val(),
+                            'device_status': $("#device_status").val(),
+                            'devicesites_id': $("#devicesites_id").val(),
+                            '_token': $("#csrf").val()
+
+                        }
+
+                        $.post(url, formData, function (data) {
+
+
+                            $("#success").text('Yey!! Service Created')
+                            setTimeout(() => {
+
+                                location.reload()
+
+                            }, 150)
+
+
+                        }).fail(function (error) {
+                            console.error('ERROR', error.responseJSON.errors)
+
+                        })
+
+
+                        e.preventDefault();
+
+
+                    });
+
+
+                    $(function () {
+                        $('select').selectpicker();
+                    });
+
+                </script>
+    @endpush
 
 
