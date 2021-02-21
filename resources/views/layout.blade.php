@@ -7,40 +7,17 @@
     <title>Antharis</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <!--     Fonts and icons     -->
+{{--    <!--     Fonts and icons     -->--}}
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <!-- CSS Files -->
+{{--    <!-- CSS Files -->--}}
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
-    <link href="../assets/css/util.css" rel="stylesheet" />
+{{--    <!-- CSS Just for demo purpose, don't include it in your project -->--}}
+{{--    <link href="../assets/demo/demo.css" rel="stylesheet" />--}}
+{{--    <link href="../assets/css/util.css" rel="stylesheet" />--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-
-    <style>
-        .overlay{
-            display: none;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 999;
-            background: rgba(255,255,255,0.8) url("loader.gif") center no-repeat;
-        }
-        /* Turn off scrollbar when body element has the loading class */
-        body.loading{
-            overflow: hidden;
-        }
-        /* Make spinner image visible when body element has the loading class */
-        body.loading .overlay{
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
 
 
@@ -333,9 +310,9 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
 <script src="../assets/js/core/popper.min.js"></script>
 <script src="../assets/js/core/bootstrap.min.js"></script>
 <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <!-- Chart JS -->
-
 <script src="../assets/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
 <script src="../assets/js/plugins/bootstrap-notify.js"></script>
@@ -343,33 +320,10 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
 <script src="../assets/js/now-ui-dashboard.js?v=1.0.1"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/demo/demo.js"></script>
-{{--<script>--}}
-{{--    // $(document).ready(function() {--}}
-{{--    //     // Javascript method's body can be found in assets/js/demos.js--}}
-{{--    //     demo.initDashboardPageCharts();--}}
-{{--    // });--}}
-{{--</script>--}}
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script>
-    // Initiate an Ajax request on button click
-    $(document).on("click", "button", function(){
-        $.get("customers.php", function(data){
-            $("body").html(data);
-        });
-    });
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
-    // Add remove loading class on body element based on Ajax request status
-    $(document).on({
-        ajaxStart: function(){
-            $("body").addClass("loading");
-        },
-        ajaxStop: function(){
-            $("body").removeClass("loading");
-        }
-
-    });
-
-</script>
 @stack('scripts')
 
 </body>

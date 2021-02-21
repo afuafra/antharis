@@ -23,8 +23,8 @@ class FidpSplitterInterfaceController extends Controller
 
                 $searchValue = $request->get('search');
 
-                $query->where('fidp_splitter_device_id','like' ,'%'.$searchValue.'%')
-                    ->orWhere('fidp_splitter_no', 'like', '%'.$searchValue.'%');
+                $query->where('fidps_interface_id','like' ,'%'.$searchValue.'%')
+                    ->orWhere('fidp_splitter_id', 'like', '%'.$searchValue.'%');
 
             }
 

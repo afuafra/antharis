@@ -24,6 +24,8 @@
                     </form>
 
 
+
+
                     <!-- Modal -->
                     <div class="container-fluid">
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -67,7 +69,7 @@
 
                                             <div class="mb-3">
                                                 <label class="form-label">Device Site </label>
-                                                <select  class="form-control" name="devicesites_id" list="list" id="devicesites_id">
+                                                <select   class="selectpicker" data-live-search-style="startsWith" data-style="select-with-transition btn-primary btn-round" name="devicesites_id" id="devicesites_id" data-live-search="true">
                                                     @foreach($devicesites_list as $devicesite)
                                                     <option value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
                                                     @endforeach
@@ -78,7 +80,7 @@
                                                 <input type="text" class="form-control" name="olt_device_id"
                                                        id="olt_device_id" readonly>
                                             </div>
-                                        </div>
+
                                         <div class="modal-footer">
                                             <a href="{{route("olts.index")}}" class="btn btn-secondary"
                                                data-bs-dismiss="modal">back</a>
@@ -337,6 +339,11 @@
             e.preventDefault();
 
 
+        });
+
+
+        $(function () {
+            $('select').selectpicker();
         });
 
     </script>

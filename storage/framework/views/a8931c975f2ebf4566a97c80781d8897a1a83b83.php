@@ -16,7 +16,8 @@
                         <button class="btn btn-primary btn-round mr-4" type="submit">Service Search</button>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal"
+                                data-target="#exampleModal">
                             +Add Service
                         </button>
                     </form>
@@ -87,7 +88,7 @@
                     </div>
                 </div>
 
-
+                
                 
                 
 
@@ -124,166 +125,153 @@
                             </thead>
 
                             <tbody>
-                                <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                                    <tr>
-    <td>
-        <?php echo e($service->orderNumber); ?>
-
-    </td>
-    <td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <?php echo e($service->serviceNumber); ?>
-
-    </td>
-    <td>
-        <?php echo e($service->customerName); ?>
-
-    </td>
-    <td>
-        <?php echo e($service->customerAddress); ?>
-
-    </td>
-    <td>
-        <?php echo e($service->serviceStatus); ?>
-
-    </td>
-                                        <td>
-                                            <?php if(isset($service->fidpsinterface[0]->fidps->fidp_device_id)): ?>
-                                                <?php echo e($service->fidpsinterface[0]->fidps->fidp_device_id); ?>
-
-                                            <?php else: ?>
-                                            <?php endif; ?>
-
-                                        </td>
-    <td>
-        
-        
-        
-        
-
-        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editService(<?php echo e($service); ?>)">
-        <i class="now-ui-icons ui-2_settings-90"></i></button>
-
-    </td>
-</tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                
+                                <tr>
+                                    <td>
+                                        <?php echo e($service->orderNumber); ?>
+
+                                    </td>
+                                    <td>
+                                        
+                                        
+
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+
+
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <?php echo e($service->serviceNumber); ?>
+
+                                    </td>
+                                    <td>
+                                        <?php echo e($service->customerName); ?>
+
+                                    </td>
+                                    <td>
+                                        <?php echo e($service->customerAddress); ?>
+
+                                    </td>
+                                    <td>
+                                        <?php echo e($service->serviceStatus); ?>
+
+                                    </td>
+                                    <td>
+                                        <?php if(isset($service->fidpsinterface[0]->fidps->fidp_device_id)): ?>
+                                            <?php echo e($service->fidpsinterface[0]->fidps->fidp_device_id); ?>
+
+                                        <?php else: ?>
+                                        <?php endif; ?>
+
+                                    </td>
+                                    <td>
+                                        
+                                        
+                                        
+                                        
+
+                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5"
+                                                onclick="editService(<?php echo e($service); ?>)">
+                                            <i class="now-ui-icons ui-2_settings-90"></i></button>
+
+                                    </td>
+                                </tr>
+
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
 
@@ -312,172 +300,170 @@
 
     <!-- Modal -->
     <div class="container-fluid">
-    <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update Service</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form class="container-fluid">
-                <div class="mb-3">
-                        <input type="hidden" id="_id">
-                </div>
-                    <div class="mb-3">
-                        <label class="form-label">Order Number</label>
-                        <input type="text" id="_orderNumber" class="form-control">
+        <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update Service</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                <div class="mb-3">
-                    <label class="form-label">Service Number</label>
-                    <input type="text" id="_serviceNumber" class="form-control">
+                    <form class="container-fluid">
+                        <div class="mb-3">
+                            <input type="hidden" id="_id">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Order Number</label>
+                            <input type="text" id="_orderNumber" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Service Number</label>
+                            <input type="text" id="_serviceNumber" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Customer Name</label>
+                            <input type="text" id="_customerName" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Customer Address</label>
+                            <input type="text" id="_customerAddress" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Service Status</label>
+                            <input type="text" id="_serviceStatus" class="form-control">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" onclick="updateService()" class="btn btn-primary">Save changes
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Customer Name</label>
-                    <input type="text" id="_customerName" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Customer Address</label>
-                    <input type="text" id="_customerAddress" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Service Status</label>
-                    <input type="text" id="_serviceStatus" class="form-control">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" onclick="updateService()" class="btn btn-primary">Save changes</button>
-                </div>
-                </form>
             </div>
-        </div>
 
-<?php $__env->stopSection(); ?>
-<?php $__env->startPush('scripts'); ?>
-    <script>
+            <?php $__env->stopSection(); ?>
+            <?php $__env->startPush('scripts'); ?>
+                <script>
 
-        function editService(service){
-            $("#_id").val(service.id)
-            $("#_orderNumber").val(service.orderNumber)
-            $("#_serviceNumber").val(service.serviceNumber)
-            $("#_customerName").val(service.customerName)
-            $("#_customerAddress").val(service.customerAddress)
-            $("#_serviceStatus").val(service.serviceStatus)
+                    function editService(service) {
+                        $("#_id").val(service.id)
+                        $("#_orderNumber").val(service.orderNumber)
+                        $("#_serviceNumber").val(service.serviceNumber)
+                        $("#_customerName").val(service.customerName)
+                        $("#_customerAddress").val(service.customerAddress)
+                        $("#_serviceStatus").val(service.serviceStatus)
 
-            var myModel = new bootstrap.Modal(document.getElementById('editModel'),{
+                        var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
 
-                keyboard: false
-            });
+                            keyboard: false
+                        });
 
-            myModel.show()
-            console.log(service)
+                        myModel.show()
+                        console.log(service)
 
-        }
+                    }
 
-        function updateService(service){
+                    function updateService(service) {
 
-            var id = $("#_id").val()
-            var url = '/services/'+id
+                        var id = $("#_id").val()
+                        var url = '/services/' + id
 
-            var formData2 = {
-
+                        var formData2 = {
 
 
-                'orderNumber': $("#_orderNumber").val(),
-                'serviceNumber': $("#_serviceNumber").val(),
-                'customerName': $("#_customerName").val(),
-                'customerAddress': $("#_customerAddress").val(),
-                'serviceStatus': $("#_serviceStatus").val(),
-                '_token': "<?php echo e(csrf_token()); ?>"
+                            'orderNumber': $("#_orderNumber").val(),
+                            'serviceNumber': $("#_serviceNumber").val(),
+                            'customerName': $("#_customerName").val(),
+                            'customerAddress': $("#_customerAddress").val(),
+                            'serviceStatus': $("#_serviceStatus").val(),
+                            '_token': "<?php echo e(csrf_token()); ?>"
 
-            }
+                        }
 
-           $.ajax({
+                        $.ajax({
 
-                type:"PUT",
-                url: url,
-                data: formData2,
-                dataType: "json",
-
-
-                success: function (data){
-
-                    $("").text('Yey!! Service Updated')
-                    setTimeout(() => {
-
-                        location.reload()
-
-                    }, 300)
-
-                },
-
-                error: function (error){
-
-                    console.error('ERROR:',error)
-
-                }
-            });
+                            type: "PUT",
+                            url: url,
+                            data: formData2,
+                            dataType: "json",
 
 
+                            success: function (data) {
 
-        }
+                                $("").text('Yey!! Service Updated')
+                                setTimeout(() => {
 
+                                    location.reload()
 
+                                }, 300)
 
-        var form = $("#serviceCreate")
-        var method = form.attr('method')
-        var url = form.attr('action')
-        // var token= $("#csrf").val()
-        // var partNo = $("#orderNumber").val()
+                            },
 
+                            error: function (error) {
 
-        form.submit(function (e) {
+                                console.error('ERROR:', error)
 
-            // e.preventDefault();
-
-            var formData = {
-
-                'orderNumber': $("#orderNumber").val(),
-                'serviceNumber': $("#serviceNumber").val(),
-                'customerName': $("#customerName").val(),
-                'customerAddress': $("#customerAddress").val(),
-                'serviceStatus': $("#serviceStatus").val(),
-                '_token': $("#csrf").val()
-
-            }
+                            }
+                        });
 
 
-            $.post(url, formData, function (data) {
-
-                // console.log('Success', data)
-                // console.log('Success', data)
+                    }
 
 
-                $("#success").text('Yey!! Service Created')
-                setTimeout(() => {
-
-                    location.reload()
-
-                }, 300)
-
-
-            }).fail(function (error) {
-                console.error('ERROR', error.responseJSON.errors)
-
-            })
+                    var form = $("#serviceCreate")
+                    var method = form.attr('method')
+                    var url = form.attr('action')
+                    // var token= $("#csrf").val()
+                    // var partNo = $("#orderNumber").val()
 
 
-            e.preventDefault();
+                    form.submit(function (e) {
+
+                        // e.preventDefault();
+
+                        var formData = {
+
+                            'orderNumber': $("#orderNumber").val(),
+                            'serviceNumber': $("#serviceNumber").val(),
+                            'customerName': $("#customerName").val(),
+                            'customerAddress': $("#customerAddress").val(),
+                            'serviceStatus': $("#serviceStatus").val(),
+                            '_token': $("#csrf").val()
+
+                        }
 
 
-        });
+                        $.post(url, formData, function (data) {
 
-        // $(document).ready(function(){
-        //
-        // })
+                            // console.log('Success', data)
+                            // console.log('Success', data)
 
 
-    </script>
-<?php $__env->stopPush(); ?>
+                            $("#success").text('Yey!! Service Created')
+                            setTimeout(() => {
+
+                                location.reload()
+
+                            }, 300)
+
+
+                        }).fail(function (error) {
+                            console.error('ERROR', error.responseJSON.errors)
+
+                        })
+
+
+                        e.preventDefault();
+
+
+                    });
+
+                    // $(document).ready(function(){
+                    //
+                    // })
+
+
+                </script>
+    <?php $__env->stopPush(); ?>
 
 
 
