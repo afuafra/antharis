@@ -144,8 +144,8 @@
                                         {{--            <i class="now-ui-icons ui-2_settings-90"></i>--}}
                                         {{--        </button>--}}
 
-                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editService({{$odf}})">
-                                            <i class="now-ui-icons ui-2_settings-90"></i></button>
+                                        <a type="button" rel="tooltip" class=" " onclick="editService({{$odf}})">
+                                            <i class="now-ui-icons ui-2_settings-90 text-success"></i></a>
 
                                     </td>
                                 </tr>

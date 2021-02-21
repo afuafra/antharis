@@ -151,18 +151,13 @@
                                         {{$olt->devicesites->atollislandsite}}
                                     </td>
                                     <td>
-                                        <button type="button" rel="tooltsip" class="btn btn-round btn-round-xs mr4"
-                                                onclick="editOlt({{$olt}})">
-                                            <i class="now-ui-icons ui-2_settings-90"></i></button>
+                                        <a onclick="editOlt({{$olt}})">
+                                            <i class="fas fa-edit text-success fa-lg"></i></a>
                                     </td>
                                     <td>
-                                        <form action="{{route('olts.destroy',$olt->id)}}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </form>
+                                        <a data-toggle="modal" id="smallButton" data-target=".bd-example-modal-lg" data-attr="{{ route('delete', $olt->id) }}" title="Delete OLT">
+                                            <i class="fas fa-trash text-danger  fa-lg"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach()
@@ -243,11 +238,56 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body" id="smallBody">
+                    <div>
+                        <!-- the result to be displayed apply here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 @endsection
 
 @push('scripts')
 
     <script>
+
+        // display a modal (small modal)
+        $(document).on('click', '#smallButton', function(event) {
+            event.preventDefault();
+            let href = $(this).attr('data-attr');
+            $.ajax({
+                url: href
+                , beforeSend: function() {
+                    $('#loader').show();
+                },
+                // return the result
+                success: function(result) {
+                    $('#smallModal').modal("show");
+                    $('#smallBody').html(result).show();
+                }
+                , complete: function() {
+                    $('#loader').hide();
+                }
+                , error: function(jqXHR, testStatus, error) {
+                    console.log(error);
+                    alert("Page " + href + " cannot open. Error:" + error);
+                    $('#loader').hide();
+                }
+                , timeout: 6000
+            })
+        });
 
 
         function editOlt(olts) {

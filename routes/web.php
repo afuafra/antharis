@@ -77,6 +77,7 @@ Route::resource('odf_racks', OdfRackController::class);
 Route::resource('odf_interfaces', OdfInterfaceController::class);
 
 Route::resource('olts', OltController::class);
+Route::get('olts/delete/{id}', [OltController::class, 'delete'])->name('delete');
 
 Route::resource('olt_interfaces', OltInterfaceController::class);
 
