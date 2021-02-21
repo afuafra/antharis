@@ -54,7 +54,8 @@
                                                 <label class="form-label">Device Site </label>
                                                 <select class="form-control"
                                                         data-style="select-with-transition btn-primary btn-round "
-                                                        name="devicesites_id" id="devicesites_id" data-live-search="true">
+                                                        name="devicesites_id" id="devicesites_id"
+                                                        data-live-search="true">
                                                     @foreach($devicesites_list as $devicesite)
                                                         <option
                                                             value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
@@ -100,7 +101,7 @@
 
 
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <form class="table-responsive">
                         <table class="table">
                             <thead class=" text-primary">
                             <tr>
@@ -152,29 +153,25 @@
                                         {{$olt->devicesites->atollislandsite}}
                                     </td>
                                     <td>
-                                        {{--        <button type="button" rel="tooltsip" class="btn btn-success"--}}
-                                        {{--                data-toggle="modal" data-target="#updateService{{$service->id}}">--}}
-                                        {{--            <i class="now-ui-icons ui-2_settings-90"></i>--}}
-                                        {{--        </button>--}}
-
                                         <button type="button" rel="tooltsip" class="btn btn-round btn-round-xs mr4"
                                                 onclick="editOlt({{$olt}})">
                                             <i class="now-ui-icons ui-2_settings-90"></i></button>
-
                                     </td>
                                     <td>
                                         <form action="{{route('olts.destroy',$olt->id)}}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn btn-round btn-round-xs mr5">
+                                            <button type="submit" class="btn" >
                                                 <i class="fa fa-trash"></i>
                                             </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach()
                             </tbody>
                         </table>
-
+                    </form>
+                </div>
                         <div class="card-footer">
                             <div class="stats">
                                 <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
@@ -188,13 +185,12 @@
                             </ul>
                         </nav>
 
-                    </div>
                 </div>
             </div>
         </div>
-
-
     </div>
+
+
 
     <div class="container-fluid">
         <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -246,6 +242,7 @@
                     </form>
                 </div>
             </div>
+
 
             @endsection
             @push('scripts')

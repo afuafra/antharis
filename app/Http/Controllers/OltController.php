@@ -102,8 +102,9 @@ class OltController extends Controller
      */
     public function destroy($id)
     {
-        $olts = \App\Models\olt::find($id);
-        $olts->delete();
+        $olt = \App\Models\olt::find($id);
+        $olt->delete();
         return redirect()->route('olts.index');
     }
+
 }
