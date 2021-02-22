@@ -111,12 +111,21 @@
                                     <td>
                                         <a href="" class="text-primary" data-bs-toggle="modal"
                                            data-bs-target="#routeView">
+
+                                        @if(isset($interface->olt->olt_name))
                                         {{$interface->olt->olt_name}}
+                                        @else
+                                        @endif
                                     </td>
 
                                     <td>
-                                        {{$interface->olt_frame}}/{{$interface->olt_card}}/{{$interface->olt_port}}
+                                        @if(isset($interface))
+                                            {{$interface->olt_frame}}/{{$interface->olt_card}}/{{$interface->olt_port}}
+                                        @else
+                                        @endif
                                     </td>
+
+
 {{--                                    <td>--}}
 {{--                                        @if(isset($interface->odfinterface->odfrack->odf_device_id))--}}
 {{--                                            {{$interface->odfinterface->odfrack->odf_device_id}}--}}
