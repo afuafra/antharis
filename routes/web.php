@@ -77,10 +77,10 @@ Route::resource('odf_racks', OdfRackController::class);
 Route::resource('odf_interfaces', OdfInterfaceController::class);
 
 Route::resource('olts', OltController::class);
-Route::get('olts/delete/{id}', [OltController::class, 'delete'])->name('delete');
+Route::get('olts/delete/{id}', [OltController::class, 'delete'])->name('olt');
 
 Route::resource('olt_interfaces', OltInterfaceController::class);
-Route::get('olt_interfaces/delete/{id}', [OltInterfaceController::class, 'delete'])->name('delete');
+Route::get('olt_interfaces/delete/{id}', [OltInterfaceController::class, 'delete'])->name('olt_interfaces');
 
 Route::resource('fdp_splitters', FdpSplitterController::class);
 

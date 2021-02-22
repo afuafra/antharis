@@ -155,7 +155,7 @@
                                             <i class="fas fa-edit text-success fa-lg"></i></a>
                                     </td>
                                     <td>
-                                        <a data-toggle="modal" id="smallButton" data-target=".bd-example-modal-lg" data-attr="{{ route('delete', $olt->id) }}" title="Delete OLT">
+                                        <a data-toggle="modal" id="oltDelete" data-target=".bd-example-modal-lg" data-attr="{{ route('olt', $olt->id) }}" title="Delete OLT">
                                             <i class="fas fa-trash text-danger  fa-lg"></i>
                                         </a>
                                     </td>
@@ -264,7 +264,7 @@
     <script>
 
         // display a modal (small modal)
-        $(document).on('click', '#smallButton', function(event) {
+        $(document).on('click', '#oltDelete', function(event) {
             event.preventDefault();
             let href = $(this).attr('data-attr');
             $.ajax({

@@ -145,7 +145,7 @@
                                         {{--        </button>--}}
 
                                         <a type="button" rel="tooltip" class=" " onclick="editService({{$odf}})">
-                                            <i class="now-ui-icons ui-2_settings-90 text-success"></i></a>
+                                            <i class="fas fa-pen-square"></i></a>
 
                                     </td>
                                 </tr>

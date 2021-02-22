@@ -92,7 +92,10 @@
                                     <strong>Frame/Card/Port</strong>
                                 </th>
                                 <th>
-                                    <strong>Action</strong>
+                                    <strong>Edit</strong>
+                                </th>
+                                <th>
+                                    <strong>Delete</strong>
                                 </th>
                             </tr>
                             </thead>
@@ -123,7 +126,7 @@
                                     </td>
                                     <td>
                                         <a data-toggle="modal" id="smallButton" data-target=".bd-example-modal-lg"
-                                           data-attr="{{ route('delete', $interface->id) }}"
+                                           data-attr="{{ route('olt_interfaces', $interface->id) }}"
                                            title="Delete OLT Interface">
                                             <i class="fas fa-trash text-danger  fa-lg"></i>
                                         </a>
