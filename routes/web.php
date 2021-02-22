@@ -80,6 +80,7 @@ Route::resource('olts', OltController::class);
 Route::get('olts/delete/{id}', [OltController::class, 'delete'])->name('delete');
 
 Route::resource('olt_interfaces', OltInterfaceController::class);
+Route::get('olt_interfaces/delete/{id}', [OltInterfaceController::class, 'delete'])->name('delete');
 
 Route::resource('fdp_splitters', FdpSplitterController::class);
 

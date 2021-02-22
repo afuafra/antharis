@@ -106,6 +106,15 @@ class OltInterfaceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $oltinterface = \App\Models\oltInterface::find($id);
+        $oltinterface->delete();
+        return redirect()->route('olt_interfaces.index');
+    }
+
+    public function delete($id)
+    {
+        $oltinterface = OltInterface::find($id);
+
+        return view('olt_interfaces.delete', compact('oltinterface'));
     }
 }
