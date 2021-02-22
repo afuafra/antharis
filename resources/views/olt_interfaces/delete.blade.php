@@ -3,7 +3,7 @@
     <div class="modal-body">
         @csrf
         @method('DELETE')
-        <h5 class="text-center">Are you sure you want to delete {{ $oltinterface->olt->olt_device_id }}# CARD{{ $oltinterface->olt_card }}/PORT{{ $oltinterface->olt_port }} ?</h5>
+        <h5 class="text-center">Are you sure you want to delete  ?</h5>
     </div>
     <div class="modal-footer">
         <a href="{{route("olt_interfaces.index")}}" class="btn btn-round btn-secondary"
