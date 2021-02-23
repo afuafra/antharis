@@ -4,21 +4,6 @@
     <list default="true" id="3e6565b1-bd15-4289-a16d-2e401f5349dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FcabSplitterInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FcabSplitterInterfaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FidpsInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FidpsInterfaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OdfInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OdfInterfaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OltInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OltInterfaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/FcabSplitterInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FcabSplitterInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/FidpsInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FidpsInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fcabs_interface/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fcabs_interface/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fcabs_splitter/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fcabs_splitter/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fcabs_splitter_interface/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fcabs_splitter_interface/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fidps_interface/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fidps_interface/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/odf_interfaces/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/odf_interfaces/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/olt_interfaces/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/olt_interfaces/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/d868bb122cd1ff4a9b57377a0bd0fa038fa95ca7.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/d868bb122cd1ff4a9b57377a0bd0fa038fa95ca7.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,6 +149,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/laravel/sail" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/owen-it/laravel-auditing" />
     </include_path>
   </component>
   <component name="ProjectId" id="1nWL0OiJPdzw5O7oii9WvZdEx0r" />
@@ -181,18 +167,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-8-listing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/fdp_splitters" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\antharis\resources\views\fidp_splitters" />
       <recent name="C:\xampp\htdocs\antharis\resources\views\fdp_splitters" />
-      <recent name="C:\xampp\htdocs\antharis\resources\views" />
-      <recent name="C:\xampp\htdocs\antharis\resources\views\odf_interfaces" />
-      <recent name="C:\xampp\htdocs\antharis\resources\views\olts" />
+      <recent name="C:\xampp\htdocs\antharis\resources\views\fdp" />
+      <recent name="C:\xampp\htdocs\antharis\resources\views\fcabs_splitter" />
+      <recent name="C:\xampp\htdocs\antharis\resources\views\fcab" />
+      <recent name="C:\xampp\htdocs\antharis\resources\views\odf_racks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\antharis\app\Models" />
@@ -221,7 +208,13 @@
       <workItem from="1612965630431" duration="5304000" />
       <workItem from="1612973767587" duration="24801000" />
       <workItem from="1613223543817" duration="17042000" />
-      <workItem from="1613411001753" duration="75634000" />
+      <workItem from="1613411001753" duration="101772000" />
+      <workItem from="1613776756733" duration="27000" />
+      <workItem from="1613777421043" duration="640000" />
+      <workItem from="1613837293025" duration="89000" />
+      <workItem from="1613885302364" duration="44605000" />
+      <workItem from="1614009723224" duration="607000" />
+      <workItem from="1614015170423" duration="36696000" />
     </task>
     <servers />
   </component>
