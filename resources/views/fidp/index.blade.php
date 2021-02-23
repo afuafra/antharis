@@ -36,7 +36,7 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="fidpsCreate" method="POST"
-                                          action="{{route("fidp.store")}}" oninput="fidp_device_id.value = 'FIDP' +'|'+ fidp_no.value +'|'+ devicesites_id.selectedOptions[0].text">
+                                          action="{{route("fidp.store")}}" oninput="fidp_device_id.value = 'FIDP' +'|'+ fidp_no.value +'|'+ device_site_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
@@ -66,7 +66,7 @@
 
                                             <div class="mb-3">
                                                 <label class="form-label">Device Site </label>
-                                                <select  class="form-control" name="devicesites_id" list="list" id="devicesites_id">
+                                                <select  class="form-control" name="device_site_id" list="list" id="device_site_id">
                                                     @foreach($devicesites_list as $devicesite)
                                                         <option value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
                                                     @endforeach
@@ -198,7 +198,7 @@
                 'fidp_device_id': $("#fidp_device_id").val(),
                 'device_address': $("#device_address").val(),
                 'device_status': $("#device_status").val(),
-                'devicesites_id': $("#devicesites_id").val(),
+                'device_site_id': $("#device_site_id").val(),
                 '_token': $("#csrf").val()
 
             }

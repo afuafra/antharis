@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\devicesites;
+use App\Models\device_site;
+use App\Models\DeviceSite;
 use App\Models\Fdps;
 use App\Models\Regions;
 use Illuminate\Http\Request;
@@ -26,13 +27,13 @@ class FdpController extends Controller
             $query->where('fdp_no','like' ,'%'.$searchValue.'%')
                 ->orWhere('fdp_device_id', 'like', '%'.$searchValue.'%')
                 ->orWhere('device_address', 'like', '%'.$searchValue.'%')
-                ->orWhere('devicesites_id', 'like', '%'.$searchValue.'%');
+                ->orWhere('device_site_id', 'like', '%'.$searchValue.'%');
 
         }
 
         $fdps   = $query->orderBy("id","desc")->paginate();
 
-        $devicesites = devicesites::all();
+        $devicesites = DeviceSite::all();
         $regions = Regions::all();
 //        return $devicesites;
 
@@ -64,7 +65,7 @@ class FdpController extends Controller
         $res->fdp_device_id=$request->input("fdp_device_id");
         $res->device_address=$request->input("device_address");
         $res->device_status=$request->input("device_status");
-        $res->devicesites_id=$request->input("devicesites_id");
+        $res->device_site_id=$request->input("device_site_id");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");

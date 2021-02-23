@@ -47,28 +47,28 @@
 
                                             <div class="mb-3">
                                                 <label class="form-label">Order Number</label>
-                                                <input type="text" class="form-control" name="orderNumber"
-                                                       id="orderNumber">
+                                                <input type="text" class="form-control" name="order_number"
+                                                       id="order_number">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Service Number</label>
-                                                <input type="text" class="form-control" name="serviceNumber"
-                                                       id="serviceNumber">
+                                                <input type="text" class="form-control" name="service_number"
+                                                       id="service_number">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Customer Name</label>
-                                                <input type="text" class="form-control" name="customerName"
-                                                       id="customerName">
+                                                <input type="text" class="form-control" name="customer_name"
+                                                       id="customer_name">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Customer Address</label>
-                                                <input type="text" class="form-control" name="customerAddress"
-                                                       id="customerAddress">
+                                                <input type="text" class="form-control" name="customer_address"
+                                                       id="customer_address">
                                                 <div class="form-text">City/Atoll_District/Island_Site</div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Service Status</label>
-                                                <select class="form-control" name="serviceStatus" id="serviceStatus">
+                                                <select class="form-control" name="service_status" id="service_status">
                                                     <option></option>
                                                     <option>Working</option>
                                                     <option>Allocated</option>
@@ -129,7 +129,7 @@
                                 
                                 <tr>
                                     <td>
-                                        <?php echo e($service->orderNumber); ?>
+                                        <?php echo e($service->order_number); ?>
 
                                     </td>
                                     <td>
@@ -235,19 +235,19 @@
                                         
                                         
                                         
-                                        <?php echo e($service->serviceNumber); ?>
+                                        <?php echo e($service->service_number); ?>
 
                                     </td>
                                     <td>
-                                        <?php echo e($service->customerName); ?>
+                                        <?php echo e($service->customer_name); ?>
 
                                     </td>
                                     <td>
-                                        <?php echo e($service->customerAddress); ?>
+                                        <?php echo e($service->customer_address); ?>
 
                                     </td>
                                     <td>
-                                        <?php echo e($service->serviceStatus); ?>
+                                        <?php echo e($service->service_status); ?>
 
                                     </td>
                                     <td>
@@ -313,23 +313,23 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Order Number</label>
-                            <input type="text" id="_orderNumber" class="form-control">
+                            <input type="text" id="_order_number" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Service Number</label>
-                            <input type="text" id="_serviceNumber" class="form-control">
+                            <input type="text" id="_service_number" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Customer Name</label>
-                            <input type="text" id="_customerName" class="form-control">
+                            <input type="text" id="_customer_name" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Customer Address</label>
-                            <input type="text" id="_customerAddress" class="form-control">
+                            <input type="text" id="_customer_address" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Service Status</label>
-                            <input type="text" id="_serviceStatus" class="form-control">
+                            <input type="text" id="_service_status" class="form-control">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -346,11 +346,11 @@
 
                     function editService(service) {
                         $("#_id").val(service.id)
-                        $("#_orderNumber").val(service.orderNumber)
-                        $("#_serviceNumber").val(service.serviceNumber)
-                        $("#_customerName").val(service.customerName)
-                        $("#_customerAddress").val(service.customerAddress)
-                        $("#_serviceStatus").val(service.serviceStatus)
+                        $("#_order_number").val(service.order_number)
+                        $("#_service_number").val(service.service_number)
+                        $("#_customer_name").val(service.customer_name)
+                        $("#_customer_address").val(service.customer_address)
+                        $("#_service_status").val(service.service_status)
 
                         var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
 
@@ -370,11 +370,11 @@
                         var formData2 = {
 
 
-                            'orderNumber': $("#_orderNumber").val(),
-                            'serviceNumber': $("#_serviceNumber").val(),
-                            'customerName': $("#_customerName").val(),
-                            'customerAddress': $("#_customerAddress").val(),
-                            'serviceStatus': $("#_serviceStatus").val(),
+                            'order_number': $("#_order_number").val(),
+                            'service_number': $("#_service_number").val(),
+                            'customer_name': $("#_customer_name").val(),
+                            'customer_address': $("#_customer_address").val(),
+                            'service_status': $("#_service_status").val(),
                             '_token': "<?php echo e(csrf_token()); ?>"
 
                         }
@@ -413,7 +413,7 @@
                     var method = form.attr('method')
                     var url = form.attr('action')
                     // var token= $("#csrf").val()
-                    // var partNo = $("#orderNumber").val()
+                    // var partNo = $("#order_number").val()
 
 
                     form.submit(function (e) {
@@ -422,11 +422,11 @@
 
                         var formData = {
 
-                            'orderNumber': $("#orderNumber").val(),
-                            'serviceNumber': $("#serviceNumber").val(),
-                            'customerName': $("#customerName").val(),
-                            'customerAddress': $("#customerAddress").val(),
-                            'serviceStatus': $("#serviceStatus").val(),
+                            'order_number': $("#order_number").val(),
+                            'service_number': $("#service_number").val(),
+                            'customer_name': $("#customer_name").val(),
+                            'customer_address': $("#customer_address").val(),
+                            'service_status': $("#service_status").val(),
                             '_token': $("#csrf").val()
 
                         }

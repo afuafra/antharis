@@ -40,7 +40,7 @@
                                     </div>
                                     <form class="container-fluid" id="oltsCreate" method="POST"
                                           action="{{route("olts.store")}}"
-                                          oninput="olt_device_id.value = 'OLT' +'|'+ olt_name.value +'|'+ devicesites_id.selectedOptions[0].text">
+                                          oninput="olt_device_id.value = 'OLT' +'|'+ olt_name.value +'|'+ device_site_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
@@ -64,7 +64,7 @@
                                                 <label class="form-label">Device Site </label>
                                                 <select class="form-control"
                                                         data-style="select-with-transition btn-primary btn-round "
-                                                        name="devicesites_id" id="devicesites_id"
+                                                        name="device_site_id" id="device_site_id"
                                                         data-live-search="true">
                                                     @foreach($devicesites_list as $devicesite)
                                                         <option
@@ -163,7 +163,7 @@
                                         {{$olt->device_status}}
                                     </td>
                                     <td>
-                                        {{$olt->devicesites->atollislandsite}}
+                                        {{$olt->device_site->atollislandsite}}
                                     </td>
                                     <td>
                                         {{$olt->region->region_name}}
@@ -213,7 +213,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form class="container-fluid"
-                          oninput="_olt_device_id.value = 'OLT' +'|'+ _olt_name.value +'|'+ _devicesites_id.selectedOptions[0].text">
+                          oninput="_olt_device_id.value = 'OLT' +'|'+ _olt_name.value +'|'+ _device_site_id.selectedOptions[0].text">
                         <div class="mb-3">
                             <input type="hidden" id="_id">
                         </div>
@@ -232,7 +232,7 @@
                             <label class="form-label">Device Site </label>
                             <select class="form-control"
                                     data-style="select-with-transition btn-primary btn-round "
-                                    name="_devicesites_id" id="_devicesites_id"
+                                    name="_device_site_id" id="_device_site_id"
                                     data-live-search="true">
                                 @foreach($devicesites_list as $devicesite)
                                     <option
@@ -331,7 +331,7 @@
             $("#_olt_name").val(olts.olt_name)
             $("#_device_address").val(olts.device_address)
             $("#_device_status").val(olts.device_status)
-            $("#_devicesites_id").val(olts.devicesites_id)
+            $("#_device_site_id").val(olts.device_site_id)
             $("#_olt_device_id").val(olts.olt_device_id)
 
             var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
@@ -356,7 +356,7 @@
                 'olt_device_id': $("#_olt_device_id").val(),
                 'device_address': $("#_device_address").val(),
                 'device_status': $("#_device_status").val(),
-                'devicesites_id': $("#_devicesites_id").val(),
+                'device_site_id': $("#_device_site_id").val(),
                 '_token': "{{ csrf_token() }}"
 
             }
@@ -406,7 +406,7 @@
                 'olt_device_id': $("#olt_device_id").val(),
                 'device_address': $("#device_address").val(),
                 'device_status': $("#device_status").val(),
-                'devicesites_id': $("#devicesites_id").val(),
+                'device_site_id': $("#device_site_id").val(),
                 '_token': $("#csrf").val()
 
             }

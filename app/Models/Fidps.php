@@ -13,14 +13,14 @@ class Fidps extends Model
         'fidp_device_id',
         'device_address',
         'device_status',
-        'devicesites_id'
+        'device_site_id'
     ];
 
     protected $table='fidps';
 
-    public function devicesites(){
+    public function device_site(){
 
-        return $this->belongsTo(\App\Models\devicesites::class);
+        return $this->belongsTo(\App\Models\DeviceSite::class);
     }
 
     public function fidpsinterface()

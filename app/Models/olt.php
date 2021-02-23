@@ -17,15 +17,15 @@ class olt extends Model
         'olt_device_id',
         'device_address',
         'device_status',
-        'devicesites_id',
+        'device_site_id',
         'region_id'
 
     ];
 
 
-    public function devicesites()
+    public function device_site()
     {
-        return $this->belongsTo(\App\Models\devicesites::class);
+        return $this->belongsTo(DeviceSite::class);
     }
 
     public function interface()

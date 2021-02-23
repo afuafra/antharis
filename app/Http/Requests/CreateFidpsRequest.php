@@ -28,7 +28,7 @@ class CreateFidpsRequest extends FormRequest
             'fidp_device_id' => 'required',
             'device_address' => 'required',
             'device_status' => 'required',
-            'devicesites_id' => 'required'
+            'device_site_id' => 'required'
         ];
     }
 }

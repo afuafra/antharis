@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateFidpsRequest;
-use App\Http\Requests\CreateServiceRequest;
 use App\Models;
-use App\Models\devicesites;
+use App\Models\device_site;
+use App\Models\DeviceSite;
 use App\Models\Fidps;
 use App\Models\FidpsInterface;
 use Illuminate\Http\Request;
@@ -20,8 +20,8 @@ class FidpController extends Controller
     public function index(Request $request)
     {
 //
-        $fidps=Fidps::orderBy("id","desc")->with('devicesites','fidpsinterface')->paginate();
-        $devicesites = devicesites::all();
+        $fidps=Fidps::orderBy("id","desc")->with('device_site','fidpsinterface')->paginate();
+        $devicesites = DeviceSite::all();
         $fidpinterface = FidpsInterface::all();
 
 //        return $fidps;
@@ -57,7 +57,7 @@ class FidpController extends Controller
         $res->fidp_device_id=$request->input("fidp_device_id");
         $res->device_address=$request->input("device_address");
         $res->device_status=$request->input("device_status");
-        $res->devicesites_id=$request->input("devicesites_id");
+        $res->device_site_id=$request->input("device_site_id");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");

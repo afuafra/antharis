@@ -38,7 +38,7 @@
                                     </div>
                                     <form class="container-fluid" id="fdpsCreate" method="POST"
                                           action="{{route("fdp.store")}}"
-                                          oninput="fdp_device_id.value = device_type.value +'|'+ fdp_no.value +'|'+ devicesites_id.selectedOptions[0].text">
+                                          oninput="fdp_device_id.value = device_type.value +'|'+ fdp_no.value +'|'+ device_site_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
@@ -65,7 +65,7 @@
                                                 <label class="form-label">Device Site </label>
                                                 <select class="form-control"
                                                         data-style="select-with-transition btn-primary btn-round "
-                                                        name="devicesites_id" id="devicesites_id"
+                                                        name="device_site_id" id="device_site_id"
                                                         data-live-search="true">
                                                     @foreach($devicesites_list as $devicesite)
                                                         <option
@@ -166,7 +166,7 @@
                                         {{$fdp->device_status}}
                                     </td>
                                     <td>
-                                        {{$fdp->devicesites->atollislandsite}}
+                                        {{$fdp->device_site->atollislandsite}}
                                     </td>
                                     <td>
                                         {{$fdp->fdp_no}}
@@ -214,7 +214,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form class="container-fluid"
-                          oninput="_fdp_device_id.value = _device_type.value +'|'+ _fdp_no.value +'|'+ _devicesites_id.selectedOptions[0].text">
+                          oninput="_fdp_device_id.value = _device_type.value +'|'+ _fdp_no.value +'|'+ _device_site_id.selectedOptions[0].text">
                         <div class="mb-3">
                             <input type="hidden" id="_id">
                         </div>
@@ -234,7 +234,7 @@
                             <label class="form-label">Device Site </label>
                             <select class="form-control"
                                     data-style="select-with-transition btn-primary btn-round "
-                                    name="_devicesites_id" id="_devicesites_id"
+                                    name="_device_site_id" id="_device_site_id"
                                     data-live-search="true">
                                 @foreach($devicesites_list as $devicesite)
                                     <option
@@ -336,7 +336,7 @@
             $("#_fdp_no").val(fdp.fdp_no)
             $("#_device_address").val(fdp.device_address)
             $("#_device_status").val(fdp.device_status)
-            $("#_devicesites_id").val(fdp.devicesites_id)
+            $("#_device_site_id").val(fdp.device_site_id)
             $("#_fdp_device_id").val(fdp.fdp_device_id)
             $("#_device_type").val(fdp.device_type)
 
@@ -362,7 +362,7 @@
                 'fdp_device_id': $("#_fdp_device_id").val(),
                 'device_address': $("#_device_address").val(),
                 'device_status': $("#_device_status").val(),
-                'devicesites_id': $("#_devicesites_id").val(),
+                'device_site_id': $("#_device_site_id").val(),
                 'device_type': $("#device_type").val(),
                 '_token': "{{ csrf_token() }}"
 
@@ -413,7 +413,7 @@
                 'fdp_device_id': $("#fdp_device_id").val(),
                 'device_address': $("#device_address").val(),
                 'device_status': $("#device_status").val(),
-                'devicesites_id': $("#devicesites_id").val(),
+                'device_site_id': $("#device_site_id").val(),
                 '_token': $("#csrf").val()
 
             }

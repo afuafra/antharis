@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\devicesites;
+
+use App\Models\devicesite;
 use App\Models\olt;
 use App\Models\Regions;
 use Illuminate\Http\Request;
@@ -16,8 +17,8 @@ class OltController extends Controller
      */
     public function index()
     {
-        $olt=olt::orderBy("id","desc")->with('devicesites')->with('interface')->with('region')->paginate();
-        $devicesites = devicesites::all();
+        $olt=olt::orderBy("id","desc")->with('device_site')->with('interface')->with('region')->paginate();
+        $devicesites = DeviceSite::all();
         $regions = Regions::all();
 
 //        return $olt;
@@ -50,7 +51,7 @@ class OltController extends Controller
         $res->olt_device_id=$request->input("olt_device_id");
         $res->device_address=$request->input("device_address");
         $res->device_status=$request->input("device_status");
-        $res->devicesites_id=$request->input("devicesites_id");
+        $res->device_site_id=$request->input("device_site_id");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");

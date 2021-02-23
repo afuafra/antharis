@@ -13,7 +13,7 @@ class Fdps extends Model
         'fdp_device_id',
         'device_address',
         'device_status',
-        'devicesites_id'
+        'device_site_id'
     ];
 
 
@@ -22,9 +22,9 @@ class Fdps extends Model
         return $this->hasMany(FdpsInterface::class, 'fdp_id');
     }
 
-    public function devicesites(){
+    public function device_site(){
 
-        return $this->belongsTo(\App\Models\devicesites::class);
+        return $this->belongsTo(\App\Models\DeviceSite::class);
     }
 
 

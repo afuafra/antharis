@@ -62,11 +62,11 @@ class ServicesController extends Controller
 
 
             $res=new \App\Models\services;
-            $res->orderNumber=$request->input("orderNumber");
-            $res->serviceNumber=$request->input("serviceNumber");
-            $res->customerName=$request->input("customerName");
-            $res->customerAddress=$request->input("customerAddress");
-            $res->serviceStatus=$request->input("serviceStatus");
+            $res->order_number=$request->input("order_number");
+            $res->service_number=$request->input("service_number");
+            $res->customer_name=$request->input("customer_name");
+            $res->customer_address=$request->input("customer_address");
+            $res->service_status=$request->input("service_status");
             $res->save();
 
             $request->session()->flash("msg","New Service Added");

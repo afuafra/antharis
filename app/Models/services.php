@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class services extends Model
 {
         protected $fillable=[
-            'orderNumber',
-            'serviceNumber',
-            'customerName',
-            'customerAddress',
-            'serviceStatus'
+            'order_number',
+            'service_number',
+            'customer_name',
+            'customer_address',
+            'service_status'
         ];
 
     public function fidpsinterface()

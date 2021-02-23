@@ -20,8 +20,8 @@ class CreateFdpsTable extends Migration
             $table->string("device_address");
             $table->string("device_type");
             $table->string("device_status");
-            $table->foreign('device_sites_id')->references('id')->on('device_sites');
-            $table->unsignedBigInteger('device_sites_id');
+            $table->foreign('device_site_id')->references('id')->on('device_sites');
+            $table->unsignedBigInteger('device_site_id');
             $table->unsignedBigInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regions');
             $table->timestamps();

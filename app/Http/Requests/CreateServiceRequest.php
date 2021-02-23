@@ -24,11 +24,11 @@ class CreateServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'orderNumber' => 'required',
-            'serviceNumber' => 'required',
-            'customerName' => 'required',
-            'customerAddress' => 'required',
-            'serviceStatus' => 'required'
+            'order_number' => 'required',
+            'service_number' => 'required',
+            'customer_name' => 'required',
+            'customer_address' => 'required',
+            'service_status' => 'required'
         ];
     }
 }

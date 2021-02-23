@@ -2,16 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e6565b1-bd15-4289-a16d-2e401f5349dd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Models/DeviceSite.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_01_103721_create_devicesite_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_01_103721_create_device sites_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_01_120305_create_fcabs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_01_120305_create_fcabs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FcabController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FcabController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FdpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FdpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FidpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FidpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OdfRackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OdfRackController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OltController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OltController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/devicesitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DeviceSitesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/servicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/servicesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CreateFidpsRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CreateFidpsRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CreateServiceRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CreateServiceRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Fcab.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fcab.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Fdps.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fdps.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Fidps.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fidps.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/devicesites.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/odfRack.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/odfRack.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/olt.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/olt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_01_103721_create_device sites_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_01_231116_create_device_sites_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_01_152533_create_odf_racks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_01_152533_create_odf_racks_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_01_152945_create_olts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_01_152945_create_olts_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_01_172243_create_fidps_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_01_172243_create_fidps_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_01_212431_create_fdps_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_01_212431_create_fdps_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_21_103721_create_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_21_103721_create_services_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fcab/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fcab/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fdp/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fdp/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fidp/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fidp/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/odf_racks/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/odf_racks/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/olts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/olts/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/services/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/a8931c975f2ebf4566a97c80781d8897a1a83b83.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/a8931c975f2ebf4566a97c80781d8897a1a83b83.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +246,8 @@
       <workItem from="1613837293025" duration="89000" />
       <workItem from="1613885302364" duration="44605000" />
       <workItem from="1614009723224" duration="607000" />
-      <workItem from="1614015170423" duration="37768000" />
+      <workItem from="1614015170423" duration="41937000" />
+      <workItem from="1614122913664" duration="1441000" />
     </task>
     <servers />
   </component>

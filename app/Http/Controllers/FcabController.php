@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\devicesites;
+
+use App\Models\device_site;
+use App\Models\DeviceSite;
 use App\Models\Fcab;
 use App\Models\FcabInterface;
 use App\Models\Regions;
@@ -35,7 +37,7 @@ class FcabController extends Controller
 
 
         $regions = Regions::all();
-        $devicesite = devicesites::all();
+        $devicesite = DeviceSite::all();
 
 //return $devicesite;
 
@@ -66,7 +68,7 @@ class FcabController extends Controller
         $res->fcab_device_id=$request->input("fcab_device_id");
         $res->device_address=$request->input("device_address");
         $res->device_status=$request->input("device_status");
-        $res->devicesites_id=$request->input("devicesites_id");
+        $res->device_site_id=$request->input("device_site_id");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");

@@ -19,7 +19,7 @@ use App\Http\Controllers\ServiceViewController;
 use App\Models\FidpsInterface;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\servicesController;
-use App\Http\Controllers\devicesitesController;
+use App\Http\Controllers\deviceSitesController;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\ServiceRouteController;
 use App\Http\Controllers\FidpController;
@@ -53,7 +53,7 @@ Route::resource("users",usersController::class);
 Route::get("users_delete/{id}",[App\Http\Controllers\usersController::class,'destroy'])-> name('users_delete/{id}');;
 
 Route::resource('services', ServicesController::class);
-Route::resource('devicesites', devicesitesController::class);
+Route::resource('devicesites', deviceSitesController::class);
 Route::resource('regions', RegionsController::class);
 
 Route::resource('serviceRoute', ServiceRouteController::class);

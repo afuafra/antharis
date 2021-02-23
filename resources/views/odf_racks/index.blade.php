@@ -36,7 +36,7 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="odfRackCreate" method="POST"
-                                          action="{{route("odf_racks.store")}}" oninput="odf_device_id.value = 'ODF-RACK' +'|'+ odf_rack_name.value +'|'+ devicesites_id.selectedOptions[0].text">
+                                          action="{{route("odf_racks.store")}}" oninput="odf_device_id.value = 'ODF-RACK' +'|'+ odf_rack_name.value +'|'+ device_site_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
@@ -63,7 +63,7 @@
                                                 <label class="form-label">Device Site </label>
                                                 <select class="form-control"
                                                         data-style="select-with-transition btn-primary btn-round "
-                                                        name="devicesites_id" id="devicesites_id"
+                                                        name="device_site_id" id="device_site_id"
                                                         data-live-search="true">
                                                     @foreach($devicesites_list as $devicesite)
                                                         <option
@@ -156,7 +156,7 @@
                                         {{$odf->device_address}}
                                     </td>
                                     <td>
-                                        {{$odf->devicesites->atollislandsite}}
+                                        {{$odf->device_site->atollislandsite}}
                                     </td>
                                     <td>
                                         <a onclick="editOlt({{$odf}})">
@@ -203,7 +203,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form class="container-fluid"
-                          oninput="_odf_device_id.value = 'ODF-RACK' +'|'+ _odf_rack_name.value +'|'+ _devicesites_id.selectedOptions[0].text">
+                          oninput="_odf_device_id.value = 'ODF-RACK' +'|'+ _odf_rack_name.value +'|'+ _device_site_id.selectedOptions[0].text">
                         <div class="mb-3">
                             <input type="hidden" id="_id">
                         </div>
@@ -223,7 +223,7 @@
                             <label class="form-label">Device Site </label>
                             <select class="form-control"
                                     data-style="select-with-transition btn-primary btn-round "
-                                    name="_devicesites_id" id="_devicesites_id"
+                                    name="_device_site_id" id="_device_site_id"
                                     data-live-search="true">
                                 @foreach($devicesites_list as $devicesite)
                                     <option
@@ -312,7 +312,7 @@
             $("#_odf_rack_name").val(odf_racks.odf_rack_name)
             $("#_device_address").val(odf_racks.device_address)
             $("#_device_status").val(odf_racks.device_status)
-            $("#_devicesites_id").val(odf_racks.devicesites_id)
+            $("#_device_site_id").val(odf_racks.device_site_id)
             $("#_odf_device_id").val(odf_racks.odf_device_id)
 
             var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
@@ -337,7 +337,7 @@
                 'odf_rack_name': $("#_odf_rack_name").val(),
                 'device_address': $("#_device_address").val(),
                 'device_status': $("#_device_status").val(),
-                'devicesites_id': $("#_devicesites_id").val(),
+                'device_site_id': $("#_device_site_id").val(),
                 '_token': "{{ csrf_token() }}"
 
             }
@@ -386,7 +386,7 @@
                 'device_status': $("#device_status").val(),
                 'odf_device_id': $("#odf_device_id").val(),
                 'device_address': $("#device_address").val(),
-                'devicesites_id': $("#devicesites_id").val(),
+                'device_site_id': $("#device_site_id").val(),
                 '_token': $("#csrf").val()
 
             }

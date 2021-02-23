@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\devicesites;
+use App\Models\device_site;
+use App\Models\DeviceSite;
 use App\Models\odfInterface;
 use App\Models\odfRack;
 use App\Models\Regions;
@@ -17,8 +18,8 @@ class OdfRackController extends Controller
      */
     public function index()
     {
-        $odf=odfRack::orderBy("id","desc")->with('devicesites')->with('interface')->paginate();
-        $devicesites = devicesites::all();
+        $odf=odfRack::orderBy("id","desc")->with('device_site')->with('interface')->paginate();
+        $devicesites = DeviceSite::all();
 //        $rack=odfInterface::with('')->paginate();
         $regions = Regions::all();
 //
@@ -51,7 +52,7 @@ class OdfRackController extends Controller
         $res->odf_device_id=$request->input("odf_device_id");
         $res->device_address=$request->input("device_address");
         $res->device_status=$request->input("device_status");
-        $res->devicesites_id=$request->input("devicesites_id");
+        $res->device_site_id=$request->input("device_site_id");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");
