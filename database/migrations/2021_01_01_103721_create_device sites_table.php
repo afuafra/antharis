@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeviceSiteTable extends Migration
+class CreateDeviceSitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateDeviceSiteTable extends Migration
     public function up()
     {
 
-        Schema::create('deviceSites', function (Blueprint $table) {
+        Schema::create('device_sites', function (Blueprint $table) {
             $table->id();
             $table->string("AtollCity");
             $table->string("IslandDistrict");

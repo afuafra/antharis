@@ -15,11 +15,11 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string("orderNumber");
-            $table->string("serviceNumber")->unique();
-            $table->string("customerName");
-            $table->string("customerAddress");
-            $table->string("serviceStatus");
+            $table->string("order_number");
+            $table->string("service_number")->unique();
+            $table->string("customer_name");
+            $table->string("customer_address");
+            $table->string("service_status");
             $table->timestamps();
         });
     }

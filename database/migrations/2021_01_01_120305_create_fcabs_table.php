@@ -19,8 +19,8 @@ class CreateFcabsTable extends Migration
             $table->string("fcab_device_id")->unique();
             $table->string("device_address");
             $table->string("device_status");
-            $table->foreign('devicesites_id')->references('id')->on('devicesites');
-            $table->unsignedBigInteger('devicesites_id');
+            $table->foreign('device_site_id')->references('id')->on('device_sites');
+            $table->unsignedBigInteger('device_site_id');
             $table->unsignedBigInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regions');
             $table->timestamps();
