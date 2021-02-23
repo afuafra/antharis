@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\device_site;
 use App\Models\DeviceSite;
 use App\Models\Fcab;
 use App\Models\FcabInterface;

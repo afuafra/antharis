@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateFidpsRequest;
 use App\Models;
-use App\Models\device_site;
 use App\Models\DeviceSite;
 use App\Models\Fidps;
 use App\Models\FidpsInterface;

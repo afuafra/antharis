@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\devicesite;
+use App\Models\DeviceSite;
 use App\Models\olt;
 use App\Models\Regions;
 use Illuminate\Http\Request;

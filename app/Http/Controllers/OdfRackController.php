@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\device_site;
 use App\Models\DeviceSite;
 use App\Models\odfInterface;
 use App\Models\odfRack;
