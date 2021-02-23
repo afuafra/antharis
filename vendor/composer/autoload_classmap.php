@@ -32,6 +32,7 @@ return array(
     'App\\Http\\Controllers\\OdfRackController' => $baseDir . '/app/Http/Controllers/OdfRackController.php',
     'App\\Http\\Controllers\\OltController' => $baseDir . '/app/Http/Controllers/OltController.php',
     'App\\Http\\Controllers\\OltInterfaceController' => $baseDir . '/app/Http/Controllers/OltInterfaceController.php',
+    'App\\Http\\Controllers\\RegionsController' => $baseDir . '/app/Http/Controllers/RegionsController.php',
     'App\\Http\\Controllers\\ServiceRouteController' => $baseDir . '/app/Http/Controllers/ServiceRouteController.php',
     'App\\Http\\Controllers\\ServiceViewController' => $baseDir . '/app/Http/Controllers/ServiceViewController.php',
     'App\\Http\\Controllers\\ServicesController' => $baseDir . '/app/Http/Controllers/ServicesController.php',

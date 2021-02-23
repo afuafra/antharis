@@ -549,6 +549,7 @@ class ComposerStaticInit629a2624edf8a50f759c81729d56fe8f
         'App\\Http\\Controllers\\OdfRackController' => __DIR__ . '/../..' . '/app/Http/Controllers/OdfRackController.php',
         'App\\Http\\Controllers\\OltController' => __DIR__ . '/../..' . '/app/Http/Controllers/OltController.php',
         'App\\Http\\Controllers\\OltInterfaceController' => __DIR__ . '/../..' . '/app/Http/Controllers/OltInterfaceController.php',
+        'App\\Http\\Controllers\\RegionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegionsController.php',
         'App\\Http\\Controllers\\ServiceRouteController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServiceRouteController.php',
         'App\\Http\\Controllers\\ServiceViewController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServiceViewController.php',
         'App\\Http\\Controllers\\ServicesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServicesController.php',
