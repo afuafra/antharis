@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFdpsTable extends Migration
+class CreateFcabsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateFdpsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fdps', function (Blueprint $table) {
+        Schema::create('fcabs', function (Blueprint $table) {
             $table->id();
-            $table->string("fdp_no");
-            $table->string("fdp_device_id")->unique();
+            $table->string("fcab_no");
+            $table->string("fcab_device_id")->unique();
             $table->string("device_address");
-            $table->string("device_type");
             $table->string("device_status");
             $table->foreign('devicesites_id')->references('id')->on('devicesites');
             $table->unsignedBigInteger('devicesites_id');
+            $table->unsignedBigInteger('region_id');
+            $table->foreign('region_id')->references('id')->on('regions');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateFdpsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fdps');
+        Schema::dropIfExists('fcabs');
     }
 }

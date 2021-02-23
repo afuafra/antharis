@@ -6,7 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Fcab extends Model
+
 {
+    protected $fillable=[
+        'fcab_no',
+        'fcab_device_id',
+        'device_address',
+        'device_status',
+        'devicesites_id',
+        'region_id'
+
+    ];
+
+
     public function fcabsplitter()
     {
 

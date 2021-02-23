@@ -18,7 +18,7 @@ class CreateFcabSplittersTable extends Migration
             $table->string("fcab_splitter_no");
             $table->unsignedBigInteger('fcab_id');
             $table->foreign('fcab_id')->references('id')->on('fcabs');
-            $table->string("fcab_splitter_device_id");
+            $table->string("fcab_splitter_device_id")->unique();
             $table->timestamps();
         });
     }

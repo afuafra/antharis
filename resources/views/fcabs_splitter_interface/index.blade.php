@@ -39,7 +39,7 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="splitterCreate" method="POST"
-                                          action="{{route("fcabs_splitter.store")}}" oninput="fcab_splitter_device_id.value = 'SPLITTER' +'|'+ fcab_splitter_no.value +'|'+ fcab_id.selectedOptions[0].text">
+                                          action="{{route("fcab_splitter_interface.store")}}" oninput="fcab_splitter_device_id.value = 'SPLITTER' +'|'+ fcab_splitter_no.value +'|'+ fcab_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
@@ -57,7 +57,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">fcab_splitter_device_id </label>
-                                                <select class="form-control" id="fcab_splitter_device_id" name="fcab_splitter_device_id" >
+                                                <select class="form-control" id="fcab_splitter_id" name="fcab_splitter_id" >
                                                     @foreach($fcabsplitters as $fcabsplitter)
                                                         <option value="{{ $fcabsplitter->id }}">{{ $fcabsplitter->fcab_splitter_device_id}}</option>
                                                     @endforeach
@@ -65,7 +65,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">fcab_interface_id </label>
-                                                <select class="form-control" id="fcab_interface_id" name="fcab_interface_id"  >
+                                                <select class="form-control" id="fcab_interface_id" name="fcab_interface_id">
                                                     <option disabled selected>Select FCAB...</option>
                                                     @foreach($fcabinterfaces as $fcabinterface)
                                                         <option value="{{ $fcabinterface->id }}">{{ $fcabinterface->fcabs->fcab_device_id}}#PORT-{{ $fcabinterface->port}}</option>
@@ -171,9 +171,9 @@
 
             var formData = {
 
-                'fcab_splitter_no': $("#fcab_splitter_no").val(),
-                'fcab_id': $("#fcab_id").val(),
-                'fcab_splitter_device_id': $("#fcab_splitter_device_id").val(),
+                'port': $("#port").val(),
+                'fcab_splitter_id': $("#fcab_splitter_id").val(),
+                'fcab_interface_id': $("#fcab_interface_id").val(),
                 '_token': $("#csrf").val()
 
             }

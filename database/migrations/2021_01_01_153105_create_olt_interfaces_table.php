@@ -20,6 +20,7 @@ class CreateOltInterfacesTable extends Migration
             $table->string('olt_port');
             $table->foreign('olts_id')->references('id')->on('olts');
             $table->unsignedBigInteger('olts_id');
+            $table->string('entity_id')->unique();
             $table->timestamps();
         });
     }

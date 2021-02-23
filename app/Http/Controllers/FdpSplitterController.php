@@ -98,7 +98,13 @@ class FdpSplitterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $res = \App\Models\FdpSplitter::find($id);
+
+        $input = $request->all();
+
+        $res->fill($input)->save();
+
+        return $res;
     }
 
     /**
@@ -109,6 +115,15 @@ class FdpSplitterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fdp_splitter = \App\Models\FdpSplitter::find($id);
+        $fdp_splitter->delete();
+        return redirect()->route('fdp_splitters.index');
+    }
+
+    public function delete($id)
+    {
+        $fdp_splitter = FdpSplitter::find($id);
+
+        return view('fdp_splitters.delete', compact('fdp_splitter'));
     }
 }

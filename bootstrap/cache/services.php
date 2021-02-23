@@ -31,10 +31,11 @@
     27 => 'Laravel\\Ui\\UiServiceProvider',
     28 => 'Carbon\\Laravel\\ServiceProvider',
     29 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    30 => 'App\\Providers\\AppServiceProvider',
-    31 => 'App\\Providers\\AuthServiceProvider',
-    32 => 'App\\Providers\\EventServiceProvider',
-    33 => 'App\\Providers\\RouteServiceProvider',
+    30 => 'OwenIt\\Auditing\\AuditingServiceProvider',
+    31 => 'App\\Providers\\AppServiceProvider',
+    32 => 'App\\Providers\\AuthServiceProvider',
+    33 => 'App\\Providers\\EventServiceProvider',
+    34 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -180,6 +181,7 @@
     'sail.install-command' => 'Laravel\\Sail\\SailServiceProvider',
     'sail.publish-command' => 'Laravel\\Sail\\SailServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
+    'OwenIt\\Auditing\\Contracts\\Auditor' => 'OwenIt\\Auditing\\AuditingServiceProvider',
   ),
   'when' => 
   array (
@@ -223,6 +225,9 @@
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 
+    array (
+    ),
+    'OwenIt\\Auditing\\AuditingServiceProvider' => 
     array (
     ),
   ),

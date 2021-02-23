@@ -47,6 +47,18 @@
 
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
+                                            <div class="mb-3">
+                                                <label class="form-label">Region </label>
+                                                <select class="form-control"
+                                                        data-style="select-with-transition btn-primary btn-round "
+                                                        name="region_id" id="region_id"
+                                                        data-live-search="true">
+                                                    @foreach($regions as $region)
+                                                        <option
+                                                            value="{{ $region->id }}">{{ $region->region_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
 
                                             <div class="mb-3">
                                                 <label class="form-label">Device Site </label>
@@ -119,6 +131,9 @@
                                     <strong>Device Site</strong>
                                 </th>
                                 <th>
+                                    <strong>Region</strong>
+                                </th>
+                                <th>
                                     <strong>Edit</strong>
                                 </th>
                                 <th>
@@ -149,6 +164,9 @@
                                     </td>
                                     <td>
                                         {{$olt->devicesites->atollislandsite}}
+                                    </td>
+                                    <td>
+                                        {{$olt->region->region_name}}
                                     </td>
                                     <td>
                                         <a onclick="editOlt({{$olt}})">
@@ -200,6 +218,30 @@
                             <input type="hidden" id="_id">
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Region </label>
+                            <select class="form-control"
+                                    data-style="select-with-transition btn-primary btn-round "
+                                    name="_region_id" id="_region_id">
+                                @foreach($regions as $region)
+                                    <option
+                                        value="{{ $region->id }}">{{ $region->region_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Device Site </label>
+                            <select class="form-control"
+                                    data-style="select-with-transition btn-primary btn-round "
+                                    name="_devicesites_id" id="_devicesites_id"
+                                    data-live-search="true">
+                                @foreach($devicesites_list as $devicesite)
+                                    <option
+                                        value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label">olt_name</label>
                             <input type="text" class="form-control" name="_olt_name"
                                    id="_olt_name">
@@ -216,14 +258,7 @@
                         </div>
 
 
-                        <div class="mb-3">
-                            <label class="form-label">Device Site </label>
-                            <select class="form-control" name="_devicesites_id" list="list" id="_devicesites_id">
-                                @foreach($devicesites_list as $devicesite)
-                                    <option value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+
                         <div class="mb-3">
                             <label class="form-label">olt_device_id</label>
                             <input type="text" class="form-control" name="_olt_device_id"
@@ -292,6 +327,7 @@
 
         function editOlt(olts) {
             $("#_id").val(olts.id)
+            $("#_region_id").val(olts.region_id)
             $("#_olt_name").val(olts.olt_name)
             $("#_device_address").val(olts.device_address)
             $("#_device_status").val(olts.device_status)
@@ -315,7 +351,7 @@
 
             var formData2 = {
 
-
+                'region_id': $("#_region_id").val(),
                 'olt_name': $("#_olt_name").val(),
                 'olt_device_id': $("#_olt_device_id").val(),
                 'device_address': $("#_device_address").val(),
@@ -365,6 +401,7 @@
 
             var formData = {
 
+                'region_id': $("#region_id").val(),
                 'olt_name': $("#olt_name").val(),
                 'olt_device_id': $("#olt_device_id").val(),
                 'device_address': $("#device_address").val(),

@@ -18,7 +18,7 @@ class CreateFidpSplittersTable extends Migration
             $table->string("fidp_splitter_no");
             $table->unsignedBigInteger('fidp_id');
             $table->foreign('fidp_id')->references('id')->on('fidps');
-            $table->string("fidp_splitter_device_id");
+            $table->string("fidp_splitter_device_id")->unique();
             $table->timestamps();
         });
     }

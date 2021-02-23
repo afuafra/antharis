@@ -7,8 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class odfRack extends Model
 {
+
+
     use HasFactory;
 
+    protected $fillable=[
+        'odf_rack_name',
+        'odf_device_id',
+        'device_address',
+        'device_status',
+        'devicesites_id',
+        'region_id'
+
+    ];
 
 
     public function devicesites(){

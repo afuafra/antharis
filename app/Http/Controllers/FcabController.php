@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\devicesites;
 use App\Models\Fcab;
 use App\Models\FcabInterface;
+use App\Models\Regions;
 use Illuminate\Http\Request;
 
 class FcabController extends Controller
@@ -33,12 +34,12 @@ class FcabController extends Controller
         $fcab   = $query->orderBy("id","desc")->with(['interface','Interface.Splitter','Interface.SplitterInterface'])->paginate();
 
 
-
+        $regions = Regions::all();
         $devicesite = devicesites::all();
 
 //return $devicesite;
 
-        return view("fcab.index")->with("fcab_list",$fcab)->with ("devicesites_list",$devicesite) ;
+        return view("fcab.index")->with("fcab_list",$fcab)->with ("devicesites_list",$devicesite)->with ("regions",$regions) ;
     }
 
     /**
@@ -60,6 +61,7 @@ class FcabController extends Controller
     public function store(Request $request)
     {
         $res=new \App\Models\Fcab;
+        $res->region_id=$request->input("region_id");
         $res->fcab_no=$request->input("fcab_no");
         $res->fcab_device_id=$request->input("fcab_device_id");
         $res->device_address=$request->input("device_address");
@@ -102,7 +104,13 @@ class FcabController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $res = \App\Models\Fcab::find($id);
+
+        $input = $request->all();
+
+        $res->fill($input)->save();
+
+        return $res;
     }
 
     /**
@@ -113,6 +121,15 @@ class FcabController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fcab = \App\Models\Fcab::find($id);
+        $fcab->delete();
+        return redirect()->route('fcab.index');
+    }
+
+    public function delete($id)
+    {
+        $fcab = Fcab::find($id);
+
+        return view('fcab.delete', compact('fcab'));
     }
 }

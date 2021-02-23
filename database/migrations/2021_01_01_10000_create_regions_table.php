@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFdpSplittersTable extends Migration
+class CreateRegionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateFdpSplittersTable extends Migration
      */
     public function up()
     {
-        Schema::create('fdp_splitters', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->id();
-            $table->string("fdp_splitter_no");
-            $table->unsignedBigInteger('fdp_id');
-            $table->foreign('fdp_id')->references('id')->on('fdps');
-            $table->string("fdp_splitter_device_id")->unique();;
+            $table->string('region_name')->unique();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateFdpSplittersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fdp_splitters');
+        Schema::dropIfExists('reigions');
     }
 }

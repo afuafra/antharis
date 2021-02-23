@@ -45,7 +45,14 @@ class FcabSplitterInterfaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $res=new \App\Models\FcabSplitterInterface();
+        $res->port=$request->input("port");
+        $res->fcab_splitter_id=$request->input("fcab_splitter_id");
+        $res->fcab_interface_id=$request->input("fcab_interface_id");
+        $res->save();
+
+        $request->session()->flash("msg","New Service Added");
+        return redirect("fcab_splitter_interface");
     }
 
     /**

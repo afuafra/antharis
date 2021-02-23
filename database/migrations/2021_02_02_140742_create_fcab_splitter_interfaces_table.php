@@ -16,7 +16,7 @@ class CreateFcabSplitterInterfacesTable extends Migration
         Schema::create('fcab_splitter_interfaces', function (Blueprint $table) {
             $table->id();
             $table->string('port');
-            $table->unsignedBigInteger('fcab_splitter_id');
+            $table->unsignedBigInteger('fcab_splitter_id')->unique();
             $table->foreign('fcab_splitter_id')->references('id')->on('fcab_splitters');
             $table->unsignedBigInteger('fcab_interface_id')->nullable();
             $table->foreign('fcab_interface_id')->references('id')->on('fcab_interfaces');

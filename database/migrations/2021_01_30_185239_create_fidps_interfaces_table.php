@@ -25,6 +25,7 @@ class CreateFidpsInterfacesTable extends Migration
             $table->foreign('fidp_splitter_interface_id')->references('id')->on('fidp_splitter_interfaces');
             $table->unsignedBigInteger('fdps_interface_id')->nullable();
             $table->foreign('fdps_interface_id')->references('id')->on('fdps_interfaces');
+            $table->string('entity_id')->unique();
             $table->timestamps();
 
         });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\devicesites;
 use App\Models\olt;
+use App\Models\Regions;
 use Illuminate\Http\Request;
 
 class OltController extends Controller
@@ -15,12 +16,13 @@ class OltController extends Controller
      */
     public function index()
     {
-        $olt=olt::orderBy("id","desc")->with('devicesites')->with('interface')->paginate();
+        $olt=olt::orderBy("id","desc")->with('devicesites')->with('interface')->with('region')->paginate();
         $devicesites = devicesites::all();
+        $regions = Regions::all();
 
 //        return $olt;
 
-        return view("olts.index")->with("olt_list",$olt)->with ("devicesites_list",$devicesites) ;
+        return view("olts.index")->with("olt_list",$olt)->with ("devicesites_list",$devicesites)->with ("regions",$regions) ;
     }
 
 
@@ -43,6 +45,7 @@ class OltController extends Controller
     public function store(Request $request)
     {
         $res=new \App\Models\olt();
+        $res->region_id=$request->input("region_id");
         $res->olt_name=$request->input("olt_name");
         $res->olt_device_id=$request->input("olt_device_id");
         $res->device_address=$request->input("device_address");

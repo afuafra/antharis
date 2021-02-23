@@ -18,7 +18,8 @@
                         <button class="btn btn-primary btn-round mr-4" type="submit">FCAB Search</button>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal"
+                                data-target="#exampleModal">
                             +Add FCAB
                         </button>
                     </form>
@@ -36,16 +37,39 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="fcabsCreate" method="POST"
-                                          action="{{route("fcab.store")}}" oninput="fcab_device_id.value = 'FCAB' +'|'+ fcab_no.value +'|'+ devicesites_id.selectedOptions[0].text">
+                                          action="{{route("fcab.store")}}"
+                                          oninput="fcab_device_id.value = 'FCAB' +'|'+ fcab_no.value +'|'+ devicesites_id.selectedOptions[0].text">
 
 
                                         <div class="modal-body">
-
-
                                             <div id="success"></div>
-
-
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
+
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Region </label>
+                                                <select class="form-control"
+                                                        data-style="select-with-transition btn-primary btn-round "
+                                                        name="region_id" id="region_id"
+                                                        data-live-search="true">
+                                                    @foreach($regions as $region)
+                                                        <option
+                                                            value="{{ $region->id }}">{{ $region->region_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Device Site </label>
+                                                <select class="form-control"
+                                                        data-style="select-with-transition btn-primary btn-round "
+                                                        name="devicesites_id" id="devicesites_id"
+                                                        data-live-search="true">
+                                                    @foreach($devicesites_list as $devicesite)
+                                                        <option
+                                                            value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
 
                                             <div class="mb-3">
                                                 <label class="form-label">FCAB NO</label>
@@ -62,26 +86,16 @@
                                                 <input type="text" class="form-control" name="device_status"
                                                        id="device_status">
                                             </div>
-
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Device Site </label>
-                                                <select  class="form-control" name="devicesites_id" list="list" id="devicesites_id">
-                                                    @foreach($devicesites_list as $devicesite)
-                                                        <option value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
                                             <div class="mb-3">
                                                 <label class="form-label">FCAB Device ID</label>
                                                 <input type="text" class="form-control" name="fcab_device_id"
                                                        id="fcab_device_id" readonly>
                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a href="{{route("fcab.index")}}" class="btn btn-secondary"
-                                               data-bs-dismiss="modal">back</a>
-                                            <input name="submit" type="submit" class="btn btn-primary"></input>
+                                            <div class="modal-footer">
+                                                <a href="{{route("fcab.index")}}" class="btn btn-secondary"
+                                                   data-bs-dismiss="modal">back</a>
+                                                <input name="submit" type="submit" class="btn btn-primary">
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -112,7 +126,10 @@
                                     <strong>FCAB No</strong>
                                 </th>
                                 <th>
-                                    <strong>Action</strong>
+                                    <strong>Edit</strong>
+                                </th>
+                                <th>
+                                    <strong>Delete</strong>
                                 </th>
                             </tr>
                             </thead>
@@ -141,14 +158,14 @@
                                         {{$fcab->fcab_no}}
                                     </td>
                                     <td>
-                                        {{--        <button type="button" rel="tooltip" class="btn btn-success"--}}
-                                        {{--                data-toggle="modal" data-target="#updateService{{$service->id}}">--}}
-                                        {{--            <i class="now-ui-icons ui-2_settings-90"></i>--}}
-                                        {{--        </button>--}}
-
-                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5" onclick="editService({{$fcab}})">
-                                            <i class="now-ui-icons ui-2_settings-90"></i></button>
-
+                                        <a onclick="editFcab({{$fcab}})">
+                                            <i class="fas fa-edit text-success fa-lg"></i></a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal" id="oltDelete" data-target=".bd-example-modal-lg"
+                                           data-attr="{{ route('fcab', $fcab->id) }}" title="Delete FCAB">
+                                            <i class="fas fa-trash text-danger  fa-lg"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach()
@@ -172,15 +189,184 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
+    <div class="container-fluid">
+        <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update FCAB</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="container-fluid"
+                          oninput="_fcab_device_id.value = 'FCAB' +'|'+ _fcab_no.value +'|'+ _devicesites_id.selectedOptions[0].text">
+                        <div class="mb-3">
+                            <input type="hidden" id="_id">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Region </label>
+                            <select class="form-control"
+                                    data-style="select-with-transition btn-primary btn-round "
+                                    name="_region_id" id="_region_id"
+                                    data-live-search="true">
+                                @foreach($regions as $region)
+                                    <option
+                                        value="{{ $region->id }}">{{ $region->region_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Device Site </label>
+                            <select class="form-control"
+                                    data-style="select-with-transition btn-primary btn-round "
+                                    name="_devicesites_id" id="_devicesites_id"
+                                    data-live-search="true">
+                                @foreach($devicesites_list as $devicesite)
+                                    <option
+                                        value="{{ $devicesite->id }}">{{ $devicesite->atollislandsite}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">FCAB NO</label>
+                            <input type="text" class="form-control" name="_fcab_no"
+                                   id="_fcab_no">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Device Address</label>
+                            <input type="text" class="form-control" name="_device_address"
+                                   id="_device_address">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Device Status</label>
+                            <input type="text" class="form-control" name="_device_status"
+                                   id="_device_status">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">FCAB Device ID</label>
+                            <input type="text" class="form-control" name="_fcab_device_id"
+                                   id="_fcab_device_id">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                            <button type="button" onclick="updateFcab()" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body" id="smallBody">
+                    <div>
+                        <!-- the result to be displayed apply here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 @endsection
 @push('scripts')
     <script>
+
+        // display a modal (small modal)
+        $(document).on('click', '#oltDelete', function (event) {
+            event.preventDefault();
+            let href = $(this).attr('data-attr');
+            $.ajax({
+                url: href
+                , beforeSend: function () {
+                    $('#loader').show();
+                },
+                // return the result
+                success: function (result) {
+                    $('#smallModal').modal("show");
+                    $('#smallBody').html(result).show();
+                }
+                , complete: function () {
+                    $('#loader').hide();
+                }
+                , error: function (jqXHR, testStatus, error) {
+                    console.log(error);
+                    alert("Page " + href + " cannot open. Error:" + error);
+                    $('#loader').hide();
+                }
+                , timeout: 6000
+            })
+        });
+
+        function editFcab(fcab) {
+            $("#_id").val(fcab.id)
+            $("#_region_id").val(fcab.region_id)
+            $("#_fcab_no").val(fcab.fcab_no)
+            $("#_device_address").val(fcab.device_address)
+            $("#_device_status").val(fcab.device_status)
+            $("#_devicesites_id").val(fcab.devicesites_id)
+            $("#_fcab_device_id").val(fcab.fcab_device_id)
+
+            var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
+
+                keyboard: false
+            });
+
+            myModel.show()
+            console.log(fcab)
+
+        }
+
+        function updateFcab(fcab) {
+
+            var id = $("#_id").val()
+            var url = '/fcab/' + id
+
+            var formData2 = {
+
+                'region_id': $("#_region_id").val(),
+                'fcab_no': $("#_fcab_no").val(),
+                'fcab_device_id': $("#_fcab_device_id").val(),
+                'device_address': $("#_device_address").val(),
+                'device_status': $("#_device_status").val(),
+                'devicesites_id': $("#_devicesites_id").val(),
+                '_token': "{{ csrf_token() }}"
+
+            }
+
+            $.ajax({
+
+                type: "PUT",
+                url: url,
+                data: formData2,
+                dataType: "json",
+
+
+                success: function (data) {
+
+                    $("").text('Yey!! OLT Updated')
+                    setTimeout(() => {
+
+                        location.reload()
+
+                    }, 300)
+
+                },
+
+                error: function (error) {
+
+                    console.error('ERROR:', error)
+
+                }
+            });
+
+
+        }
 
         var form = $("#fcabsCreate")
         var method = form.attr('method')
@@ -192,6 +378,7 @@
 
             var formData = {
 
+                'region_id': $("#region_id").val(),
                 'fcab_no': $("#fcab_no").val(),
                 'fcab_device_id': $("#fcab_device_id").val(),
                 'device_address': $("#device_address").val(),
@@ -223,6 +410,9 @@
 
         });
 
+        $(function () {
+            $('select').selectpicker();
+        });
     </script>
 @endpush
 

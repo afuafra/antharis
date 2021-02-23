@@ -16,11 +16,13 @@ class CreateOltsTable extends Migration
         Schema::create('olts', function (Blueprint $table) {
             $table->id();
             $table->string("olt_name");
-            $table->string("olt_device_id");
+            $table->string("olt_device_id")->unique();
             $table->string("device_address");
             $table->string("device_status");
             $table->foreign('devicesites_id')->references('id')->on('devicesites');
             $table->unsignedBigInteger('devicesites_id')->nullable();
+            $table->unsignedBigInteger('region_id');
+            $table->foreign('region_id')->references('id')->on('regions');
             $table->timestamps();
         });
     }

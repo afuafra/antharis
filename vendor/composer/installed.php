@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'd5bccc46cb3e98ea2de3b542f4782faad149da58',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -440,12 +440,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'd5bccc46cb3e98ea2de3b542f4782faad149da58',
     ),
     'laravel/sail' => 
     array (
@@ -574,6 +574,15 @@
       array (
       ),
       'reference' => '943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5',
+    ),
+    'owen-it/laravel-auditing' => 
+    array (
+      'pretty_version' => 'v12.0.0',
+      'version' => '12.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5659c736f17aa75805b60c0d0a23783f3bf5c2a1',
     ),
     'phar-io/manifest' => 
     array (

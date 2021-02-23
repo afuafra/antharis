@@ -21,6 +21,7 @@ class CreateFdpsInterfacesTable extends Migration
             $table->foreign('fcab_interface_id')->references('id')->on('fcab_interfaces');
             $table->unsignedBigInteger('fdp_id');
             $table->foreign('fdp_id')->references('id')->on('fdps');
+            $table->string('entity_id')->unique();
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\devicesites;
 use App\Models\Fdps;
+use App\Models\Regions;
 use Illuminate\Http\Request;
 
 class FdpController extends Controller
@@ -32,10 +33,10 @@ class FdpController extends Controller
         $fdps   = $query->orderBy("id","desc")->paginate();
 
         $devicesites = devicesites::all();
-
+        $regions = Regions::all();
 //        return $devicesites;
 
-        return view("fdp.index")->with("fdp_list",$fdps)->with ("devicesites_list",$devicesites) ;
+        return view("fdp.index")->with("fdp_list",$fdps)->with ("devicesites_list",$devicesites)->with ("regions",$regions) ;
     }
 
     /**
@@ -57,6 +58,7 @@ class FdpController extends Controller
     public function store(Request $request)
     {
         $res=new \App\Models\Fdps;
+        $res->region_id=$request->input("region_id");
         $res->fdp_no=$request->input("fdp_no");
         $res->device_type=$request->input("device_type");
         $res->fdp_device_id=$request->input("fdp_device_id");
@@ -100,7 +102,13 @@ class FdpController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $res = \App\Models\Fdps::find($id);
+
+        $input = $request->all();
+
+        $res->fill($input)->save();
+
+        return $res;
     }
 
     /**
@@ -111,8 +119,15 @@ class FdpController extends Controller
      */
     public function destroy($id)
     {
-        $fdps = \App\Models\Fdps::find($id);
-        $fdps->delete();
+        $fdp = \App\Models\Fdps::find($id);
+        $fdp->delete();
         return redirect()->route('fdp.index');
+    }
+
+    public function delete($id)
+    {
+        $fdp = Fdps::find($id);
+
+        return view('fdp.delete', compact('fdp'));
     }
 }

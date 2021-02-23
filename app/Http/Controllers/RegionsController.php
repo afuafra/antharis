@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\devicesites;
-use App\Models\odfInterface;
-use App\Models\odfRack;
 use App\Models\Regions;
 use Illuminate\Http\Request;
 
-class OdfRackController extends Controller
+class RegionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +14,9 @@ class OdfRackController extends Controller
      */
     public function index()
     {
-        $odf=odfRack::orderBy("id","desc")->with('devicesites')->with('interface')->paginate();
-        $devicesites = devicesites::all();
-//        $rack=odfInterface::with('')->paginate();
-        $regions = Regions::all();
-//
-//        return $odf;
-
-        return view("odf_racks.index")->with("odf_list",$odf)->with ("devicesites_list",$devicesites)->with ("regions",$regions);
+        $regions = Regions::paginate();
+;
+        return view("regions.index")->with("regions",$regions);
     }
 
     /**
@@ -45,17 +37,12 @@ class OdfRackController extends Controller
      */
     public function store(Request $request)
     {
-        $res=new \App\Models\odfRack();
-        $res->region_id=$request->input("region_id");
-        $res->odf_rack_name=$request->input("odf_rack_name");
-        $res->odf_device_id=$request->input("odf_device_id");
-        $res->device_address=$request->input("device_address");
-        $res->device_status=$request->input("device_status");
-        $res->devicesites_id=$request->input("devicesites_id");
+        $res=new \App\Models\Regions;
+        $res->region_name=$request->input("region_name");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");
-        return redirect("odf_racks");
+        return redirect("regions");
     }
 
     /**
@@ -89,13 +76,7 @@ class OdfRackController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $res = \App\Models\odfRack::find($id);
-
-        $input = $request->all();
-
-        $res->fill($input)->save();
-
-        return $res;
+        //
     }
 
     /**
@@ -106,15 +87,6 @@ class OdfRackController extends Controller
      */
     public function destroy($id)
     {
-        $odfracks = \App\Models\odfRack::find($id);
-        $odfracks->delete();
-        return redirect()->route('odf_racks.index');
-    }
-
-    public function delete($id)
-    {
-        $odfracks = odfRack::find($id);
-
-        return view('odf_racks.delete', compact('odfracks'));
+        //
     }
 }

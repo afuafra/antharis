@@ -59,7 +59,7 @@ class FcabSplitterController extends Controller
     public function store(Request $request)
     {
 
-//        dd($request->all());
+//
         $res=new \App\Models\FcabSplitter;
         $res->fcab_splitter_no=$request->input("fcab_splitter_no");
         $res->fcab_id=$request->input("fcab_id");
@@ -101,7 +101,13 @@ class FcabSplitterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $res = \App\Models\FcabSplitter::find($id);
+
+        $input = $request->all();
+
+        $res->fill($input)->save();
+
+        return $res;
     }
 
     /**
@@ -112,6 +118,15 @@ class FcabSplitterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fcab_splitter = \App\Models\FcabSplitter::find($id);
+        $fcab_splitter->delete();
+        return redirect()->route('fcabs_splitter.index');
+    }
+
+    public function delete($id)
+    {
+        $fcab_splitter = FcabSplitter::find($id);
+
+        return view('fcabs_splitter.delete', compact('fcab_splitter'));
     }
 }

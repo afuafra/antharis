@@ -21,6 +21,7 @@ class CreateOdfInterfacesTable extends Migration
             $table->foreign('odf_racks_id')->references('id')->on('odf_racks');
             $table->unsignedBigInteger('olt_interface_id')->nullable();
             $table->foreign('olt_interface_id')->references('id')->on('olt_interfaces');
+            $table->string('entity_id')->unique();
             $table->timestamps();
         });
     }

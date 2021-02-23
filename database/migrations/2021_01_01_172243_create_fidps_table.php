@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOdfRacksTable extends Migration
+class CreateFidpsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateOdfRacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('odf_racks', function (Blueprint $table) {
+        Schema::create('fidps', function (Blueprint $table) {
             $table->id();
-            $table->string("odf_rack_name");
-            $table->string("odf_device_id");
+            $table->string("fidp_no");
+            $table->string("fidp_device_id")->unique();
             $table->string("device_address");
             $table->string("device_status");
             $table->foreign('devicesites_id')->references('id')->on('devicesites');
-            $table->unsignedBigInteger('devicesites_id')->nullable();
+            $table->unsignedBigInteger('devicesites_id');
+            $table->unsignedBigInteger('region_id');
+            $table->foreign('region_id')->references('id')->on('regions');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateOdfRacksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('odf_racks');
+        Schema::dropIfExists('fidps');
     }
 }
