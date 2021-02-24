@@ -11,7 +11,8 @@ class FcabInterface extends Model
     protected $fillable=[
         'terminal_side',
         'port',
-        'fcab_id'
+        'fcab_id',
+        'entity_id'
     ];
     public function fcabs(){
 
@@ -47,6 +48,10 @@ class FcabInterface extends Model
 
         return $this->belongsTo('App\Models\odfInterface','odf_interfaces_id','id');
 
+    }
+
+    public function subcategories(){
+        return $this->hasMany('App\Models\FcabInteface', 'fcab_splitter_id');
     }
 
 

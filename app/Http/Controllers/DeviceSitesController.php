@@ -52,7 +52,7 @@ class DeviceSitesController extends Controller
      */
     public function store(Request $request)
     {
-        {
+
 
             $res=new \App\Models\DeviceSite();
             $res->AtollCity=$request->input("AtollCity");
@@ -63,7 +63,7 @@ class DeviceSitesController extends Controller
 
             $request->session()->flash("msg","New Devicesite Added");
             return redirect("devicesites");
-        }
+
     }
 
     /**

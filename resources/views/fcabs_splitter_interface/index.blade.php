@@ -112,7 +112,12 @@
                                 {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
                                     <td>
-                                        {{$splitterinterface->splitter->fcab->devicesites->atollislandsite}}
+                                        @if(isset($splitterinterface->splitter->fcab->devicesites->atollislandsite))
+                                            {{$splitterinterface->splitter->fcab->devicesites->atollislandsite}}
+                                        @else
+
+                                        @endif
+
                                     </td>
                                     <td>
                                         {{$splitterinterface->splitter->fcab->fcab_no}}

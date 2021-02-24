@@ -73,6 +73,7 @@ Route::get('fcab/delete/{id}', [FcabController::class, 'delete'])->name('fcab');
 
 
 Route::resource('fcabs_interface', FcabInterfaceController::class);
+Route::get('fcabs_interface/delete/{id}', [FcabInterfaceController::class, 'delete'])->name('fcab_interface');
 
 Route::resource('fcabs_splitter', FcabSplitterController::class);
 Route::get('fcabs_splitter/delete/{id}', [FcabSplitterController::class, 'delete'])->name('fcab_splitter');

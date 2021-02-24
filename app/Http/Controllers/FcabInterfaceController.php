@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Fcab;
 use App\Models\FcabInterface;
+use App\Models\FcabSplitter;
+use App\Models\FcabSplitterInterface;
 use App\Models\odfInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FcabInterfaceController extends Controller
 {
@@ -14,18 +17,23 @@ class FcabInterfaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $fcabInterface = FcabInterface::orderBy("fcab_id","asc")->orderBy("port","asc")->with(['Fcabs','SplitterInterface','Splitter'])->paginate();
+        $fcabInterface = FcabInterface::orderBy("fcab_id","asc")->orderBy("port","asc")->with(['Fcabs.device_site','SplitterInterface','Splitter','odfinterface.odfrack'])->paginate();
 
         $odfinterfaces = odfInterface::with('odfrack')->paginate();
 //
         $fcablist = Fcab::paginate();
 
-//       return $fcablist;
+        $fcabsplitters = FcabSplitter::paginate();
+
+        $fcabsplitterinterfaces = FcabSplitterInterface::with('splitter')->paginate();
 
 
-        return view("fcabs_interface.index")->with("fcabsinterfaces",$fcabInterface)->with("odfInterfaces",$odfinterfaces)->with("fcablist",$fcablist);
+//       return $fcabInterface;
+
+
+        return view("fcabs_interface.index")->with("fcabsinterfaces",$fcabInterface)->with("odfInterfaces",$odfinterfaces)->with("fcablist",$fcablist)->with("fcabsplitters" , $fcabsplitters)->with("fcabsplitterinterfaces" , $fcabsplitterinterfaces);
     }
 
     /**
@@ -47,6 +55,7 @@ class FcabInterfaceController extends Controller
     public function store(Request $request)
     {
         $res=new \App\Models\FcabInterface();
+        $res->entity_id=$request->input("entity_id");
         $res->terminal_side=$request->input("terminal_side");
         $res->port=$request->input("port");
         $res->odf_interfaces_id=$request->input("odf_interfaces_id");
@@ -106,7 +115,16 @@ class FcabInterfaceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fcabinterface = \App\Models\FcabInterface::find($id);
+        $fcabinterface->delete();
+        return redirect()->route('fcabs_interface.index');
+    }
+
+    public function delete($id)
+    {
+        $fcabinterface = FcabInterface::find($id);
+
+        return view('fcabs_interface.delete', compact('fcabinterface'));
     }
 
 

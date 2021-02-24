@@ -47,7 +47,8 @@
 
                                             <div class="mb-3">
                                                 <label class="form-label">olts_id</label>
-                                                <select class="form-control" name="olts_id" list="list" id="olts_id">
+                                                <select class="form-control" name="olts_id" list="list" id="olts_id" data-style="select-with-transition btn-primary btn-round "
+                                                        data-live-search="true">
                                                     @foreach($olt_list as $olt)
                                                         <option value="{{$olt->id }}">{{ $olt->olt_device_id}}</option>
                                                     @endforeach
@@ -179,7 +180,8 @@
 
                         <div class="mb-3">
                             <label class="form-label">olts_id</label>
-                            <select class="form-control" name="_olts_id" list="list" id="_olts_id">
+                            <select class="form-control" name="_olts_id" list="list" id="_olts_id" data-style="select-with-transition btn-primary btn-round "
+                                    data-live-search="true">
                                 @foreach($olt_list as $olt)
                                     <option value="{{$olt->id }}">{{ $olt->olt_device_id}}</option>
                                 @endforeach
@@ -363,6 +365,10 @@
             e.preventDefault();
 
 
+        });
+
+        $(function () {
+            $('select').selectpicker();
         });
 
     </script>

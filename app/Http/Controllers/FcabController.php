@@ -28,7 +28,7 @@ class FcabController extends Controller
             $query->where('fcab_no','like' ,'%'.$searchValue.'%')
                 ->orWhere('fcab_device_id', 'like', '%'.$searchValue.'%')
                 ->orWhere('device_address', 'like', '%'.$searchValue.'%')
-                ->orWhere('devicesites_id', 'like', '%'.$searchValue.'%');
+                ->orWhere('device_site_id', 'like', '%'.$searchValue.'%');
 
         }
 

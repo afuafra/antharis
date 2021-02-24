@@ -13,7 +13,7 @@ class Fcab extends Model
         'fcab_device_id',
         'device_address',
         'device_status',
-        'devicesites_id',
+        'device_site_id',
         'region_id'
 
     ];
@@ -32,7 +32,7 @@ class Fcab extends Model
     }
     public function device_site(){
 
-        return $this->belongsTo(DeviceSite::class);
+        return $this->belongsTo(\App\Models\DeviceSite::class);
     }
 
     public function interface()
