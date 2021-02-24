@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeviceSitesController;
 use App\Http\Controllers\FcabController;
 use App\Http\Controllers\FcabInterfaceController;
 use App\Http\Controllers\FcabSplitterController;
@@ -19,7 +20,6 @@ use App\Http\Controllers\ServiceViewController;
 use App\Models\FidpsInterface;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\servicesController;
-use App\Http\Controllers\deviceSitesController;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\ServiceRouteController;
 use App\Http\Controllers\FidpController;
