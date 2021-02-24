@@ -88,7 +88,7 @@ class usersController extends Controller
      */
     public function destroy($id)
     {
-        users::destroy(array("id",$id));
+        User::destroy(array("id",$id));
 
         return redirect("users");
     }

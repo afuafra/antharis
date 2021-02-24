@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e6565b1-bd15-4289-a16d-2e401f5349dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/fidp/delete.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/odf_interfaces/delete.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FidpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FidpController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OdfInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OdfInterfaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OltInterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OltInterfaceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/usersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/usersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Fdps.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fdps.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Fidps.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fidps.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/odfInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/odfInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/oltInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/oltInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fidp/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fidp/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fidp/show.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fidp/update.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/odf_interfaces/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/odf_interfaces/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/olt_interfaces/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/olt_interfaces/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +214,7 @@
       <workItem from="1613885302364" duration="44605000" />
       <workItem from="1614009723224" duration="607000" />
       <workItem from="1614015170423" duration="41937000" />
-      <workItem from="1614122913664" duration="9732000" />
+      <workItem from="1614122913664" duration="10031000" />
     </task>
     <servers />
   </component>
