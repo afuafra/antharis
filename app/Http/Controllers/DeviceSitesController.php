@@ -59,7 +59,6 @@ class DeviceSitesController extends Controller
             $res->IslandDistrict=$request->input("IslandDistrict");
             $res->Site=$request->input("Site");
             $res->atollislandsite=$request->input("atollislandsite");
-//            $res->atollislandsit=$request -> collect ('AtollCity'."IslandDistrict"."Site");
             $res->save();
 
             $request->session()->flash("msg","New Devicesite Added");

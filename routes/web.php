@@ -53,7 +53,7 @@ Route::resource("users",usersController::class);
 Route::get("users_delete/{id}",[App\Http\Controllers\usersController::class,'destroy'])-> name('users_delete/{id}');;
 
 Route::resource('services', ServicesController::class);
-Route::resource('devicesites', deviceSitesController::class);
+Route::resource('devicesites', DeviceSitesController::class);
 Route::resource('regions', RegionsController::class);
 
 Route::resource('serviceRoute', ServiceRouteController::class);
