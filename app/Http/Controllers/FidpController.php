@@ -7,6 +7,7 @@ use App\Models;
 use App\Models\DeviceSite;
 use App\Models\Fidps;
 use App\Models\FidpsInterface;
+use App\Models\Regions;
 use Illuminate\Http\Request;
 
 class FidpController extends Controller
@@ -22,11 +23,11 @@ class FidpController extends Controller
         $fidps=Fidps::orderBy("id","desc")->with('device_site','fidpsinterface')->paginate();
         $devicesites = DeviceSite::all();
         $fidpinterface = FidpsInterface::all();
-
+        $regions = Regions::all();
 //        return $fidps;
 
 
-        return view("fidp.index")->with ("devicesites_list",$devicesites)->with(['fidp_list'=>$fidps,'fiinterface'=>$fidpinterface]);
+        return view("fidp.index")->with ("devicesites_list",$devicesites)->with(['fidp_list'=>$fidps,'fiinterface'=>$fidpinterface])->with ("regions",$regions);
 
     }
 
@@ -52,6 +53,7 @@ class FidpController extends Controller
     {
 
         $res=new \App\Models\Fidps;
+        $res->region_id=$request->input("region_id");
         $res->fidp_no=$request->input("fidp_no");
         $res->fidp_device_id=$request->input("fidp_device_id");
         $res->device_address=$request->input("device_address");
@@ -99,24 +101,13 @@ class FidpController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        return request()->all();
+        $res = \App\Models\Fidps::find($id);
 
+        $input = $request->all();
 
-//        $res = \App\Models\services::find($id);
+        $res->fill($input)->save();
 
-//        $this->validate($request, [
-//            'orderNumber' => 'required',
-//            'serviceNumber' => 'required',
-//            'customerName' => 'required',
-//            'customerAddress' => 'required',
-//            'serviceStatus' => 'required'
-//        ]);
-
-//        $input = $request->all();
-//
-//        $res->fill($input)->save();
-//
-//        return ("services");
+        return $res;
     }
 
     /**
@@ -127,6 +118,15 @@ class FidpController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fidp = \App\Models\Fidps::find($id);
+        $fidp->delete();
+        return redirect()->route('fidp.index');
+    }
+
+    public function delete($id)
+    {
+        $fidp = Fidps::find($id);
+
+        return view('fidp.delete', compact('fidp'));
     }
 }

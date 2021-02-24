@@ -59,6 +59,7 @@ Route::resource('regions', RegionsController::class);
 Route::resource('serviceRoute', ServiceRouteController::class);
 
 Route::resource('fidp', FidpController::class);
+Route::get('fidp/delete/{id}', [FidpController::class, 'delete'])->name('fidp');
 
 Route::resource('fdp', FdpController::class);
 Route::get('fdp/delete/{id}', [FdpController::class, 'delete'])->name('fdp');
@@ -82,6 +83,7 @@ Route::resource('odf_racks', OdfRackController::class);
 Route::get('odf_racks/delete/{id}', [OdfRackController::class, 'delete'])->name('odf');
 
 Route::resource('odf_interfaces', OdfInterfaceController::class);
+Route::get('odf_interfaces/delete/{id}', [OdfInterfaceController::class, 'delete'])->name('odf_interfaces');
 
 Route::resource('olts', OltController::class);
 Route::get('olts/delete/{id}', [OltController::class, 'delete'])->name('olt');

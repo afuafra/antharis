@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\users;
+use App\Models\User;
 class usersController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class usersController extends Controller
      */
     public function index()
     {
-        $users=\App\Models\users::paginate();
+        $users=User::paginate();
         return view("users.index")->with("users",$users);
     }
 

@@ -14,6 +14,7 @@ class odfInterface extends Model
         'odf_port',
         'odf_racks_id',
         'olt_interface_id',
+        'entity_id'
     ];
     public function odfrack(){
         return $this->belongsTo ('App\Models\odfRack','odf_racks_id','id');

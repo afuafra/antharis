@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class oltInterface extends Model
 {
 
+    protected $fillable=[
+        'entity_id'
+
+    ];
+
     public function olt(){
 
         return $this->belongsTo ('App\Models\olt','olts_id','id');

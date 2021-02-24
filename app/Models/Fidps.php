@@ -13,7 +13,8 @@ class Fidps extends Model
         'fidp_device_id',
         'device_address',
         'device_status',
-        'device_site_id'
+        'device_site_id',
+        'region_id'
     ];
 
     protected $table='fidps';

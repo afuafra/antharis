@@ -54,6 +54,7 @@ class OltInterfaceController extends Controller
     public function store(Request $request)
     {
         $res=new \App\Models\oltInterface();
+        $res->entity_id=$request->input("entity_id");
         $res->olt_frame=$request->input("olt_frame");
         $res->olt_card=$request->input("olt_card");
         $res->olt_port=$request->input("olt_port");

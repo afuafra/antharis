@@ -38,12 +38,21 @@
                                     </div>
                                     <form class="container-fluid" id="oltInterfaceCreate" method="POST"
                                           action="{{route("olt_interfaces.store")}}"
-                                          oninput="odf_interfaces_id.value = 'FCAB' +'|'+ olt_frame.value +'|'+ atollislandsite.value">
+                                          oninput="entity_id.value = olts_id.selectedOptions[0].text +'|'+ olt_frame.value +'|'+ olt_card.value +'|'+ olt_port.value">
 
 
                                         <div class="modal-body">
                                             <div id="success"></div>
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
+
+                                            <div class="mb-3">
+                                                <label class="form-label">olts_id</label>
+                                                <select class="form-control" name="olts_id" list="list" id="olts_id">
+                                                    @foreach($olt_list as $olt)
+                                                        <option value="{{$olt->id }}">{{ $olt->olt_device_id}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                             <div class="mb-3">
                                                 <label class="form-label">olt_frame</label>
                                                 <input type="text" class="form-control" name="olt_frame"
@@ -60,19 +69,19 @@
                                                        id="olt_port">
                                             </div>
 
+
+
                                             <div class="mb-3">
-                                                <label class="form-label">olts_id</label>
-                                                <select class="form-control" name="olts_id" list="list" id="olts_id">
-                                                    @foreach($olt_list as $olt)
-                                                        <option value="{{$olt->id }}">{{ $olt->olt_device_id}}</option>
-                                                    @endforeach
-                                                </select>
+                                                <label class="form-label">entity_id</label>
+                                                <input type="text" class="form-control" name="entity_id"
+                                                       id="entity_id" readonly>
                                             </div>
                                             <div class="modal-footer">
                                                 <a href="{{route("olt_interfaces.index")}}" class="btn btn-secondary"
                                                    data-bs-dismiss="modal">back</a>
                                                 <input name="submit" type="submit" class="btn btn-primary">
                                             </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -120,9 +129,8 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <button type="button" rel="tooltip" class="btn btn-round btn-round-xs mr5"
-                                                onclick="editService({{$interface}})">
-                                            <i class="now-ui-icons ui-2_settings-90"></i></button>
+                                        <a onclick="editoltInter({{$interface}})">
+                                            <i class="fas fa-edit text-success fa-lg"></i></a>
                                     </td>
                                     <td>
                                         <a data-toggle="modal" id="smallButton" data-target=".bd-example-modal-lg"
@@ -155,6 +163,57 @@
         </div>
     </div>
 
+    <div class="container-fluid">
+        <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update oltInter</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="container-fluid"
+                          oninput="_entity_id.value = _olts_id.selectedOptions[0].text +'|'+ _olt_frame.value +'|'+ _olt_card.value +'|'+ _olt_port.value">
+                        <div class="mb-3">
+                            <input type="hidden" id="_id">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">olts_id</label>
+                            <select class="form-control" name="_olts_id" list="list" id="_olts_id">
+                                @foreach($olt_list as $olt)
+                                    <option value="{{$olt->id }}">{{ $olt->olt_device_id}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">olt_frame</label>
+                            <input type="text" class="form-control" name="_olt_frame"
+                                   id="_olt_frame">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">olt_card</label>
+                            <input type="text" class="form-control" name="_olt_card"
+                                   id="_olt_card">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">olt_port</label>
+                            <input type="text" class="form-control" name="_olt_port"
+                                   id="_olt_port">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">entity_id</label>
+                            <input type="text" class="form-control" name="_entity_id"
+                                   id="_entity_id" readonly>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                            <button type="button" onclick="updateoltInter()" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
          aria-hidden="true">
@@ -201,6 +260,69 @@
             })
         });
 
+        function editoltInter(oltInter) {
+            $("#_id").val(oltInter.id)
+            $("#_olts_id").val(oltInter.olts_id)
+            $("#_olt_frame").val(oltInter.olt_frame)
+            $("#_olt_card").val(oltInter.olt_card)
+            $("#_olt_port").val(oltInter.olt_port)
+            $("#_entity_id").val(oltInter.entity_id)
+
+            var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
+
+                keyboard: false
+            });
+
+            myModel.show()
+            console.log(oltInter)
+
+        }
+
+        function updateoltInter(oltInter) {
+
+            var id = $("#_id").val()
+            var url = '/oltInter/' + id
+
+            var formData2 = {
+
+                'olts_id': $("#_olts_id").val(),
+                'olt_frame': $("#_olt_frame").val(),
+                'olt_card': $("#_olt_card").val(),
+                'olt_port': $("#_olt_port").val(),
+                'entity_id': $("#_entity_id").val(),
+                '_token': "{{ csrf_token() }}"
+
+            }
+
+            $.ajax({
+
+                type: "PUT",
+                url: url,
+                data: formData2,
+                dataType: "json",
+
+
+                success: function (data) {
+
+                    $("").text('Yey!! OLT Updated')
+                    setTimeout(() => {
+
+                        location.reload()
+
+                    }, 300)
+
+                },
+
+                error: function (error) {
+
+                    console.error('ERROR:', error)
+
+                }
+            });
+
+
+        }
+
 
         var form = $("#oltInterfaceCreate")
         var method = form.attr('method')
@@ -212,6 +334,7 @@
 
             var formData = {
 
+                'entity_id': $("#entity_id").val(),
                 'olt_frame': $("#olt_frame").val(),
                 'olt_card': $("#olt_card").val(),
                 'olt_port': $("#olt_port").val(),

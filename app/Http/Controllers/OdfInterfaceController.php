@@ -64,6 +64,7 @@ class OdfInterfaceController extends Controller
     public function store(Request $request)
     {
         $res=new \App\Models\odfInterface();
+        $res->entity_id=$request->input("entity_id");
         $res->odf_no=$request->input("odf_no");
         $res->odf_port=$request->input("odf_port");
         $res->odf_racks_id=$request->input("odf_racks_id");
@@ -121,6 +122,15 @@ class OdfInterfaceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $odfinterface = \App\Models\odfInterface::find($id);
+        $odfinterface->delete();
+        return redirect()->route('odf_interfaces.index');
+    }
+
+    public function delete($id)
+    {
+        $odfInterface = odfInterface::find($id);
+
+        return view('odf_interfaces.delete', compact('odfInterface'));
     }
 }
