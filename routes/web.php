@@ -98,6 +98,7 @@ Route::get('fdp_splitters/delete/{id}', [FdpSplitterController::class, 'delete']
 Route::resource('fdp_splitter_interfaces', FdpSplitterInterfaceController::class);
 
 Route::resource('fidp_splitters', FidpSplitterController::class);
+Route::get('fidp_splitters/delete/{id}', [FidpSplitterController::class, 'delete'])->name('fidp_splitter');
 
 Route::resource('fidp_splitter_interfaces', FidpSplitterInterfaceController::class);
 

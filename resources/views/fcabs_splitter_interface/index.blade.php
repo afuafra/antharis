@@ -19,13 +19,11 @@
                             <input class="form-control" name='search' type="search" placeholder="Search">
                         </div>
                         <button class="btn btn-primary btn-round mr-4" type="submit">FCAB Splitter Interface Search</button>
-
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-round mr-4 ml-auto" data-toggle="modal" data-target="#exampleModal">
                             +Add FCAB Splitter Interface
                         </button>
                     </form>
-
                     <!-- Modal -->
                     <div class="container-fluid">
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -40,13 +38,8 @@
                                     </div>
                                     <form class="container-fluid" id="splitterCreate" method="POST"
                                           action="{{route("fcab_splitter_interface.store")}}" oninput="fcab_splitter_device_id.value = 'SPLITTER' +'|'+ fcab_splitter_no.value +'|'+ fcab_id.selectedOptions[0].text">
-
-
                                         <div class="modal-body">
-
-
                                             <div id="success"></div>
-
 
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
@@ -72,7 +65,6 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-
                                         </div>
                                         <div class="modal-footer">
                                             <a href="{{route("fcab_splitter_interface.index")}}" class="btn btn-secondary"
@@ -106,10 +98,8 @@
                                 </th>
                             </tr>
                             </thead>
-
                             <tbody>
                             @foreach ($splitterinterfaces as $splitterinterface)
-                                {{--                            @include('services.service_item',['service'=>$service])--}}
                                 <tr>
                                     <td>
                                         @if(isset($splitterinterface->splitter->fcab->devicesites->atollislandsite))

@@ -22,12 +22,8 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon" style="max-width: 100%;"><i
                                                         class="glyphicon glyphicon-list"></i></span>
-                                                <select class="selectpicker form-control">
+                                                <select class="form-control">
                                                     <option></option>
-                                                    <option>OLT</option>
-                                                    <option>FCAB</option>
-                                                    <option>FDP</option>
-                                                    <option>FIDP</option>
                                                 </select>
                                             </div>
                                         </div>
