@@ -87,57 +87,21 @@
                                                 @endforeach
                                             </select>
                                         </div>
-{{--                                        <div class="mb-3">--}}
-{{--                                            <label class="form-label">FCAB Splitter</label>--}}
-{{--                                            <select type="text" class="form-control" name="fcab_splitter_device_id"--}}
-{{--                                                    id="fcab_splitter_device_id"--}}
-{{--                                                    data-style="select-with-transition btn-primary btn-round "--}}
-{{--                                                    data-live-search="true">--}}
-{{--                                                <option></option>--}}
-{{--                                                @foreach($fcabsplitters as $fcabsplitter)--}}
-{{--                                                    <option--}}
-{{--                                                        value="{{ $fcabsplitter->id }}">{{ $fcabsplitter->fcab_splitter_device_id }}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="mb-3">--}}
-{{--                                            <label class="form-label">FCAB Splitter Interface</label>--}}
-{{--                                            <select type="text" class="form-control"--}}
-{{--                                                    name="fcab_splitter_interfaces_id"--}}
-{{--                                                    id="fcab_splitter_interfaces_id"--}}
-{{--                                                    data-style="select-with-transition btn-primary btn-round "--}}
-{{--                                                    data-live-search="true">--}}
-{{--                                                <option></option>--}}
-{{--                                                @foreach($fcabsplitterinterfaces as $fcabsplitterinterface)--}}
-{{--                                                    <option--}}
-{{--                                                        value="{{ $fcabsplitterinterface->id }}">{{ $fcabsplitterinterface->splitter->fcab_splitter_device_id }}--}}
-{{--                                                        |PORT-{{ $fcabsplitterinterface->port }}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
 
 
-{{--                                        <div class="mb-3">--}}
-{{--                                            <label class="form-label">entity_id</label>--}}
-{{--                                            <input type="text" class="form-control" name="entity_id"--}}
-{{--                                                   id="entity_id" readonly>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-
-                                    <div class="mb-3">
+                                    <div class="form-group">
                                         <label for="fcab_splitter_device_id">FCAB Splitter</label>
-                                        <select name="fcab_splitter_device_id" id="fcab_splitter_device_id" class="form-control" >
+                                        <select name="fcab_splitter_device_id" id="fcab_splitter_device_id" class="form-control" style="width:250px">
                                             <option value="">--- Select fcab_splitter_device_id ---</option>
                                             @foreach ($splitters as $key => $value)
                                                 <option value="{{ $key }}">{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="form-group">
                                         <label for="fcab_splitter_interfaces_id">FCAB Splitter Interface</label>
-                                        <select id="fcab_splitter_interfaces_id" name="fcab_splitter_interfaces_id" class="form-control" >
-                                            <option>FCAB Splitter Interface</option>
+                                        <select id="fcab_splitter_interfaces_id" name="fcab_splitter_interfaces_id" class="form-control" style="width:250px">
+{{--                                            <option>--State--</option>--}}
                                         </select>
                                     </div>
 
@@ -360,15 +324,9 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">entity_id</label>
-                            <input type="text" class="form-control" name="entity_id"
-                                   id="entity_id" readonly>
+                            <input type="text" class="form-control" name="_entity_id"
+                                   id="_entity_id" readonly>
                         </div>
-
-
-
-
-
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 Close
@@ -418,7 +376,7 @@
                             jQuery('select[name="fcab_splitter_interfaces_id"]').empty();
                             jQuery.each(data, function(key,value){
                                 $('select[name="fcab_splitter_interfaces_id"]').append('<option value="'+ key +'">'+ value +'</option>');
-                                // $("#fcab_splitter_interfaces_id").selectpicker("refresh");
+                                $("#fcab_splitter_interfaces_id").selectpicker("refresh");
                             });
                         }
                     });
@@ -466,6 +424,11 @@
             $("#_fcab_id").val(fcabs_interface.fcab_id)
             $("#_fcab_splitter_interfaces_id").val(fcabs_interface.fcab_splitter_interfaces_id)
             $("#_fcab_splitter_device_id").val(fcabs_interface.fcab_splitter_device_id)
+            $("#_terminal_side").selectpicker("refresh");
+            $("#_odf_interfaces_id").selectpicker("refresh");
+            $("#_fcab_id").selectpicker("refresh");
+            $("#_fcab_splitter_interfaces_id").selectpicker("refresh");
+            $("#_fcab_splitter_device_id").selectpicker("refresh");
 
             var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
 
@@ -485,7 +448,7 @@
             var formData2 = {
 
 
-                '_entity_id': $("#_entity_id").val(),
+                'entity_id': $("#_entity_id").val(),
                 'terminal_side': $("#_terminal_side").val(),
                 'port': $("#_port").val(),
                 'odf_interfaces_id': $("#_odf_interfaces_id").val(),

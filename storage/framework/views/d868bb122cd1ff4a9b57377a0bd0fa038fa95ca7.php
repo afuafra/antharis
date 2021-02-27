@@ -36,6 +36,13 @@
         border-top: 1px solid #8c8c8c;
         border-bottom: 1px solid #fff;
     }
+    .dropcontent{
+        width: 300px;
+        height: 140px;
+        border: 1px solid black;
+        background-color: #FFECC6;
+        display:block;
+    }
 
 </style>
 </head>
