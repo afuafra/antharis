@@ -125,19 +125,19 @@
 {{--                                        </div>--}}
 {{--                                    </div>--}}
 
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label for="fcab_splitter_device_id">FCAB Splitter</label>
-                                        <select name="fcab_splitter_device_id" id="fcab_splitter_device_id" class="form-control" style="width:250px">
+                                        <select name="fcab_splitter_device_id" id="fcab_splitter_device_id" class="form-control" >
                                             <option value="">--- Select fcab_splitter_device_id ---</option>
                                             @foreach ($splitters as $key => $value)
                                                 <option value="{{ $key }}">{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label for="fcab_splitter_interfaces_id">FCAB Splitter Interface</label>
-                                        <select id="fcab_splitter_interfaces_id" name="fcab_splitter_interfaces_id" class="form-control" style="width:250px">
-{{--                                            <option>--State--</option>--}}
+                                        <select id="fcab_splitter_interfaces_id" name="fcab_splitter_interfaces_id" class="form-control" >
+                                            <option>FCAB Splitter Interface</option>
                                         </select>
                                     </div>
 
@@ -335,7 +335,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">FCAB Splitter</label>
-                            <select type="text" class="form-control" name="_fcab_splitter_device_id"
+                            <select  class="form-control" name="_fcab_splitter_device_id"
                                     id="_fcab_splitter_device_id">
                                 <option></option>
                                 @foreach($fcabsplitters as $fcabsplitter)
@@ -347,7 +347,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">FCAB Splitter Interface</label>
-                            <select type="text" class="form-control"
+                            <select class="form-control"
                                     name="_fcab_splitter_interfaces_id"
                                     id="_fcab_splitter_interfaces_id">
                                 <option></option>
@@ -418,7 +418,7 @@
                             jQuery('select[name="fcab_splitter_interfaces_id"]').empty();
                             jQuery.each(data, function(key,value){
                                 $('select[name="fcab_splitter_interfaces_id"]').append('<option value="'+ key +'">'+ value +'</option>');
-                                $("#fcab_splitter_interfaces_id").selectpicker("refresh");
+                                // $("#fcab_splitter_interfaces_id").selectpicker("refresh");
                             });
                         }
                     });
@@ -569,10 +569,10 @@
 
         });
 
-        $(function () {
-            $('select').selectpicker();
-            event.preventDefault();
-        });
+        // $(function () {
+        //     $('select').selectpicker();
+        //     event.preventDefault();
+        // });
 
 
     </script>
