@@ -6,6 +6,7 @@ use App\Models\FcabInterface;
 use App\Models\FcabSplitter;
 use App\Models\FcabSplitterInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FcabSplitterInterfaceController extends Controller
 {
@@ -46,9 +47,10 @@ class FcabSplitterInterfaceController extends Controller
     public function store(Request $request)
     {
         $res=new \App\Models\FcabSplitterInterface();
+        $res->entity_id=$request->input("entity_id");
         $res->port=$request->input("port");
         $res->fcab_splitter_id=$request->input("fcab_splitter_id");
-        $res->fcab_interface_id=$request->input("fcab_interface_id");
+//        $res->fcab_interface_id=$request->input("fcab_interface_id");
         $res->save();
 
         $request->session()->flash("msg","New Service Added");
@@ -99,4 +101,7 @@ class FcabSplitterInterfaceController extends Controller
     {
         //
     }
+
+
+
 }

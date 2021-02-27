@@ -22,8 +22,25 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
+<style>
+    hr.hr-10 {
+        border: 0;
+        border-top: 1px solid #8c8c8c;
+        border-bottom: 1px solid #fff;
+    }
 
+    hr.hr-10:after {
+        content: '';
+        display: block;
+        margin-top: 2px;
+        border-top: 1px solid #8c8c8c;
+        border-bottom: 1px solid #fff;
+    }
+
+</style>
 </head>
+
+
 
 <body>
 <div class="sidebar" data-color="orange">
@@ -201,6 +218,7 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                     </ul>
                 </div>
             </li>
+            <hr class="hr-10">
             <li>
                 <a href="{{route("users.index")}}">
                     <i class="now-ui-icons users_single-02"></i>

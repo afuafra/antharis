@@ -15,7 +15,8 @@ class FcabSplitterInterface extends Model
         'device_address',
         'device_status',
         'device_site_id',
-        'region_id'
+        'region_id',
+        'entity_id'
     ];
 
 

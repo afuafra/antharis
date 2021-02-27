@@ -434,9 +434,9 @@
         });
 
 
-        $(function () {
-            $('select').selectpicker();
-        });
+        // $(function () {
+        //     $('select').selectpicker();
+        // });
 
     </script>
 @endpush

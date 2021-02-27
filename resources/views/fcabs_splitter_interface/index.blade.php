@@ -37,17 +37,11 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="splitterCreate" method="POST"
-                                          action="{{route("fcab_splitter_interface.store")}}" oninput="fcab_splitter_device_id.value = 'SPLITTER' +'|'+ fcab_splitter_no.value +'|'+ fcab_id.selectedOptions[0].text">
+                                          action="{{route("fcab_splitter_interface.store")}}" oninput="entity_id.value =  fcab_splitter_id.selectedOptions[0].text +'|'+ port.value">
                                         <div class="modal-body">
                                             <div id="success"></div>
 
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
-
-                                            <div class="mb-3">
-                                                <label class="form-label">port</label>
-                                                <input type="text" class="form-control" name="port"
-                                                       id="port">
-                                            </div>
                                             <div class="mb-3">
                                                 <label class="form-label">fcab_splitter_device_id </label>
                                                 <select class="form-control" id="fcab_splitter_id" name="fcab_splitter_id" >
@@ -57,13 +51,24 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">fcab_interface_id </label>
-                                                <select class="form-control" id="fcab_interface_id" name="fcab_interface_id">
-                                                    <option disabled selected>Select FCAB...</option>
-                                                    @foreach($fcabinterfaces as $fcabinterface)
-                                                        <option value="{{ $fcabinterface->id }}">{{ $fcabinterface->fcabs->fcab_device_id}}#PORT-{{ $fcabinterface->port}}</option>
-                                                    @endforeach
-                                                </select>
+                                                <label class="form-label">port</label>
+                                                <input type="text" class="form-control" name="port"
+                                                       id="port">
+                                            </div>
+
+{{--                                            <div class="mb-3">--}}
+{{--                                                <label class="form-label">fcab_interface_id </label>--}}
+{{--                                                <select class="form-control" id="fcab_interface_id" name="fcab_interface_id">--}}
+{{--                                                    <option disabled selected>Select FCAB...</option>--}}
+{{--                                                    @foreach($fcabinterfaces as $fcabinterface)--}}
+{{--                                                        <option value="{{ $fcabinterface->id }}">{{ $fcabinterface->fcabs->fcab_device_id}}#PORT-{{ $fcabinterface->port}}</option>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+                                            <div class="mb-3">
+                                                <label class="form-label">Entity ID</label>
+                                                <input type="text" class="form-control" name="entity_id"
+                                                       id="entity_id" readonly>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -102,8 +107,8 @@
                             @foreach ($splitterinterfaces as $splitterinterface)
                                 <tr>
                                     <td>
-                                        @if(isset($splitterinterface->splitter->fcab->devicesites->atollislandsite))
-                                            {{$splitterinterface->splitter->fcab->devicesites->atollislandsite}}
+                                        @if(isset($splitterinterface->splitter->fcab->device_site->atollislandsite))
+                                            {{$splitterinterface->splitter->fcab->device_site->atollislandsite}}
                                         @else
 
                                         @endif
@@ -166,9 +171,10 @@
 
             var formData = {
 
+                'entity_id': $("#entity_id").val(),
                 'port': $("#port").val(),
                 'fcab_splitter_id': $("#fcab_splitter_id").val(),
-                'fcab_interface_id': $("#fcab_interface_id").val(),
+                // 'fcab_interface_id': $("#fcab_interface_id").val(),
                 '_token': $("#csrf").val()
 
             }
