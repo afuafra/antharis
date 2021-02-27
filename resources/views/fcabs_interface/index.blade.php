@@ -105,7 +105,11 @@
                                         </select>
                                     </div>
 
-
+                                        <div class="mb-3">
+                                            <label class="form-label">entity_id</label>
+                                            <input type="text" class="form-control" name="entity_id"
+                                                   id="entity_id" readonly>
+                                        </div>
                                     <div class="modal-footer">
                                         <a href="{{route("fcabs_interface.index")}}" class="btn btn-secondary"
                                            data-bs-dismiss="modal">back</a>
