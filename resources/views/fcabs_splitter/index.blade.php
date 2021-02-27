@@ -253,6 +253,7 @@
             $("#_fcab_splitter_no").val(fcabs_splitter.fcab_splitter_no)
             $("#_fcab_id").val(fcabs_splitter.fcab_id)
             $("#_fcab_splitter_device_id").val(fcabs_splitter.fcab_splitter_device_id)
+            $("#_fcab_id").selectpicker("refresh");
 
             var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
 

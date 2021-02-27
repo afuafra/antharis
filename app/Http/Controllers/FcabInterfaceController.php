@@ -66,9 +66,9 @@ class FcabInterfaceController extends Controller
         $res->fcab_splitter_device_id=$request->input("fcab_splitter_device_id");
         $res->save();
 
-        $consumed= \App\Models\FcabSplitterInterface::find($request->input("fcab_splitter_interfaces_id"));
-        $consumed->consumed=1;
-        $consumed->save();
+//        $consumed= \App\Models\FcabSplitterInterface::find($request->input("fcab_splitter_interfaces_id"));
+//        $consumed->consumed=1;
+//        $consumed->save();
 
         $request->session()->flash("msg","New Service Added");
         return redirect("fcabs_interface");
@@ -108,7 +108,6 @@ class FcabInterfaceController extends Controller
         $res = \App\Models\FcabInterface::find($id);
         $consumed = \App\Models\FcabSplitterInterface::find($res->fcab_splitter_interfaces_id);
         $consumed->consumed=0;
-
         $res->entity_id=$request->input("entity_id");
         $res->terminal_side=$request->input("terminal_side");
         $res->port=$request->input("port");
@@ -117,6 +116,7 @@ class FcabInterfaceController extends Controller
         $res->fcab_splitter_interfaces_id=$request->input("fcab_splitter_interfaces_id");
         $res->fcab_splitter_device_id=$request->input("fcab_splitter_device_id");
         $res->save();
+        $consumed->save();
 
 
         $consumed= \App\Models\FcabSplitterInterface::find($request->input("fcab_splitter_interfaces_id"));

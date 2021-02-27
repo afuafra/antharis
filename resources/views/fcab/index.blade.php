@@ -311,6 +311,8 @@
             $("#_device_status").val(fcab.device_status)
             $("#_device_site_id").val(fcab.device_site_id)
             $("#_fcab_device_id").val(fcab.fcab_device_id)
+            $("#_region_id").selectpicker("refresh");
+            $("#_device_site_id").selectpicker("refresh");
 
             var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
 

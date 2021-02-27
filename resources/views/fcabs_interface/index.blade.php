@@ -72,49 +72,49 @@
                                             <input type="text" class="form-control" name="port"
                                                    id="port" placeholder="Format: A/1">
                                         </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">ODF Interface ID</label>
-                                            <select class="form-control" name="odf_interfaces_id" list="list"
-                                                    id="odf_interfaces_id"
-                                                    data-style="select-with-transition btn-primary btn-round "
-                                                    data-live-search="true">
-                                                <option></option>
-                                                @foreach($odfInterfaces as $odfInterface)
-                                                    <option
-                                                        value="{{ $odfInterface->id }}">{{ $odfInterface->odfrack->odf_device_id}}
-                                                        #ODF-{{ $odfInterface->odf_no}}
-                                                        #PORT-#ODF-{{ $odfInterface->odf_port}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-
-                                    <div class="form-group">
-                                        <label for="fcab_splitter_device_id">FCAB Splitter</label>
-                                        <select name="fcab_splitter_device_id" id="fcab_splitter_device_id" class="form-control" style="width:250px">
-                                            <option value="">--- Select fcab_splitter_device_id ---</option>
-                                            @foreach ($splitters as $key => $value)
-                                                <option value="{{ $key }}">{{ $value }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="fcab_splitter_interfaces_id">FCAB Splitter Interface</label>
-                                        <select id="fcab_splitter_interfaces_id" name="fcab_splitter_interfaces_id" class="form-control" style="width:250px">
-{{--                                            <option>--State--</option>--}}
-                                        </select>
-                                    </div>
+{{--                                        <div class="mb-3">--}}
+{{--                                            <label class="form-label">ODF Interface ID</label>--}}
+{{--                                            <select class="form-control" name="odf_interfaces_id" list="list"--}}
+{{--                                                    id="odf_interfaces_id"--}}
+{{--                                                    data-style="select-with-transition btn-primary btn-round "--}}
+{{--                                                    data-live-search="true">--}}
+{{--                                                <option></option>--}}
+{{--                                                @foreach($odfInterfaces as $odfInterface)--}}
+{{--                                                    <option--}}
+{{--                                                        value="{{ $odfInterface->id }}">{{ $odfInterface->odfrack->odf_device_id}}--}}
+{{--                                                        #ODF-{{ $odfInterface->odf_no}}--}}
+{{--                                                        #PORT-#ODF-{{ $odfInterface->odf_port}}</option>--}}
+{{--                                                @endforeach--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="fcab_splitter_device_id">FCAB Splitter</label>--}}
+{{--                                            <select name="fcab_splitter_device_id" id="fcab_splitter_device_id"--}}
+{{--                                                    class="form-control" style="width:250px">--}}
+{{--                                                <option value="">--- Select fcab_splitter_device_id ---</option>--}}
+{{--                                                @foreach ($splitters as $key => $value)--}}
+{{--                                                    <option value="{{ $key }}">{{ $value }}</option>--}}
+{{--                                                @endforeach--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="fcab_splitter_interfaces_id">FCAB Splitter Interface</label>--}}
+{{--                                            <select id="fcab_splitter_interfaces_id" name="fcab_splitter_interfaces_id"--}}
+{{--                                                    class="form-control" style="width:250px">--}}
+{{--                                                --}}{{--                                            <option>--State--</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
 
                                         <div class="mb-3">
                                             <label class="form-label">entity_id</label>
                                             <input type="text" class="form-control" name="entity_id"
                                                    id="entity_id" readonly>
                                         </div>
-                                    <div class="modal-footer">
-                                        <a href="{{route("fcabs_interface.index")}}" class="btn btn-secondary"
-                                           data-bs-dismiss="modal">back</a>
-                                        <input name="submit" type="submit" class="btn btn-primary"></input>
-                                    </div>
+                                        <div class="modal-footer">
+                                            <a href="{{route("fcabs_interface.index")}}" class="btn btn-secondary"
+                                               data-bs-dismiss="modal">back</a>
+                                            <input name="submit" type="submit" class="btn btn-primary"></input>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -179,21 +179,21 @@
                                     </td>
                                     <td>
                                         @if(isset($fcab->odfinterface->odfrack->odf_rack_name))
-                                        {{$fcab->odfinterface->odfrack->odf_rack_name}}
+                                            {{$fcab->odfinterface->odfrack->odf_rack_name}}
                                         @else
 
                                         @endif
                                     </td>
                                     <td>
                                         @if(isset($fcab->odfinterface->odf_no))
-                                        {{$fcab->odfinterface->odf_no}}
+                                            {{$fcab->odfinterface->odf_no}}
                                         @else
 
                                         @endif
                                     </td>
                                     <td>
                                         @if(isset($fcab->odfinterface->odf_port))
-                                        {{$fcab->odfinterface->odf_port}}
+                                            {{$fcab->odfinterface->odf_port}}
                                         @else
 
                                         @endif
@@ -266,7 +266,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">FCAB ID</label>
-                            <select class="form-control selectpicker" name="_fcab_id" list="list" id="_fcab_id">
+                            <select class="form-control selectpicker" name="_fcab_id" list="list" id="_fcab_id" data-style="select-with-transition btn-primary btn-round "
+                                    data-live-search="true">
                                 <option></option>
                                 @foreach($fcablist as $fcabs)
                                     <option
@@ -274,10 +275,10 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label class="form-label">Terminal Side</label>
                             <select class="form-control" name="_terminal_side"
-                                    id="_terminal_side">
+                                    id="_terminal_side" data-style="select-with-transition btn-primary btn-round ">
                                 <option disabled selected>Select Terminal Side...</option>
                                 <option value="E-SIDE">E-SIDE</option>
                                 <option value="D-SIDE">D-SIDE</option>
@@ -288,10 +289,11 @@
                             <input type="text" class="form-control" name="_port"
                                    id="_port" placeholder="Format: A/1">
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label class="form-label">ODF Interface ID</label>
                             <select class="form-control" name="_odf_interfaces_id" list="list"
-                                    id="_odf_interfaces_id">
+                                    id="_odf_interfaces_id" data-style="select-with-transition btn-primary btn-round "
+                                    data-live-search="true" >
                                 <option disabled selected>Select Terminal Side...</option>
                                 @foreach($odfInterfaces as $odfInterface)
                                     <option
@@ -301,29 +303,23 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">FCAB Splitter</label>
-                            <select  class="form-control" name="_fcab_splitter_device_id"
-                                    id="_fcab_splitter_device_id">
-                                <option></option>
-                                @foreach($fcabsplitters as $fcabsplitter)
-                                    <option
-                                        value="{{ $fcabsplitter->id }}">{{ $fcabsplitter->fcab_splitter_device_id }}</option>
+                        <div class="form-group">
+                            <label for="_fcab_splitter_device_id">FCAB Splitter</label>
+                            <select name="_fcab_splitter_device_id" id="_fcab_splitter_device_id"
+                                    class="form-control" data-style="select-with-transition btn-primary btn-round "
+                                    data-live-search="true">
+                                <option value="">--- Select fcab_splitter_device_id ---</option>
+                                @foreach ($splitters as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
                                 @endforeach
                             </select>
                         </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">FCAB Splitter Interface</label>
-                            <select class="form-control"
-                                    name="_fcab_splitter_interfaces_id"
-                                    id="_fcab_splitter_interfaces_id">
-                                <option></option>
-                                @foreach($fcabsplitterinterfaces as $fcabsplitterinterface)
-                                    <option
-                                        value="{{ $fcabsplitterinterface->id }}">{{ $fcabsplitterinterface->splitter->fcab_splitter_device_id }}
-                                        |PORT-{{ $fcabsplitterinterface->port }}</option>
-                                @endforeach
+                        <div class="form-group">
+                            <label for="_fcab_splitter_interfaces_id">FCAB Splitter Interface</label>
+                            <select id="_fcab_splitter_interfaces_id" name="_fcab_splitter_interfaces_id"
+                                    class="form-control" data-style="select-with-transition btn-primary btn-round "
+                            >
+                                {{--                                            <option>--State--</option>--}}
                             </select>
                         </div>
                         <div class="mb-3">
@@ -363,30 +359,48 @@
 
 @push('scripts')
     <script>
-
-        jQuery(document).ready(function ()
-        {
-            jQuery('select[name="fcab_splitter_device_id"]').on('change',function(){
+        jQuery(document).ready(function () {
+            jQuery('select[name="_fcab_splitter_device_id"]').on('change', function () {
                 var fcab_splitter_device_idID = jQuery(this).val();
-                if(fcab_splitter_device_idID)
-                {
+                if (fcab_splitter_device_idID) {
                     jQuery.ajax({
-                        url : 'fcabs_interface/getstates/' +fcab_splitter_device_idID,
-                        type : "GET",
-                        dataType : "json",
-                        success:function(data)
-                        {
+                        url: 'fcabs_interface/getstates/' + fcab_splitter_device_idID,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            jQuery('select[name="_fcab_splitter_interfaces_id"]').empty();
+                            jQuery.each(data, function (key, value) {
+                                $('select[name="_fcab_splitter_interfaces_id"]').append('<option value="' + key + '">' + value + '</option>');
+                                $("#_fcab_splitter_interfaces_id").selectpicker("refresh");
+                            });
+                        }
+                    });
+                } else {
+                    $('select[name="_fcab_splitter_interfaces_id"]').empty();
+                }
+            });
+        });
+
+
+        jQuery(document).ready(function () {
+            jQuery('select[name="fcab_splitter_device_id"]').on('change', function () {
+                var fcab_splitter_device_idID = jQuery(this).val();
+                if (fcab_splitter_device_idID) {
+                    jQuery.ajax({
+                        url: 'fcabs_interface/getstates/' + fcab_splitter_device_idID,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
                             console.log(data);
                             jQuery('select[name="fcab_splitter_interfaces_id"]').empty();
-                            jQuery.each(data, function(key,value){
-                                $('select[name="fcab_splitter_interfaces_id"]').append('<option value="'+ key +'">'+ value +'</option>');
+                            jQuery.each(data, function (key, value) {
+                                $('select[name="fcab_splitter_interfaces_id"]').append('<option value="' + key + '">' + value + '</option>');
                                 $("#fcab_splitter_interfaces_id").selectpicker("refresh");
                             });
                         }
                     });
-                }
-                else
-                {
+                } else {
                     $('select[name="fcab_splitter_interfaces_id"]').empty();
                 }
             });
@@ -536,11 +550,15 @@
 
         });
 
-        // $(function () {
-        //     $('select').selectpicker();
-        //     event.preventDefault();
-        // });
+        $(function () {
+            $('select').selectpicker();
+        });
 
+        $(document).ready(function(){
+            $('select[name="_terminal_side"]').change(function(){
+                $('input[name="_odf_interfaces_id"]').prop('disabled',this.value != D-SIDE ?false:true);
+            });
+        });
 
     </script>
 @endpush

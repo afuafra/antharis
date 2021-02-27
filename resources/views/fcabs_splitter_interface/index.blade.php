@@ -37,14 +37,15 @@
                                         </button>
                                     </div>
                                     <form class="container-fluid" id="splitterCreate" method="POST"
-                                          action="{{route("fcab_splitter_interface.store")}}" oninput="entity_id.value =  fcab_splitter_id.selectedOptions[0].text +'|'+ port.value">
+                                          action="{{route("fcabs_splitter_interface.store")}}" oninput="entity_id.value =  fcab_splitter_id.selectedOptions[0].text +'|'+ port.value">
                                         <div class="modal-body">
                                             <div id="success"></div>
 
                                             <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
+
                                             <div class="mb-3">
                                                 <label class="form-label">fcab_splitter_device_id </label>
-                                                <select class="form-control" id="fcab_splitter_id" name="fcab_splitter_id" >
+                                                <select class="form-control" id="fcab_splitter_id" name="fcab_splitter_id" data-style="select-with-transition btn-primary btn-round "data-live-search="true">
                                                     @foreach($fcabsplitters as $fcabsplitter)
                                                         <option value="{{ $fcabsplitter->id }}">{{ $fcabsplitter->fcab_splitter_device_id}}</option>
                                                     @endforeach
@@ -55,16 +56,6 @@
                                                 <input type="text" class="form-control" name="port"
                                                        id="port">
                                             </div>
-
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">fcab_interface_id </label>--}}
-{{--                                                <select class="form-control" id="fcab_interface_id" name="fcab_interface_id">--}}
-{{--                                                    <option disabled selected>Select FCAB...</option>--}}
-{{--                                                    @foreach($fcabinterfaces as $fcabinterface)--}}
-{{--                                                        <option value="{{ $fcabinterface->id }}">{{ $fcabinterface->fcabs->fcab_device_id}}#PORT-{{ $fcabinterface->port}}</option>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
                                             <div class="mb-3">
                                                 <label class="form-label">Entity ID</label>
                                                 <input type="text" class="form-control" name="entity_id"
@@ -72,7 +63,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="{{route("fcab_splitter_interface.index")}}" class="btn btn-secondary"
+                                            <a href="{{route("fcabs_splitter_interface.index")}}" class="btn btn-secondary"
                                                data-bs-dismiss="modal">back</a>
                                             <input name="submit" type="submit" class="btn btn-primary">
                                         </div>
@@ -101,6 +92,12 @@
                                 <th>
                                     <strong>Port</strong>
                                 </th>
+                                <th>
+                                    <strong>Edit</strong>
+                                </th>
+                                <th>
+                                    <strong>Delete</strong>
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -127,7 +124,13 @@
                                         {{$splitterinterface->port}}
                                     </td>
                                     <td>
-
+                                        <a onclick="editOlt({{$splitterinterface}})">
+                                            <i class="fas fa-edit text-success fa-lg"></i></a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal" id="oltDelete" data-target=".bd-example-modal-lg" data-attr="{{ route('fcab_splitter_interface', $splitterinterface->id) }}" title="Delete OLT">
+                                            <i class="fas fa-trash text-danger  fa-lg"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach()
@@ -151,8 +154,60 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update FCAB Splitter Interface</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="container-fluid"
+                          oninput="_entity_id.value =  _fcab_splitter_id.selectedOptions[0].text +'|'+ _port.value">
+                        <div class="mb-3">
+                            <input type="hidden" id="_id">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">fcab_splitter_device_id </label>
+                            <select class="form-control" id="_fcab_splitter_id" name="_fcab_splitter_id" data-style="select-with-transition btn-primary btn-round " data-live-search="true">
+                                @foreach($fcabsplitters as $fcabsplitter)
+                                    <option value="{{ $fcabsplitter->id }}">{{ $fcabsplitter->fcab_splitter_device_id}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">port</label>
+                            <input type="text" class="form-control" name="_port"
+                                   id="_port">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Entity ID</label>
+                            <input type="text" class="form-control" name="_entity_id"
+                                   id="_entity_id" readonly>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                            <button type="button" onclick="updateOlt()" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body" id="smallBody">
+                    <div>
+                        <!-- the result to be displayed apply here -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -160,6 +215,95 @@
 @endsection
 @push('scripts')
     <script>
+
+
+        // display a modal (small modal)
+        $(document).on('click', '#oltDelete', function(event) {
+            event.preventDefault();
+            let href = $(this).attr('data-attr');
+            $.ajax({
+                url: href
+                , beforeSend: function() {
+                    $('#loader').show();
+                },
+                // return the result
+                success: function(result) {
+                    $('#smallModal').modal("show");
+                    $('#smallBody').html(result).show();
+                }
+                , complete: function() {
+                    $('#loader').hide();
+                }
+                , error: function(jqXHR, testStatus, error) {
+                    console.log(error);
+                    alert("Page " + href + " cannot open. Error:" + error);
+                    $('#loader').hide();
+                }
+                , timeout: 6000
+            })
+        });
+
+
+        function editOlt(fcabs_splitter_interface) {
+            $("#_id").val(fcabs_splitter_interface.id)
+            $("#_entity_id").val(fcabs_splitter_interface.entity_id)
+            $("#_port").val(fcabs_splitter_interface.port)
+            $("#_fcab_splitter_id").val(fcabs_splitter_interface.fcab_splitter_id)
+            $("#_fcab_splitter_id").selectpicker("refresh");
+
+            var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
+
+                keyboard: false
+            });
+
+            myModel.show()
+            console.log(fcabs_splitter_interface)
+
+        }
+
+        function updateOlt(fcabs_splitter_interface) {
+
+            var id = $("#_id").val()
+            var url = '/fcabs_splitter_interface/' + id
+
+            var formData2 = {
+
+
+                'entity_id': $("#_entity_id").val(),
+                'port': $("#_port").val(),
+                'fcab_splitter_id': $("#_fcab_splitter_id").val(),
+                '_token': "{{ csrf_token() }}"
+
+            }
+
+            $.ajax({
+
+                type: "PUT",
+                url: url,
+                data: formData2,
+                dataType: "json",
+
+
+                success: function (data) {
+
+                    $("").text('Yey!! OLT Updated')
+                    setTimeout(() => {
+
+                        location.reload()
+
+                    }, 300)
+
+                },
+
+                error: function (error) {
+
+                    console.error('ERROR:', error)
+
+                }
+            });
+
+
+        }
 
         var form = $("#splitterCreate")
         var method = form.attr('method')
@@ -201,7 +345,9 @@
 
         });
 
-
+        $(function () {
+            $('select').selectpicker();
+        });
 
     </script>
 @endpush

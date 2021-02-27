@@ -144,7 +144,7 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                         </li>
 
                         <li>
-                            <a href="<?php echo e(route("fcab_splitter_interface.index")); ?>">
+                            <a href="<?php echo e(route("fcabs_splitter_interface.index")); ?>">
                                 <span class="sidebar-mini-icon pl-5">FCAB Splitter Interface</span>
                             </a>
                         </li>

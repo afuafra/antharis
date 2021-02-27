@@ -333,6 +333,8 @@
             $("#_device_status").val(olts.device_status)
             $("#_device_site_id").val(olts.device_site_id)
             $("#_olt_device_id").val(olts.olt_device_id)
+            $("#_region_id").selectpicker("refresh");
+            $("#_device_site_id").selectpicker("refresh");
 
             var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
 
@@ -409,6 +411,7 @@
                 'device_site_id': $("#device_site_id").val(),
                 '_token': $("#csrf").val()
 
+
             }
 
             $.post(url, formData, function (data) {
@@ -434,9 +437,9 @@
         });
 
 
-        // $(function () {
-        //     $('select').selectpicker();
-        // });
+        $(function () {
+            $('select').selectpicker();
+        });
 
     </script>
 @endpush

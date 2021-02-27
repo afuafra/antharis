@@ -54,7 +54,7 @@ class FcabSplitterInterfaceController extends Controller
         $res->save();
 
         $request->session()->flash("msg","New Service Added");
-        return redirect("fcab_splitter_interface");
+        return redirect("fcabs_splitter_interface");
     }
 
     /**
@@ -88,7 +88,10 @@ class FcabSplitterInterfaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $res = \App\Models\FcabSplitterInterface::find($id);
+        $input = $request->all();
+        $res->fill($input)->save();
+        return $res;
     }
 
     /**
@@ -99,7 +102,15 @@ class FcabSplitterInterfaceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fcabsplitterinterface = \App\Models\FcabSplitterInterface::find($id);
+        $fcabsplitterinterface->delete();
+        return redirect()->route('fcabs_splitter_interface.index');
+    }
+    public function delete($id)
+    {
+        $fcabsplitterinterface = FcabSplitterInterface::find($id);
+
+        return view('fcabs_splitter_interface.delete', compact('fcabsplitterinterface'));
     }
 
 

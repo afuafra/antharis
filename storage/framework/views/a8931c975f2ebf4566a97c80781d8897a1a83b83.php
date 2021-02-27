@@ -66,16 +66,11 @@
                                                        id="customer_address">
                                                 <div class="form-text">City/Atoll_District/Island_Site</div>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Service Status</label>
-                                                <select class="form-control" name="service_status" id="service_status">
-                                                    <option></option>
-                                                    <option>Working</option>
-                                                    <option>Allocated</option>
-                                                    <option>Ceased</option>
-                                                </select>
+                                            <<div class="mb-3">
+                                                <label class="form-label">Service Number</label>
+                                                <input type="text" class="form-control" name="street"
+                                                       id="street">
                                             </div>
-                                        </div>
                                         <div class="modal-footer">
                                             <a href="<?php echo e(route("services.index")); ?>" class="btn btn-secondary"
                                                data-bs-dismiss="modal">back</a>

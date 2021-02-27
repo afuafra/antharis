@@ -24,44 +24,44 @@
                     </form>
 
                     <!-- Modal -->
-{{--                    <div class="container-fluid">--}}
-{{--                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"--}}
-{{--                             aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
-{{--                            <div class="modal-dialog" role="document">--}}
-{{--                                <div class="modal-content">--}}
-{{--                                    <div class="modal-header">--}}
-{{--                                        <h5 class="modal-title" id="exampleModalLabel">Add FIDP Interface</h5>--}}
-{{--                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                                            <span aria-hidden="true">&times;</span>--}}
-{{--                                        </button>--}}
-{{--                                    </div>--}}
-{{--                                    <form class="container-fluid" id="fidpsCreate" method="POST"--}}
-{{--                                          action="{{route("fidp.store")}}" oninput="fidp_device_id.value = 'FIDP' +'|'+ fidp_no.value +'|'+ atollislandsite.value">--}}
+                    <div class="container-fluid">
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Add FIDP Interface</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form class="container-fluid" id="fidpsCreate" method="POST"
+                                          action="{{route("fidp.store")}}" oninput="fidp_device_id.value = 'FIDP' +'|'+ fidp_no.value +'|'+ atollislandsite.value">
 
 
-{{--                                        <div class="modal-body">--}}
+                                        <div class="modal-body">
 
 
-{{--                                            <div id="success"></div>--}}
+                                            <div id="success"></div>
 
 
-{{--                                            <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">--}}
+                                            <input type="hidden" value="{{ csrf_token() }}" name="_token" id="csrf">
 
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">FIDP NO</label>--}}
-{{--                                                <input type="text" class="form-control" name="fidp_no"--}}
-{{--                                                       id="fidp_no">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">Device Address</label>--}}
-{{--                                                <input type="text" class="form-control" name="device_address"--}}
-{{--                                                       id="device_address">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">Device Status</label>--}}
-{{--                                                <input type="text" class="form-control" name="device_status"--}}
-{{--                                                       id="device_status">--}}
-{{--                                            </div>--}}
+                                            <div class="mb-3">
+                                                <label class="form-label">FIDP NO</label>
+                                                <input type="text" class="form-control" name="fidp_no"
+                                                       id="fidp_no">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Device Address</label>
+                                                <input type="text" class="form-control" name="device_address"
+                                                       id="device_address">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Device Status</label>
+                                                <input type="text" class="form-control" name="device_status"
+                                                       id="device_status">
+                                            </div>
 
 
 {{--                                            <div class="mb-3">--}}
@@ -73,23 +73,23 @@
 {{--                                                    @endforeach--}}
 {{--                                                </datalist>--}}
 {{--                                            </div>--}}
-{{--                                            <div class="mb-3">--}}
-{{--                                                <label class="form-label">FIDP Device ID</label>--}}
-{{--                                                <input type="text" class="form-control" name="fidp_device_id"--}}
-{{--                                                       id="fidp_device_id" readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="modal-footer">--}}
-{{--                                            <a href="{{route("fidp.index")}}" class="btn btn-secondary"--}}
-{{--                                               data-bs-dismiss="modal">back</a>--}}
-{{--                                            <input name="submit" type="submit" class="btn btn-primary"></input>--}}
-{{--                                        </div>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                                            <div class="mb-3">
+                                                <label class="form-label">FIDP Device ID</label>
+                                                <input type="text" class="form-control" name="fidp_device_id"
+                                                       id="fidp_device_id" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{{route("fidp.index")}}" class="btn btn-secondary"
+                                               data-bs-dismiss="modal">back</a>
+                                            <input name="submit" type="submit" class="btn btn-primary"></input>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
                 <div class="card-body">

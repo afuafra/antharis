@@ -314,6 +314,9 @@
             $("#_device_status").val(odf_racks.device_status)
             $("#_device_site_id").val(odf_racks.device_site_id)
             $("#_odf_device_id").val(odf_racks.odf_device_id)
+            $("#_region_id").selectpicker("refresh");
+            $("#_device_site_id").selectpicker("refresh");
+            $("#_odf_device_id").selectpicker("refresh");
 
             var myModel = new bootstrap.Modal(document.getElementById('editModel'), {
 

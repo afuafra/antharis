@@ -79,7 +79,8 @@ Route::get('fcabs_interface/getstates/{id}',[FcabInterfaceController::class, 'ge
 Route::resource('fcabs_splitter', FcabSplitterController::class);
 Route::get('fcabs_splitter/delete/{id}', [FcabSplitterController::class, 'delete'])->name('fcab_splitter');
 
-Route::resource('fcab_splitter_interface', FcabSplitterInterfaceController::class);
+Route::resource('fcabs_splitter_interface', FcabSplitterInterfaceController::class);
+Route::get('fcabs_splitter_interface/delete/{id}', [FcabSplitterInterfaceController::class, 'delete'])->name('fcab_splitter_interface');
 
 Route::resource('odf_racks', OdfRackController::class);
 Route::get('odf_racks/delete/{id}', [OdfRackController::class, 'delete'])->name('odf');
